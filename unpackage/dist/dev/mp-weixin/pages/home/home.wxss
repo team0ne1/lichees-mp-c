@@ -1,0 +1,8 @@
+
+.home .cards{
+	margin: 15rpx 20rpx;
+}
+.home .cards .card{
+	/* height: 100upx; */
+}
+

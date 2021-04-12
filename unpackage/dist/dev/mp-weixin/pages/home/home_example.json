@@ -1,0 +1,6 @@
+{
+  "navigationBarBackgroundColor": "#FFFFFF",
+  "usingComponents": {
+    "c-input": "/components/c-input"
+  }
+}

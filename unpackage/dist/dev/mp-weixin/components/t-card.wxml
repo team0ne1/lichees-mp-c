@@ -1,0 +1,1 @@
+<view class="cardView"><view class="cardImg"></view><view class="card"><view class="cardTitle">{{''+cardDate.title+''}}</view><view class="cardText">{{''+cardDate.text+''}}</view></view><view></view></view>

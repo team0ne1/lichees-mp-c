@@ -1,0 +1,70 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/home/home",
+			"style": {
+				// "navigationBarTitleText": "Home",
+				"navigationBarBackgroundColor": "#FFFFFF"
+			}
+		},
+		{
+			"path": "pages/home/home_example",
+			"style": {
+				// "navigationBarTitleText": "Home",
+				"navigationBarBackgroundColor": "#FFFFFF"
+			}
+		},
+		{
+			"path": "pages/assignment/assignment",
+			"style": {
+				"navigationBarTitleText": "assignment",
+				"navigationBarBackgroundColor": "#FFFFFF"
+			}
+		},
+		{
+			"path": "pages/property/property",
+			"style": {
+				"navigationBarTitleText": "property",
+				"navigationBarBackgroundColor": "#FFFFFF"
+			}
+		},
+		{
+			"path": "pages/det-info/det-info",
+			"style": {
+				"navigationBarTitleText": "det-info",
+				"navigationBarBackgroundColor": "#FFFFFF"
+			}
+		},
+		{
+			"path": "pages/user-info/user-info",
+			"style": {
+				"navigationBarTitleText": "User info",
+				"navigationBarBackgroundColor": "#FFFFFF"
+			}
+		}
+		
+	   
+    ],
+	"globalStyle": {
+		
+		"backgroundColor": "#FFFFFF",
+		"navigationBarTextStyle":"black"
+	},
+	"tabBar": {
+		"color": "#BBBBBB",
+		"selectedColor": "#1c8111",
+		"borderStyle": "white",
+		"backgroundColor": "#ffffff",
+		"list": [
+			{
+				"pagePath": "pages/home/home"	
+			},
+			{
+				"pagePath": "pages/assignment/assignment"	
+			},
+			{
+				"pagePath": "pages/property/property"	
+			}
+		]
+	}
+}

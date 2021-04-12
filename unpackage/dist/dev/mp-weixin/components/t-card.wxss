@@ -1,0 +1,20 @@
+
+.cardView{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	        flex-direction: row;
+	-webkit-border-radius: 30rpx;
+	        border-radius: 30rpx;
+	height: 200rpx;
+	margin-bottom: 0.5em;
+	padding: 10rpx 30rpx;
+	background-color: #FFFFFF;
+}
+.cardView .cardTitle{
+	font-size: 1.2em;
+}
+
