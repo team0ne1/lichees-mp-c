@@ -1,9 +1,10 @@
 /**
  * cloudbase helper
  */
+import env from '../env.js'
 
 let cloud1 = new wx.cloud.Cloud({
-  resourceEnv: 'cloud1-0gcmjje1d9bf828c'
+  resourceEnv: env.resourceEnv
 })
 const initCloud = async () => {
 	await cloud1.init()	

@@ -2602,7 +2602,21 @@ uni$1;exports.default = _default;
 
 /***/ }),
 
-/***/ 110:
+/***/ 108:
+/*!**********************************************************!*\
+  !*** C:/Users/LENOVO/Desktop/uni-app/demo1/demo1/env.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var resourceEnv = 'cloud1-0gcmjje1d9bf828c';var _default =
+{
+  resourceEnv: resourceEnv };exports.default = _default;
+
+/***/ }),
+
+/***/ 11:
 /*!***********************************************************************!*\
   !*** C:/Users/LENOVO/Desktop/uni-app/demo1/demo1/helper/cloudbase.js ***!
   \***********************************************************************/
@@ -2610,12 +2624,13 @@ uni$1;exports.default = _default;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 8));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};} /**
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * cloudbase helper
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      */
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 8));
+
+
+var _env = _interopRequireDefault(__webpack_require__(/*! ../env.js */ 108));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}
 
 var cloud1 = new wx.cloud.Cloud({
-  resourceEnv: 'cloud1-0gcmjje1d9bf828c' });
+  resourceEnv: _env.default.resourceEnv });
 
 var initCloud = /*#__PURE__*/function () {var _ref = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
               cloud1.init());case 2:case "end":return _context.stop();}}}, _callee);}));return function initCloud() {return _ref.apply(this, arguments);};}();
@@ -2682,7 +2697,7 @@ var deteleCloud = function deteleCloud(path) {
 
 /***/ }),
 
-/***/ 13:
+/***/ 14:
 /*!**********************************************************************************************************!*\
   !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js ***!
   \**********************************************************************************************************/
@@ -2811,7 +2826,7 @@ function normalizeComponent (
 
 /***/ }),
 
-/***/ 14:
+/***/ 15:
 /*!************************************************************!*\
   !*** C:/Users/LENOVO/Desktop/uni-app/demo1/demo1/store.js ***!
   \************************************************************/
@@ -2820,11 +2835,11 @@ function normalizeComponent (
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
-var _vuex = _interopRequireDefault(__webpack_require__(/*! vuex */ 15));
+var _vuex = _interopRequireDefault(__webpack_require__(/*! vuex */ 16));
 
-var _home = _interopRequireDefault(__webpack_require__(/*! @/store/home.js */ 16));
+var _home = _interopRequireDefault(__webpack_require__(/*! @/store/home.js */ 17));
 
-var _vuexPersistedstate = _interopRequireDefault(__webpack_require__(/*! vuex-persistedstate */ 17));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _vuexPersistedstate = _interopRequireDefault(__webpack_require__(/*! vuex-persistedstate */ 18));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
 _vue.default.use(_vuex.default);
 
@@ -2849,7 +2864,7 @@ store;exports.default = _default;
 
 /***/ }),
 
-/***/ 15:
+/***/ 16:
 /*!********************************************!*\
   !*** ./node_modules/vuex/dist/vuex.esm.js ***!
   \********************************************/
@@ -3962,7 +3977,7 @@ var index = {
 
 /***/ }),
 
-/***/ 16:
+/***/ 17:
 /*!*****************************************************************!*\
   !*** C:/Users/LENOVO/Desktop/uni-app/demo1/demo1/store/home.js ***!
   \*****************************************************************/
@@ -3988,7 +4003,7 @@ var index = {
 
 /***/ }),
 
-/***/ 17:
+/***/ 18:
 /*!*******************************************************************************************************************!*\
   !*** C:/Users/LENOVO/Desktop/uni-app/demo1/demo1/node_modules/vuex-persistedstate/dist/vuex-persistedstate.es.js ***!
   \*******************************************************************************************************************/

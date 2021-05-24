@@ -2,11 +2,12 @@
 	<view class="home" >
 		<!-- <text>home</text> -->
 		
-		<view >
+		<view>
 			<t-tabbar :currentPage="page"></t-tabbar>
 		</view>
-
-
+		<view>
+			<t-publish-btn></t-publish-btn>
+		</view>
 		<t-topbar class="view_head"  ref="topTab" :tablist="tapList" :currentTab="currentTab" @changeTab="changeTab" ></t-topbar>
 		<view class="content">
 			 <swiper @change="changeSwiper" @transition="transition" :current="currentTab" :style="'height: ' + swiperHeight +'px;'">
@@ -45,9 +46,12 @@
 
 <script>
 	import cloud1 from '../../helper/cloudbase.js'
+	import tPublishBtn from '../../components/t-publish-btn.vue'
 	export default {
 		// props:{},
-		components:{},
+		components:{
+			tPublishBtn
+		},
 		onShow:function(){
 			
 			uni.showLoading({

@@ -1,0 +1,19 @@
+
+.publishBtn {
+	z-index: 1000;
+	position:fixed;
+	right: 8%;
+	bottom: 100rpx;
+	/* width: 90%; */
+	height: 150rpx;
+}
+.publishBtn .publishBtnShape {
+	
+	background-color: #1b97f5;
+	width: 80rpx;
+	height: 80rpx;
+	border-radius: 40rpx;
+	box-shadow: 0 0 5px #c8c8c8;
+}
+
+
