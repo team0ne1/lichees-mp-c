@@ -1,8 +1,15 @@
 
+.home .content{
+	z-index: -200;
+}
 .home .cards{
 	margin: 15rpx 20rpx;
 }
 .home .cards .card{
 	/* height: 100upx; */
+}
+swiper{
+	width: 100%;
+	height: 2000rpx;
 }
 

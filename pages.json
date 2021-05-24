@@ -3,28 +3,29 @@
 		{
 			"path": "pages/home/home",
 			"style": {
-				// "navigationBarTitleText": "Home",
+
+				// "navigationBarTitleText": "Hi,HJQ",
 				"navigationBarBackgroundColor": "#FFFFFF"
 			}
 		},
 		{
 			"path": "pages/home/home_example",
 			"style": {
-				// "navigationBarTitleText": "Home",
+				// "navigationBarTitleText": "Hi,HJQ",
 				"navigationBarBackgroundColor": "#FFFFFF"
 			}
 		},
 		{
 			"path": "pages/assignment/assignment",
 			"style": {
-				"navigationBarTitleText": "assignment",
+				// "navigationBarTitleText": "委托",
 				"navigationBarBackgroundColor": "#FFFFFF"
 			}
 		},
 		{
 			"path": "pages/property/property",
 			"style": {
-				"navigationBarTitleText": "property",
+				"navigationBarTitleText": "物业",
 				"navigationBarBackgroundColor": "#FFFFFF"
 			}
 		},
@@ -43,7 +44,26 @@
 			}
 		}
 		
-	   
+        ,{
+            "path" : "pages/reserve_detail/reserve_detail",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+				"navigationBarBackgroundColor": "#FFFFFF",
+                "enablePullDownRefresh": true
+            }
+            
+        }
+        ,{
+            "path" : "pages/profile/profile",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "个人",
+				"navigationBarBackgroundColor": "#FFFFFF",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		
@@ -64,6 +84,9 @@
 			},
 			{
 				"pagePath": "pages/property/property"	
+			},
+			{
+				"pagePath": "pages/profile/profile"
 			}
 		]
 	}

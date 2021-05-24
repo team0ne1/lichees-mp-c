@@ -1,0 +1,40 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/home/home_example",
+    "pages/assignment/assignment",
+    "pages/property/property",
+    "pages/det-info/det-info",
+    "pages/user-info/user-info",
+    "pages/reserve_detail/reserve_detail"
+  ],
+  "subPackages": [],
+  "window": {
+    "backgroundColor": "#FFFFFF",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#BBBBBB",
+    "selectedColor": "#1c8111",
+    "borderStyle": "white",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/home/home"
+      },
+      {
+        "pagePath": "pages/assignment/assignment"
+      },
+      {
+        "pagePath": "pages/property/property"
+      }
+    ]
+  },
+  "permission": {},
+  "usingComponents": {
+    "t-tabbar": "/components/t-tabbar",
+    "t-topbar": "/components/t-topbar",
+    "t-card": "/components/t-card"
+  },
+  "sitemapLocation": "sitemap.json"
+}

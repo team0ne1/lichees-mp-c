@@ -2,11 +2,11 @@
 	<view class="tabbar">
 		<block>
 			<!-- <text>{{currentTab}}</text> --> <!--debug -->
-			<view  v-for="(item,index) in tabList"  :key="index" class="tab-item" >
+			<view  v-for="(item,index) in tabList" :key="index" class="tab-item" >
 				<view @click="clickTab(index)" >
 					<view class="icon" :class="{click:index==currentTab}" >
 					<!-- <image :src="item.icon"></image> --> 
-					<t-icon  :img-src="index==currentTab?item.iconAc:item.icon"></t-icon>
+						<t-icon  :imgsrc="index==currentTab?item.iconAc:item.icon" size="100%"></t-icon>
 					</view>
 					<view class="text" :class="{activedTabText:index==currentTab}">
 						<text>{{item.text}}</text>	
@@ -64,13 +64,20 @@
 						iconAc: '/static/tabbar/file-postAc.svg', 
 						text: '委托',  
 						path:'/pages/assignment/assignment'
-					},  
+					},
+					  
 					{  
 						icon: '/static/tabbar/cone.svg',  
 						iconAc: '/static/tabbar/coneAc.svg', 
 						text: '物业', 
 						path:'/pages/property/property'
-					}  
+					},
+					{
+						icon: '/static/tabbar/profile.svg',  
+						iconAc: '/static/tabbar/profileAc.svg', 
+						text: '个人', 
+						path:'/pages/profile/profile'
+					}
 				],  
 				currentTab: this.currentPage,
 
@@ -81,14 +88,13 @@
 			
 			clickTab: function(clickIndex){
 				console.log(clickIndex)
-				this.currentTab = null
-				if(clickIndex==this.currentPage){
+				// this.currentTab = null
+				// if(clickIndex==this.currentPage){
+					
 					this.$nextTick(function(){
 					this.currentTab = this.currentPage
 					})			
-				}else{								
-					this.currentTab = this.currentPage	
-				}
+
 				
 				uni.switchTab({
 					url: this.tabList[clickIndex].path,
@@ -107,11 +113,12 @@
 	// border-style: solid;
 	// border-color: #007AFF;
 	// border-width: 5upx;
+	z-index: 1000;
 	background-color: #FFFFFF;
 	position:fixed;
-	right: 13%;
-	left: 13%;
-	bottom: 20upx;
+	right: 5%;
+	left: 5%;
+	bottom: 35upx;
 	/* width: 90%; */
 	height: 100upx;
 	border-radius: 50upx;
@@ -155,7 +162,7 @@
 
 @keyframes  scaleDraw {  /*定义关键帧、scaleDrew是需要绑定到选择器的关键帧名称*/
             0%{
-                transform: scale(1);  /*开始为原始大小*/
+                transform: scale(0.8);  /*开始为原始大小*/
             }
             50%{
                 transform: scale(1.1);

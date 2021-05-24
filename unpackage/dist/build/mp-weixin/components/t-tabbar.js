@@ -1,0 +1,10 @@
+(global["webpackJsonp"]=global["webpackJsonp"]||[]).push([["components/t-tabbar"],{"04c2":function(t,n,a){"use strict";var e=a("deb0"),c=a.n(e);c.a},3915:function(t,n,a){"use strict";(function(t){Object.defineProperty(n,"__esModule",{value:!0}),n.default=void 0;var e=function(){a.e("components/t-icon").then(function(){return resolve(a("14e1"))}.bind(null,a)).catch(a.oe)},c={name:"t-tabbar",props:["currentPage"],components:{tIcon:e},mounted:function(){console.log("tabbar on")},computed:{},data:function(){return{tabList:[{icon:"/static/tabbar/app.svg",iconAc:"/static/tabbar/appAc.svg",text:"局子",path:"/pages/home/home"},{icon:"/static/tabbar/file-post.svg",iconAc:"/static/tabbar/file-postAc.svg",text:"委托",path:"/pages/assignment/assignment"},{icon:"/static/tabbar/cone.svg",iconAc:"/static/tabbar/coneAc.svg",text:"物业",path:"/pages/property/property"}],currentTab:this.currentPage}},methods:{clickTab:function(n){console.log(n),this.currentTab=null,this.$nextTick((function(){this.currentTab=this.currentPage})),t.switchTab({url:this.tabList[n].path})}}};n.default=c}).call(this,a("543d")["default"])},"8b23":function(t,n,a){"use strict";a.r(n);var e=a("a5aa"),c=a("a331");for(var o in c)"default"!==o&&function(t){a.d(n,t,(function(){return c[t]}))}(o);a("04c2");var r,i=a("f0c5"),u=Object(i["a"])(c["default"],e["b"],e["c"],!1,null,null,null,!1,e["a"],r);n["default"]=u.exports},a331:function(t,n,a){"use strict";a.r(n);var e=a("3915"),c=a.n(e);for(var o in e)"default"!==o&&function(t){a.d(n,t,(function(){return e[t]}))}(o);n["default"]=c.a},a5aa:function(t,n,a){"use strict";var e;a.d(n,"b",(function(){return c})),a.d(n,"c",(function(){return o})),a.d(n,"a",(function(){return e}));var c=function(){var t=this,n=t.$createElement;t._self._c},o=[]},deb0:function(t,n,a){}}]);
+;(global["webpackJsonp"] = global["webpackJsonp"] || []).push([
+    'components/t-tabbar-create-component',
+    {
+        'components/t-tabbar-create-component':(function(module, exports, __webpack_require__){
+            __webpack_require__('543d')['createComponent'](__webpack_require__("8b23"))
+        })
+    },
+    [['components/t-tabbar-create-component']]
+]);

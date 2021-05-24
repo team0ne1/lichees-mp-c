@@ -1,13 +1,13 @@
 <template>
-	<view style="width: 100%; height: 100%;">
-		<image :src="imgSrc" ></image>
+	<view :style="'width:'+ width+';' + 'height:' + height+';'">
+		<image class="image" :src="imgsrc" ></image>
 	</view>
 </template>
 
 <script>
 	export default {
 		name:"t-icon",
-		props:['imgSrc','size'],
+		props:['imgsrc','size'],
 		data() {
 			return {
 				width:this.size,
@@ -17,16 +17,11 @@
 	}
 </script>
 <style lang="scss" scoped>
-	image{
-		// width: 20rpx;
-		// height: 20rpx;
+	.image{
 		width: 100%;
 		height: 100%;
-		
 	}
-	image path{
-		fill: blue;
-	}
+
 
 </style>
 

@@ -1,0 +1,93 @@
+
+.topbar{
+	background-color: #FFFFFF;
+	border-radius: 0 0 40rpx 40rpx;
+	/* height: 100upx; */
+}
+.topbar .welcome{
+	font-size: 1.79em;
+	margin-left: 10%;
+}
+.topbar .saying{
+	margin-left: 10%;
+	margin-bottom: 10rpx;
+	font-size: 0.8em;
+	letter-spacing: 1rpx;
+}
+.topbar .topTaplist{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	        flex-direction: row;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	        justify-content: center;
+	-webkit-box-align: start;
+	-webkit-align-items: start;
+	        align-items: start;
+	/* margin-left: 20upx; */
+}
+.topbar .topTaplist .item{
+	margin-top: 20rpx;
+	margin-bottom: 30rpx;
+	margin-left: 2%;
+	margin-right: 2%;
+	/* margin-right: auto; */
+	padding: 10rpx 30rpx;
+	width: 13%;
+	background-color: #FFFFFF;
+	border-radius: 1.5em;
+	font-size: 1.2em;
+	text-align:center;
+	color: grey;
+}
+.topbar .topTaplist .active{
+	background-color: #1b97f5;
+	color: #FFFFFF;
+}
+.time_and_site{
+	margin-top: 10rpx;
+	margin-bottom: 20rpx;
+	margin-left: 10%;
+	margin-right: 10%;
+	background-color: #1b97f5;
+	color: #FFFFFF;
+	font-size: 0.9em;
+	letter-spacing: 2rpx;
+	border-radius:0.4em;
+	padding: 15rpx 10rpx 15rpx 10rpx;
+	text-align: center;
+}
+.carddetail{
+	background-color: #FFFFFF;
+	border-radius: 40rpx 40rpx 40rpx 40rpx;
+	margin-left: 2%;
+	margin-right: 2%;
+	margin-bottom: 2%;
+	padding: 10rpx 10rpx 15rpx 5rpx;
+	height:250rpx;
+}
+.briefing{
+	border-radius: 40rpx 40rpx 40rpx 40rpx;
+	padding: 0rpx 10rpx 15rpx 10rpx;
+	margin-left: 2%;
+	margin-right: 2%;
+	margin-bottom: 2%;
+	text-align: center;
+	background-color: #FFFFFF;
+	height: 400rpx;
+}
+.confirmbutton{
+	border-radius: 40rpx 40rpx 40rpx 40rpx;
+	margin-left: 2%;
+	margin-right: 2%;
+	background-color: #1b97f5;
+	color: #FFFFFF;
+	font-size: 0.9em;
+	letter-spacing: 2rpx;
+}
+
+

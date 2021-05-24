@@ -1,9 +1,11 @@
 
 <script>
+	import cloud1 from 'helper/cloudbase.js'
 	export default {
-		onLaunch: function() {
+		onLaunch: async function() {
 			console.log('App Launch')
 			uni.hideTabBar()//隐藏原生tabbar
+			cloud1.initCloud()
 		},
 		onShow: function() {
 			console.log('App Show')

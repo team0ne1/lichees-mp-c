@@ -1,12 +1,11 @@
 
 .topbar{
 	background-color: #FFFFFF;
-	-webkit-border-radius: 0 0 40rpx 40rpx;
-	        border-radius: 0 0 40rpx 40rpx;
+	/* border-radius: 0 0 40upx 40upx; */
 	/* height: 100upx; */
 }
 .topbar .welcome{
-	font-size: 1.79em;
+	font-size: 1.3em;
 	margin-left: 10%;
 }
 .topbar .saying{
@@ -37,14 +36,15 @@
 	padding: 10rpx 30rpx;
 	width: 13%;
 	background-color: #FFFFFF;
-	-webkit-border-radius: 1.5em;
-	        border-radius: 1.5em;
+	border-radius: 18rpx;
 	font-size: 1.2em;
 	text-align:center;
 	color: grey;
 }
-.topbar .topTaplist .active{
+.topbar .topTaplist .active  {
 	background-color: #1b97f5;
 	color: #FFFFFF;
+	-webkit-transition: .5s ease;
+	transition: .5s ease;
 }
 

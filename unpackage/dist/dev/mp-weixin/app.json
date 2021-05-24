@@ -5,7 +5,9 @@
     "pages/assignment/assignment",
     "pages/property/property",
     "pages/det-info/det-info",
-    "pages/user-info/user-info"
+    "pages/user-info/user-info",
+    "pages/reserve_detail/reserve_detail",
+    "pages/profile/profile"
   ],
   "subPackages": [],
   "window": {
@@ -26,6 +28,9 @@
       },
       {
         "pagePath": "pages/property/property"
+      },
+      {
+        "pagePath": "pages/profile/profile"
       }
     ]
   },

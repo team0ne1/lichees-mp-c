@@ -9,8 +9,8 @@
 		</view>
 		
 		<view class="topTaplist">
-			<view :class="{active:index==currentTab}" class="item" v-for="(item,index) in tablist">
-				<view @click="clickToptab(index)" >
+			<view :class="{active:index===currentTab}" class="item" v-for="(item,index) in tablist" :key="index">
+				<view @click="clickToptab(index)">
 					<text>{{item.text}}</text>
 				</view>
 				
@@ -22,17 +22,28 @@
 <script>
 	export default {
 		name:"t-topbar",
-		props:['tablist'],
+		props:['tablist','currentTab'],
 		data() {
 			return {
 				username:'HJQ',
-				currentTab:0
 			};
 		},
+		computed:{
+
+		},
+		mounted() {
+			console.log('current'+this.current)
+
+		},
 		methods:{
-			clickToptab(clickIndex){
-				this.currentTab = clickIndex
+			clickToptab: function(clickIndex){
+				this.current = clickIndex
+				this.$emit('changeTab',clickIndex)
+			},
+			setDx: function(x){
+				
 			}
+
 		}
 	}
 </script>
@@ -40,12 +51,12 @@
 <style>
 .topbar{
 	background-color: #FFFFFF;
-	border-radius: 0 0 40upx 40upx;
+	/* border-radius: 0 0 40upx 40upx; */
 	/* height: 100upx; */
 }
 	
 .topbar .welcome{
-	font-size: 1.79em;
+	font-size: 1.3em;
 	margin-left: 10%;
 }
 .topbar .saying{
@@ -67,13 +78,14 @@
 	padding: 10upx 30upx;
 	width: 13%;
 	background-color: #FFFFFF;
-	border-radius: 1.5em;
+	border-radius: 18upx;
 	font-size: 1.2em;
 	text-align:center;
 	color: grey;
 }
-.topbar .topTaplist .active{
+.topbar .topTaplist .active  {
 	background-color: #1b97f5;
 	color: #FFFFFF;
+	transition: .5s ease;
 }
 </style>

@@ -1,1 +1,1 @@
-<view style="width:100%;height:100%;" class="data-v-7983c3a6"><image src="{{imgSrc}}" class="data-v-7983c3a6"></image></view>
+<view style="{{('width:'+width+';'+'height:'+height+';')}}" class="data-v-7983c3a6"><image class="image data-v-7983c3a6" src="{{imgsrc}}"></image></view>

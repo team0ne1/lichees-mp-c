@@ -12,6 +12,12 @@
 			// this.$nextTick(function(){
 			// 	this.page = 2
 			// })
+			uni.showLoading({
+			    title: '加载中'
+			});
+			setTimeout(function () {
+			    uni.hideLoading();
+			}, 1200);
 			console.log("pro show")
 		},
 

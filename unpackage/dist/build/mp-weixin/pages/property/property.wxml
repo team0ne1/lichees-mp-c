@@ -1,0 +1,1 @@
+<view><text>property</text><t-tabbar vue-id="f0df00c0-1" currentPage="{{page}}" bind:__l="__l"></t-tabbar></view>
