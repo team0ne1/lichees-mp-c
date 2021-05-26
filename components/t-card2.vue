@@ -5,42 +5,43 @@
 		</view> -->
 		<view class="cardContain" >
 		<view  class="cardTop" >
-			<view class="" style="display: flex; margin-top: 5upx;margin-bottom: 5upx;">
-				<view class="colorBar" :style="'background-color:'+ randomColor"></view>
-				<view class="classTime" >
-
-					<view class="">
-						<text>05</text>	
+			<view class="startDate" >
+			
+					<view class="" style="display: flex;flex-direction: column; margin-right: 10upx;">
+						<view class="startDateMon">
+							<text>05</text>	
+						</view>
+						<view class="" style=" height: 15upx; width: 0.5em;  border-right: 1px solid #989898; ">
+						</view>
+						<view class="startDateDay">
+							<text>12</text>
+						</view>							
 					</view>
-					<view class="" style=" height: 20upx; width: 0.5em;  border-right: 1px solid #989898; ">
-						
-					</view>
-					<view class="">
-						<text>12</text>
+					<view class="startDateWeek" style="margin: auto; margin-right: 8upx;">
+						<view style="text-align:center;margin-bottom: 0.4em;">周</view>
+						<view>五</view>
 					</view>				
-				</view>	
-				
 			</view>
-
+			<view class="colorBar" :style="'background-color:'+ randomColor"></view>
 			<view class="mainInfo" >
-				<view class="" style="display: flex; ">
-					<view class="cardTitle nowrap" style="width: 85%;">
+				<view class="" style="display: flex; width: 100%;">
+					<view class="cardTitle nowrap" style="width: 90%;">
 						 {{cardDate.title}}
 					</view>
 					<view class="chevron" style="margin-left: auto;margin-right: 10upx;">
 						<image src="../static/card/chevron.svg" mode="aspectFit" style="width: 1em; height: 100%;"></image>		
 					</view>
 				</view>
-				<view class="location" style="display: flex;">
+				<view class="location" style="display: flex; width: 100%;">
 					<image src="../static/card/location.svg" style="width: 0.8em; height: 0.8em;margin-top: 0.3em;margin-right: 0.2em;"></image>
 					<view class="locationText nowrap" style="width: 85%;">
 						{{cardDate.text}}
 					</view>					
 				</view>
-				<view class="time" style="display: flex; ">
+				<view class="time" style="display: flex; width: 100%;">
 					<image src="../static/card/time.svg"     style="width: 0.8em; height: 0.8em;margin-top: 0.3em; margin-right: 0.2em;"></image>
 					<view class="timeText nowrap" style="width: 88%;">
-						16:00-20:20 星期六 2021.05.22
+						16:00-20:20
 					</view>
 				</view>
 
@@ -52,24 +53,19 @@
 			
 		</view>
 		<view class="cardBottom ">
-			<view class="postTime">
-				1分钟前
-			</view>
-			<view class="member" >
-				<image src="cloud://cloud1-0gcmjje1d9bf828c.636c-cloud1-0gcmjje1d9bf828c-1305469619/avatar/Thranduil-mio.jpg"  style="width: 100%; height: 100%;border-radius: 40upx;"></image>
-			</view>
-			<view class="member">
-				<image src="../static/avatar.jpg"  style="width: 100%; height: 100%;border-radius: 40upx;"></image>
-			</view>
-			<view class="member">
-				<image src="../static/avatar.jpg"  style="width: 100%; height: 100%;border-radius: 40upx;"></image>
-			</view>
-			<view class="member">
 
+			<view class="ddlTime">
+				2021.06.01截止
 			</view>
-			<view class="member">
+			<view  style="width: 10%;align-self:center;margin-right: 5upx;">
+				<progress percent="50" active activeColor="#1B97F5" border-radius="2"  stroke-width="4"/>
+	
+			</view>
+			<view class="memberNum" style="align-self:center;">
+					<text style="letter-spacing:2upx; font-size: 0.9em;color: #808080;">3/6</text>
+			
+			</view>
 
-			</view>
 
 <!-- 			<view class="chevron" style="margin-left: auto;">
 				<image src="../static/card/chevron.svg" mode="aspectFit" style="width: 1em; height: 100%; margin-right: 0.4em;"></image>				
@@ -185,40 +181,46 @@
 
 .cardView .cardTop .mainInfo .cardTitle{
 	font-size: 1.15em;
-	margin-bottom: 5upx;
+	margin-bottom: 8upx;
+	width: 90%;
+	
 	/* height: 1.3em; */
 
 }
 .cardView .cardTop {
 	display: flex;
-	align-self: stretch;
+	align-self:center;
 
 }
 .cardView .cardTop  .colorBar{
 	background-color: #007AFF;
 
-	margin-top: 13upx;
-	margin-bottom: 13upx;
-	width: 12upx;
-	border-radius: 8upx;
-	margin-right: 30upx;
+	margin-top: 16upx;
+	margin-bottom: 10upx;
+	width: 10upx;
+	border-radius: 6upx;
+	margin-right: 18upx;
 }
-.cardView .cardTop .classTime{
+.cardView .cardTop .startDate{
 	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
+	flex-direction: row;
+	/* justify-content: space-between; */
 	/* margin-top: 20upx; */
-	margin-right: 30upx;
+	margin-right: 10upx;
+	/* align-content:center; */
+	align-self:center
 }
 
-.cardView .cardTop .classTime text{
-	font-weight: bold;
+.cardView .cardTop .startDate text{
+	font-weight: 1.5rpx;
 }
 
 .cardView .cardTop .mainInfo{
 	display: flex;
 	flex-direction: column;
-	width: 85%;
+
+	width: 80%;
+	max-width: 80%;
 	/* height: 3em; */
 }
 
@@ -231,6 +233,10 @@
 	width: 100%;
 
 } */
+.cardView .cardTop .mainInfo .location{
+	margin-bottom: 8upx;
+}
+
 .cardView .cardTop .mainInfo .location .locationText,
 .timeText{
 	color: #9B9B9F; 
@@ -238,24 +244,38 @@
 }
 .cardView .cardBottom{
 	display: flex;
-	margin-right:8%;
+	margin-bottom: 10upx;
+	/* margin-right:8%; */
 	/* flex-direction: row-reverse; */
 	/* justify-content:flex-end; */
 }
 
-.cardView .cardBottom .member{
-	background-color: #d9d9df;
-	height: 60upx;
-	width: 60upx;
-	border-radius: 30upx;
-	margin-right: -30upx;
-	z-index: 1;
-	box-shadow: 3upx 3upx 10upx #d0d0d0;
-	border:1rpx solid #c3c3c3;
+.cardView .cardBottom .memberNum{
+	/* background-color: #d9d9df; */
+	display: flex;
+	/* height: 50upx; */
+	/* width: 150upx; */
+	
 }
 
-.cardView .postTime{
-	color: #555555; 
+.cardView .cardBottom .memberNum .joinNum{
+	padding: 5upx 10upx;
+	color: #1b97f5;
+	border-radius: 15upx;
+	border:1rpx solid #1b97f5;
+}
+
+.cardView .cardBottom .memberNum .tolNum{
+	padding: 5upx 8upx;
+	border-radius: 0 15upx 15upx 0;
+	color: white;
+	
+	/* background-color: #1b97f5; */
+	/* border:1rpx solid #1b97f5; */
+}
+
+.cardView .ddlTime{
+	color: #838383; 
 	font-size: 0.9em;
 	margin-right: auto; 
 	align-self: center;

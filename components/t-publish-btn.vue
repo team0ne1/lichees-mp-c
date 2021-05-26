@@ -1,6 +1,6 @@
 <template>
-	<view class="publishBtn">
-		<view class="publishBtnShape">
+	<view class="publishBtn" @click="navTo()">
+		<view class="publishBtnShape" :class="{}">
 			<image src="../static/publish-btn/plus.svg"  mode="center" style=" width: 100% ;height: 100%"></image>
 		</view>
 	</view>
@@ -13,6 +13,14 @@
 			return {
 				
 			};
+		},
+		methods:{
+			navTo: function(url){
+				console.log('nav to publish page')
+				uni.navigateTo({
+					url:url
+				})
+			},
 		}
 	}
 </script>
@@ -21,7 +29,7 @@
 .publishBtn {
 	z-index: 1000;
 	position:fixed;
-	right: 8%;
+	right: 6%;
 	bottom: 100upx;
 	/* width: 90%; */
 	height: 150upx;
@@ -32,10 +40,15 @@
 .publishBtn .publishBtnShape {
 	
 	background-color: #1b97f5;
-	width: 80upx;
-	height: 80upx;
-	border-radius: 40upx;
-	box-shadow: 0 0 5px #c8c8c8;
+	width: 90upx;
+	height: 90upx;
+	border-radius: 45upx;
+	box-shadow: 1upx 3upx 10upx #747474;
+	
+}
+
+.publishBtn .publishBtnShapePress {	
+	background-color: #1477bd;
 	
 }
 

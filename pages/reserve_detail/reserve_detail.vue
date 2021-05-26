@@ -39,6 +39,9 @@
 		<!--
 			briefing:备注，写发起人想写的内容
 		-->
+		<!-- <view class="progress-box"> -->
+			
+		<!-- </view> -->
 		<view>
 			<view class="briefing">
 				<scroll-view scroll-y="true" class="scoll-h">
@@ -47,9 +50,9 @@
 				</scroll-view>
 			</view>		
 		</view>
-		<div class="confirmbutton" :style="{background:'rgb(27,151,245)' }">
+		<view class="confirmbutton" :style="{background:'rgb(27,151,245)' }">
 			<button type="default" >加入组局</button>
-		</div>
+		</view>
 
 	</view>
 	

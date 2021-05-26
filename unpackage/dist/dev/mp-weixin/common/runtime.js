@@ -105,11 +105,11 @@
 /******/
 /******/
 /******/ 		// mini-css-extract-plugin CSS loading
-/******/ 		var cssChunks = {"components/t-card":1,"components/t-tabbar":1,"components/t-topbar":1,"components/t-publish-btn":1,"components/t-icon":1};
+/******/ 		var cssChunks = {"components/t-card":1,"components/t-card2":1,"components/t-tabbar":1,"components/t-topbar":1,"components/t-publish-btn":1,"components/t-icon":1};
 /******/ 		if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 		else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 			promises.push(installedCssChunks[chunkId] = new Promise(function(resolve, reject) {
-/******/ 				var href = "" + ({"components/t-card":"components/t-card","components/t-tabbar":"components/t-tabbar","components/t-topbar":"components/t-topbar","components/t-publish-btn":"components/t-publish-btn","components/c-input":"components/c-input","components/t-icon":"components/t-icon"}[chunkId]||chunkId) + ".wxss";
+/******/ 				var href = "" + ({"components/t-card":"components/t-card","components/t-card2":"components/t-card2","components/t-tabbar":"components/t-tabbar","components/t-topbar":"components/t-topbar","components/t-publish-btn":"components/t-publish-btn","components/c-input":"components/c-input","components/t-icon":"components/t-icon"}[chunkId]||chunkId) + ".wxss";
 /******/ 				var fullhref = __webpack_require__.p + href;
 /******/ 				var existingLinkTags = document.getElementsByTagName("link");
 /******/ 				for(var i = 0; i < existingLinkTags.length; i++) {

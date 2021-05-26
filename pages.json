@@ -3,7 +3,6 @@
 		{
 			"path": "pages/home/home",
 			"style": {
-
 				// "navigationBarTitleText": "Hi,HJQ",
 				"navigationBarBackgroundColor": "#FFFFFF"
 			}

@@ -1,8 +1,13 @@
 
 .topbar{
 	background-color: #FFFFFF;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 1000;
 	/* border-radius: 0 0 40upx 40upx; */
-	/* height: 100upx; */
+	/* height: 150upx; */
 }
 .topbar .welcome{
 	font-size: 1.3em;
@@ -25,25 +30,28 @@
 	-webkit-box-align: start;
 	-webkit-align-items: start;
 	        align-items: start;
+	height: 100rpx;
 	/* margin-left: 20upx; */
 }
 .topbar .topTaplist .item{
 	margin-top: 20rpx;
-	margin-bottom: 30rpx;
-	margin-left: 2%;
-	margin-right: 2%;
+	margin-bottom: 10rpx;
+	width: 100rpx;
+/* 	margin-left: 30upx;
+	margin-right: 30upx; */
 	/* margin-right: auto; */
-	padding: 10rpx 30rpx;
+	padding: 10rpx 20rpx;
 	width: 13%;
 	background-color: #FFFFFF;
 	border-radius: 18rpx;
-	font-size: 1.2em;
+	font-size: 1em;
 	text-align:center;
 	color: grey;
 }
 .topbar .topTaplist .active  {
 	background-color: #1b97f5;
-	color: #FFFFFF;
+	/* border-bottom: 8upx solid #22A7F0; */
+	color: #ffffff;
 	-webkit-transition: .5s ease;
 	transition: .5s ease;
 }

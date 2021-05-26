@@ -38,6 +38,7 @@
   "usingComponents": {
     "t-tabbar": "/components/t-tabbar",
     "t-topbar": "/components/t-topbar",
-    "t-card": "/components/t-card"
+    "t-card": "/components/t-card",
+    "t-card2": "/components/t-card2"
   }
 }

@@ -1,8 +1,8 @@
 <template>
 	<view class="topbar">
-		<view class="welcome">
+<!-- 		<view class="welcome">
 			<text >Hi, {{username}}</text>
-		</view>
+		</view> -->
 		
 		<view class="saying">
 			<text >Say Something</text>
@@ -51,8 +51,13 @@
 <style>
 .topbar{
 	background-color: #FFFFFF;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 1000;
 	/* border-radius: 0 0 40upx 40upx; */
-	/* height: 100upx; */
+	/* height: 150upx; */
 }
 	
 .topbar .welcome{
@@ -67,25 +72,28 @@
 	flex-direction: row;
 	justify-content: center;
 	align-items: start;
+	height: 100upx;
 	/* margin-left: 20upx; */
 }
 .topbar .topTaplist .item{
 	margin-top: 20upx;
-	margin-bottom: 30upx;
-	margin-left: 2%;
-	margin-right: 2%;
+	margin-bottom: 10upx;
+	width: 100upx;
+/* 	margin-left: 30upx;
+	margin-right: 30upx; */
 	/* margin-right: auto; */
-	padding: 10upx 30upx;
+	padding: 10upx 20upx;
 	width: 13%;
 	background-color: #FFFFFF;
 	border-radius: 18upx;
-	font-size: 1.2em;
+	font-size: 1em;
 	text-align:center;
 	color: grey;
 }
 .topbar .topTaplist .active  {
 	background-color: #1b97f5;
-	color: #FFFFFF;
+	/* border-bottom: 8upx solid #22A7F0; */
+	color: #ffffff;
 	transition: .5s ease;
 }
 </style>

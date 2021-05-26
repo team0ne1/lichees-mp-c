@@ -3,7 +3,7 @@
 		<block>
 			<!-- <text>{{currentTab}}</text> --> <!--debug -->
 			<view  v-for="(item,index) in tabList" :key="index" class="tab-item" >
-				<view @click="clickTab(index)" >
+				<view @click="clickTab(index)" :animation="{animationData:index==currentTab}">
 					<view class="icon" :class="{click:index==currentTab}" >
 					<!-- <image :src="item.icon"></image> --> 
 						<t-icon  :imgsrc="index==currentTab?item.iconAc:item.icon" size="100%"></t-icon>
@@ -26,22 +26,13 @@
 		components:{
 			tIcon
 		},
-		mounted:function(){
-			console.log("tabbar on")
-			// this.animation = uni.createAnimation()  
-			// this.animation.scale(1.1).step({duration:800})
-			// this.animationData = this.animation.export()
-			
-			// setTimeout(()=>{
-			// 	this.animation.scale(1).step({duration:0})
-			// 	this.animationData = this.animation.export()
-			// }, 1000);
-			
-			// uni.$on('runAn', function(data){
-			// 	console.log(data.data)
-			// 	this.currentTab = data.data
-				
-			// });
+		mounted: function(){
+			var animation = uni.createAnimation({
+			    duration: 1000,
+			    timingFunction: 'ease-in-out',
+			})
+			this.animation = animation
+			this.animationData = animation.export()
 		},
 		
 		computed:{
@@ -80,6 +71,7 @@
 					}
 				],  
 				currentTab: this.currentPage,
+				
 
 				
 			};
@@ -88,21 +80,20 @@
 			
 			clickTab: function(clickIndex){
 				console.log(clickIndex)
-				// this.currentTab = null
+				this.currentTab = null
 				// if(clickIndex==this.currentPage){
-					
 					this.$nextTick(function(){
 					this.currentTab = this.currentPage
-					})			
-
-				
+					})
+				// }
+				uni.vibrateShort();
 				uni.switchTab({
 					url: this.tabList[clickIndex].path,
 
 				})
 
 			},
-			
+
 		}
 	}
 
@@ -153,7 +144,7 @@
 }
 
 .tabbar .tab-item .click{
-	animation: scaleDraw 500ms ease-in-out;
+	animation: scaleDraw 400ms ease-in-out;
 }
 .tabbar .tab-item .activedTabText{
 	color: #007AFF;

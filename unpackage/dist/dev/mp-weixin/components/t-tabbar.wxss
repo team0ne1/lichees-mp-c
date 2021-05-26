@@ -74,8 +74,8 @@
   width: 100%;
 }
 .tabbar .tab-item .click {
-  -webkit-animation: scaleDraw 500ms ease-in-out;
-          animation: scaleDraw 500ms ease-in-out;
+  -webkit-animation: scaleDraw 400ms ease-in-out;
+          animation: scaleDraw 400ms ease-in-out;
 }
 .tabbar .tab-item .activedTabText {
   color: #007AFF;
