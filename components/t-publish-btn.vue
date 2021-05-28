@@ -1,5 +1,5 @@
 <template>
-	<view class="publishBtn" @click="navTo()">
+	<view class="publishBtn" @click="navTo(destUrl)">
 		<view class="publishBtnShape" :class="{}">
 			<image src="../static/publish-btn/plus.svg"  mode="center" style=" width: 100% ;height: 100%"></image>
 		</view>
@@ -9,6 +9,11 @@
 <script>
 	export default {
 		name:"t-publish-btn",
+		props:{
+			destUrl:{
+				type:String
+			}
+		},
 		data() {
 			return {
 				
@@ -43,7 +48,7 @@
 	width: 90upx;
 	height: 90upx;
 	border-radius: 45upx;
-	box-shadow: 1upx 3upx 10upx #747474;
+	box-shadow: 2upx 2upx 10upx #057dcc;
 	
 }
 

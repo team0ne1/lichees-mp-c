@@ -1,6 +1,8 @@
 {
   "navigationBarBackgroundColor": "#FFFFFF",
+  "enablePullDownRefresh": false,
   "usingComponents": {
-    "t-publish-btn": "/components/t-publish-btn"
+    "t-publish-btn": "/components/t-publish-btn",
+    "uni-load-more": "/components/uni-load-more"
   }
 }

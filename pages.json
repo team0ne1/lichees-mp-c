@@ -4,7 +4,8 @@
 			"path": "pages/home/home",
 			"style": {
 				// "navigationBarTitleText": "Hi,HJQ",
-				"navigationBarBackgroundColor": "#FFFFFF"
+				"navigationBarBackgroundColor": "#FFFFFF",
+				"enablePullDownRefresh": false
 			}
 		},
 		{
@@ -63,6 +64,16 @@
             }
             
         }
+        ,{
+            "path" : "pages/release_res/release_res",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "发起局子",
+				"navigationBarBackgroundColor": "#FFFFFF",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		
@@ -86,6 +97,16 @@
 			},
 			{
 				"pagePath": "pages/profile/profile"
+			}
+		]
+	},
+	"condition" : { //模式配置，仅开发期间生效
+		"current": 0, //当前激活的模式(list 的索引项)
+		"list": [
+			{
+				"name": "发布页", //模式名称
+				"path": "/pages/release_res/release_res", //启动页面，必选
+				"query": "" //启动参数，在页面的onLoad函数里面得到
 			}
 		]
 	}

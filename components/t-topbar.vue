@@ -56,6 +56,7 @@
 	left: 0;
 	right: 0;
 	z-index: 1000;
+	border-bottom: 1upx solid #BFBEC3;
 	/* border-radius: 0 0 40upx 40upx; */
 	/* height: 150upx; */
 }

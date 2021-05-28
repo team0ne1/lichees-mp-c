@@ -128,7 +128,8 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+//
 //
 //
 //
@@ -143,19 +144,12 @@ var _default =
     // this.$nextTick(function(){
     // 	this.page = 1
     // })
-    uni.showLoading({
-      title: '加载中' });
-
-    setTimeout(function () {
-      uni.hideLoading();
-    }, 1200);
     console.log("ass show");
   },
 
   data: function data() {
     return {
       page: 1,
-      currentTab: 1,
       tapList: [
       { text: "tap1" },
       { text: "tap2" },
@@ -164,7 +158,6 @@ var _default =
 
   },
   methods: {} };exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ })
 

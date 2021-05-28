@@ -8767,10 +8767,21 @@ var initCloud = /*#__PURE__*/function () {var _ref = _asyncToGenerator( /*#__PUR
               cloud1.init());case 2:case "end":return _context.stop();}}}, _callee);}));return function initCloud() {return _ref.apply(this, arguments);};}();
 
 
-var getCloud = function getCloud(path) {
+var baseURL = '/container-mp-server-v3/api';
+
+var getCloud = function getCloud(path, query) {
+  var queryStr = '?';
+  if (query) {
+    for (var key in query) {
+      queryStr = queryStr + key + '=' + query[key] + '&';
+    }
+    console.log(queryStr);
+    path = path + queryStr;
+  }
+
   return new Promise(function (resolve, reject) {
     cloud1.callContainer({
-      path: '/container-mp-server-v1/api' + path,
+      path: baseURL + path,
       method: 'GET' }).
     then(function (res) {
       resolve(res);
@@ -8780,12 +8791,14 @@ var getCloud = function getCloud(path) {
   });
 };
 
-var postCloud = function postCloud(path) {
+var postCloud = function postCloud(path, data) {
+  var post = {
+    path: baseURL + path,
+    method: 'POST',
+    data: data };
+
   return new Promise(function (resolve, reject) {
-    cloud1.callContainer({
-      path: '/container-mp-server-v1/api' + path,
-      method: 'POST' }).
-    then(function (res) {
+    cloud1.callContainer(post).then(function (res) {
       resolve(res);
     }).catch(function (err) {
       reject(err);
@@ -8793,11 +8806,12 @@ var postCloud = function postCloud(path) {
   });
 };
 
-var putCloud = function putCloud(path) {
+var putCloud = function putCloud(path, data) {
   return new Promise(function (resolve, reject) {
     cloud1.callContainer({
-      path: '/container-mp-server-v1/api' + path,
-      method: 'PUT' }).
+      path: baseURL + path,
+      method: 'PUT',
+      data: data }).
     then(function (res) {
       resolve(res);
     }).catch(function (err) {
@@ -8809,7 +8823,7 @@ var putCloud = function putCloud(path) {
 var deteleCloud = function deteleCloud(path) {
   return new Promise(function (resolve, reject) {
     cloud1.callContainer({
-      path: '/container-mp-server-v1/api' + path,
+      path: baseURL + path,
       method: 'DETELE' }).
     then(function (res) {
       resolve(res);

@@ -10,10 +10,21 @@ const initCloud = async () => {
 	await cloud1.init()	
 }
 
-const getCloud =  (path) => {
+const baseURL = '/container-mp-server-v3/api'
+
+const getCloud =  (path,query) => {
+	let queryStr = '?'
+	if(query){
+		for(const key in query){
+			queryStr = queryStr + key + '=' + query[key] + '&'
+		}
+		console.log(queryStr)	
+		path = path + queryStr
+	}
+
 	return new Promise((resolve,reject)=>{
 		cloud1.callContainer({
-			path: '/container-mp-server-v1/api' + path,
+			path: baseURL + path,
 			method: 'GET',
 		}).then((res)=>{
 			resolve(res)
@@ -23,12 +34,14 @@ const getCloud =  (path) => {
 	})
 }
 
-const postCloud =  (path) => {
+const postCloud =  (path,data) => {
+	let post = {
+		path: baseURL + path,
+		method: 'POST',
+		data:data
+	}
 	return new Promise((resolve,reject)=>{
-		cloud1.callContainer({
-			path: '/container-mp-server-v1/api' + path,
-			method: 'POST',
-		}).then((res)=>{
+		cloud1.callContainer(post).then((res)=>{
 			resolve(res)
 		}).catch((err)=>{
 			reject(err)
@@ -36,11 +49,12 @@ const postCloud =  (path) => {
 	})
 }
 
-const putCloud =  (path) => {
+const putCloud =  (path,data) => {
 	return new Promise((resolve,reject)=>{
 		cloud1.callContainer({
-			path: '/container-mp-server-v1/api' + path,
+			path: baseURL + path,
 			method: 'PUT',
+			data:data
 		}).then((res)=>{
 			resolve(res)
 		}).catch((err)=>{
@@ -52,7 +66,7 @@ const putCloud =  (path) => {
 const deteleCloud =  (path) => {
 	return new Promise((resolve,reject)=>{
 		cloud1.callContainer({
-			path: '/container-mp-server-v1/api' + path,
+			path: baseURL + path,
 			method: 'DETELE',
 		}).then((res)=>{
 			resolve(res)

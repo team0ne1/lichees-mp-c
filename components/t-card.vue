@@ -123,8 +123,8 @@
 		},
 		mounted: function(){
 			var animation = uni.createAnimation({
-			    duration: 300,
-			    timingFunction: 'ease-in',
+			    duration: 500,
+			    timingFunction: 'linear',
 			})
 			this.animation = animation
 			this.animationData = animation.export()

@@ -13,7 +13,7 @@
 	width: 90rpx;
 	height: 90rpx;
 	border-radius: 45rpx;
-	box-shadow: 1rpx 3rpx 10rpx #747474;
+	box-shadow: 2rpx 2rpx 10rpx #057dcc;
 }
 .publishBtn .publishBtnShapePress {	
 	background-color: #1477bd;

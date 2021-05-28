@@ -6,7 +6,7 @@
 			<t-tabbar  :currentPage="page"></t-tabbar>
 		</view>
 		<view>
-			<t-publish-btn></t-publish-btn>
+			<t-publish-btn destUrl="/pages/release_res/release_res" ></t-publish-btn>
 		</view>
 		<view class="topTab">
 			<t-topbar   ref="topTab" :tablist="tapList" :currentTab="currentTab" @changeTab="changeTab" ></t-topbar>	
@@ -20,36 +20,37 @@
 					
 					<view class="cards" >
 						<!-- <scroll-view scroll-y="true" :scroll-anchoring="true" :style="'height: ' + scrollHeight +'px;'"> -->
-							<view v-for="(item,index) in cardDate0" :key="index" class="card">
-								<t-card2 :cardDate="item" ></t-card2>
+							<view v-for="(item,index) in cardData0" :key="index" class="card">
+								<t-card2 :cardData="item" ></t-card2>
 							</view>
 							<!-- <view class="block"></view> -->
 						<!-- </scroll-view> -->
 					</view>
-					
+					<uni-load-more :status="loadstatus"></uni-load-more>
 				</swiper-item>
 				<swiper-item>
 					<view class="cards">
-						<view v-for="(item,index) in cardDate1" :key="index" class="card">
-							<t-card :cardDate="item" ></t-card>
+						<view v-for="(item,index) in cardData1" :key="index" class="card">
+							<t-card2 :cardData="item" ></t-card2>
 						</view>
+						
 						<!-- <view class="block"></view> -->
 					</view>
-
+					<uni-load-more :status="loadstatus"></uni-load-more>
 				</swiper-item>
 				<swiper-item>
 					<view class="cards">
-						<view v-for="(item,index) in cardDate2" :key="index" class="card">
-							<t-card :cardDate="item" ></t-card>
+						<view v-for="(item,index) in cardData2" :key="index" class="card">
+							<t-card2 :cardData="item" ></t-card2>
 						</view>
 						<!-- <view class="block"></view> -->
 					</view>
-
+					<uni-load-more :status="loadstatus"></uni-load-more>
 				</swiper-item>
 			</swiper>
-
+				
 		</view>		
-
+		
 		
 	</view>
 </template>
@@ -59,13 +60,14 @@
 <script>
 	import cloud1 from '../../helper/cloudbase.js'
 	import tPublishBtn from '../../components/t-publish-btn.vue'
+	import uniLoadMore from"../../components/uni-load-more.vue"
 	export default {
 		// props:{},
 		components:{
-			tPublishBtn
+			tPublishBtn,
+			uniLoadMore
 		},
 		onShow:function(){
-			
 			// uni.showLoading({
 			//     title: '加载中'
 			// });
@@ -74,10 +76,10 @@
 			// }, 1200);
 			console.log("home show")
 			console.log(this.page)
-			cloud1.getCloud('/learning')
-			.then((res)=>{
-				console.log(res)	
-			})
+
+		},
+		onReachBottom:function(){
+			this.getNextPage()
 		},
 		// onHide:function(){
 		// 	// this.page = null
@@ -86,31 +88,44 @@
 		// 	console.log(this.page)
 		// },
 		computed:{
-			cardsLenght(){
-				let cardsLenght = 1
+			cardsShow(){
+				let cardsShow = {}
 				switch(this.currentTab){
 				  case 0:
-					cardsLenght = this.cardDate0.length
+					cardsShow = this.cardData0
 				    break;
 				  case 1:
-					cardsLenght = this.cardDate1.length
+					cardsShow = this.cardData1
 					break;
 				  case 2:
-				    cardsLenght = this.cardDate2.length
+				    cardsShow = this.cardData2
 				    break;
-				  default:
-				    cardsLenght = 1
 				}
-				return cardsLenght
+				return cardsShow
 			}
 		},
 		mounted() {
-			this.setHeight();
 			
-			// cloud1.getCloud('/sport')
-			// .then((res)=>{
-			// 	console.log(res)	
-			// })
+			cloud1.getCloud('/learning')
+			.then((res)=>{
+				console.log(res)	
+				this.cardData0.length = 0
+				this.cardData0 = res.data
+				this.setHeight();
+			})
+			cloud1.getCloud('/sport')
+			.then((res)=>{
+				console.log(res)	
+				this.cardData1 = res.data
+				this.setHeight();
+			})
+			cloud1.getCloud('/amuse')
+			.then((res)=>{
+				console.log(res)	
+				this.cardData2 = res.data
+				this.setHeight();
+			})
+
 			
 
 		},
@@ -119,57 +134,29 @@
 				page:0,
 				currentTab:0,
 				swiperHeight:600,
-				// scrollHeight:600,
-				
+				loadstatus:"loading",
 				tapList:[
 					{text:"学习"},
 					{text:"运动"},
 					{text:"玩乐"},
 				],
-				cardDate0:[
-					{title:"南图自习局互相监督Hello来来来",text:"胡言乱语胡言乱语",},
-					{title:"来个人救救孩子的高数111111111111",text:"胡言乱语L2-L1",},
-					{title:"高数期中考突击局",text:"胡言乱语",},
-					{title:"标题4",text:"胡言乱语",},
-					{title:"标题5",text:"胡言乱语",},
-					{title:"标题6",text:"胡言乱语",},
-					{title:"标题7",text:"胡言乱语",},
-					{title:"标题8",text:"胡言乱语",},
-					{title:"标题9",text:"胡言乱语",},
-					{title:"标题10",text:"胡言乱语",},
-					{title:"标题11",text:"胡言乱语",},
-					{title:"标题12",text:"胡言乱语",},
+				cardData0:[
+					{
+						created_at: "2021-05-26T15:47:23.033Z",
+						detail_id: "cbddf0af60ae6d740be1edd82846f7e4",
+						join_deadline: "2021-05-27T01:30:00.000Z",
+						joined_num: 5,
+						loca_text: "深圳大学",
+						person_num: 8,
+						res_endtime: "2021-06-03T02:30:00.000Z",
+						res_starttime: "2021-06-02T01:00:00.000Z",
+						title: "学习局2",
+						_id: "28ee4e3e60ae6d8d1ce32feb2f83f82f"
+					},
 				],
-				cardDate1:[
-					{title:"南图自习局互相监督Hello来来来",text:"胡言乱语胡言乱语",},
-					{title:"来个人救救孩子的高数",text:"胡言乱语L2-L1",},
-					{title:"高数期中考突击局",text:"胡言乱语",},
-					{title:"标题4",text:"胡言乱语",},
-					{title:"标题5",text:"胡言乱语",},
-					{title:"标题6",text:"胡言乱语",},
-					{title:"标题7",text:"胡言乱语",},
-					{title:"标题8",text:"胡言乱语",},
-					{title:"标题9",text:"胡言乱语",},
-
+				cardData1:[
 				],
-				cardDate2:[
-					{title:"南图自习局互相监督Hello来来来",text:"胡言乱语胡言乱语",},
-					{title:"来个人救救孩子的高数",text:"胡言乱语L2-L1",},
-					{title:"高数期中考突击局",text:"胡言乱语",},
-					{title:"标题4",text:"胡言乱语",},
-					{title:"标题5",text:"胡言乱语",},
-					{title:"标题6",text:"胡言乱语",},
-					{title:"标题7",text:"胡言乱语",},
-					{title:"标题8",text:"胡言乱语",},
-					{title:"标题9",text:"胡言乱语",},
-					{title:"标题10",text:"胡言乱语",},
-					{title:"标题11",text:"胡言乱语",},
-					{title:"标题12",text:"胡言乱语",},
-					{title:"标题13",text:"胡言乱语",},
-					{title:"标题14",text:"胡言乱语",},
-					{title:"标题15",text:"胡言乱语",},
-					{title:"标题16",text:"胡言乱语",},
-					{title:"标题17",text:"胡言乱语",},
+				cardData2:[
 				]
 			}
 		},
@@ -181,13 +168,14 @@
 				console.log(e.target.current)
 				this.currentTab = e.target.current
 				this.setHeight();
+				uni.pageScrollTo({
+				    scrollTop: 0,
+				    duration: 0
+				});
 			},
 			transition:function(e){
 				let dx = e.detail.dx;
 				this.$refs.topTab.setDx(dx);
-			},
-			onreachBottom: function() {
-				console.log("loading more...")
 			},
 			setHeight: function() {
 				let windowHeight = uni.getSystemInfoSync().windowHeight;//页面可见区域
@@ -195,7 +183,7 @@
 				let query1 = uni.createSelectorQuery().in(this);
 				query1.select('.card').boundingClientRect(rect => {
 					if (rect) {						
-						this.swiperHeight =  ((rect.height+8) * (this.cardsLenght+0.8) );
+						this.swiperHeight =  ((rect.height+8) * (this.cardsShow.length+0.8) );
 						console.log("rect.height:"+rect.height)
 						// console.log("swiperHeight1: "+this.swiperHeight)
 					}
@@ -207,6 +195,37 @@
 					// console.log("windowHeight = "+windowHeight)
 					// let query = uni.createSelectorQuery();
 							
+			},
+			getNextPage: function(){
+				this.loadstatus = "loading"
+				let query = {
+					preCreateAt: this.cardsShow[this.cardsShow.length-1].created_at
+				}
+				console.log(query)
+				let path = ''
+				switch(this.currentTab){
+				  case 0:
+					path = '/learning/next'
+				    break;
+				  case 1:
+					path = '/sport/next'
+					break;
+				  case 2:
+				    path = '/amuse/next'
+				    break;
+				}
+				cloud1.getCloud(path, query)
+				.then((res)=>{
+					console.log(res)
+					if(res.data.length==0){
+						this.loadstatus = "nomore"
+						return
+					}
+					for(let i=0;i<res.data.length;i++){
+						this.cardsShow.push(res.data[i])							
+					}
+					this.setHeight();	
+				})
 			}
 
 		}

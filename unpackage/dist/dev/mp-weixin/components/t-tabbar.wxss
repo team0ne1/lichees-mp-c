@@ -26,7 +26,9 @@
 /* 文章场景相关 */
 .tabbar {
   z-index: 1000;
-  background-color: #FFFFFF;
+  background-color: rgba(255, 255, 255, 0.5);
+  -webkit-backdrop-filter: blur(12px);
+          backdrop-filter: blur(12px);
   position: fixed;
   right: 5%;
   left: 5%;

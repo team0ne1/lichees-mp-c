@@ -89,9 +89,7 @@
 				uni.vibrateShort();
 				uni.switchTab({
 					url: this.tabList[clickIndex].path,
-
 				})
-
 			},
 
 		}
@@ -105,7 +103,8 @@
 	// border-color: #007AFF;
 	// border-width: 5upx;
 	z-index: 1000;
-	background-color: #FFFFFF;
+	background-color: rgba($color: #ffffff, $alpha: 0.5);
+	backdrop-filter: blur(12px);
 	position:fixed;
 	right: 5%;
 	left: 5%;

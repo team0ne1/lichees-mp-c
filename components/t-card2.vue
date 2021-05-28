@@ -9,24 +9,24 @@
 			
 					<view class="" style="display: flex;flex-direction: column; margin-right: 10upx;">
 						<view class="startDateMon">
-							<text>05</text>	
+							<text>{{('0' + (new Date(cardData.res_starttime).getMonth()+1)).slice(-2)}}</text>	
 						</view>
 						<view class="" style=" height: 15upx; width: 0.5em;  border-right: 1px solid #989898; ">
 						</view>
 						<view class="startDateDay">
-							<text>12</text>
+							<text>{{('0' + new Date(cardData.res_starttime).getDate()).slice(-2) }}</text>
 						</view>							
 					</view>
 					<view class="startDateWeek" style="margin: auto; margin-right: 8upx;">
 						<view style="text-align:center;margin-bottom: 0.4em;">周</view>
-						<view>五</view>
+						<view>{{dateCn}}</view>
 					</view>				
 			</view>
 			<view class="colorBar" :style="'background-color:'+ randomColor"></view>
 			<view class="mainInfo" >
 				<view class="" style="display: flex; width: 100%;">
 					<view class="cardTitle nowrap" style="width: 90%;">
-						 {{cardDate.title}}
+						 {{cardData.title}}
 					</view>
 					<view class="chevron" style="margin-left: auto;margin-right: 10upx;">
 						<image src="../static/card/chevron.svg" mode="aspectFit" style="width: 1em; height: 100%;"></image>		
@@ -35,13 +35,15 @@
 				<view class="location" style="display: flex; width: 100%;">
 					<image src="../static/card/location.svg" style="width: 0.8em; height: 0.8em;margin-top: 0.3em;margin-right: 0.2em;"></image>
 					<view class="locationText nowrap" style="width: 85%;">
-						{{cardDate.text}}
+						{{cardData.loca_text}}
 					</view>					
 				</view>
 				<view class="time" style="display: flex; width: 100%;">
 					<image src="../static/card/time.svg"     style="width: 0.8em; height: 0.8em;margin-top: 0.3em; margin-right: 0.2em;"></image>
 					<view class="timeText nowrap" style="width: 88%;">
-						16:00-20:20
+						{{new Date(cardData.res_starttime).toLocaleTimeString() + ' - ' 
+						+ new Date(cardData.res_endtime).toLocaleTimeString() + 
+						' (' + Math.floor((new Date(cardData.res_endtime).getTime() - new Date(cardData.res_starttime).getTime()) / (24*3600000)) + ')' }}
 					</view>
 				</view>
 
@@ -55,14 +57,14 @@
 		<view class="cardBottom ">
 
 			<view class="ddlTime">
-				2021.06.01截止
+				{{new Date(cardData.join_deadline).toLocaleDateString()}}截止
 			</view>
 			<view  style="width: 10%;align-self:center;margin-right: 5upx;">
-				<progress percent="50" active activeColor="#1B97F5" border-radius="2"  stroke-width="4"/>
+				<progress :percent="(cardData.joined_num/cardData.person_num)*100" active activeColor="#1B97F5" border-radius="2"  stroke-width="4"/>
 	
 			</view>
 			<view class="memberNum" style="align-self:center;">
-					<text style="letter-spacing:2upx; font-size: 0.9em;color: #808080;">3/6</text>
+					<text style="letter-spacing:2upx; font-size: 0.9em;color: #808080;">{{cardData.joined_num+'/'+cardData.person_num}}</text>
 			
 			</view>
 
@@ -83,12 +85,38 @@
 	import tIcon from './t-icon'
 	export default {
 		name:"t-card",
-		props:['cardDate'],
+		props:['cardData'],
 		components:{
 			tIcon
 		},
 		computed: {
-
+			dateCn(){
+				let dateCn = ''
+				switch(new Date(this.cardData.res_starttime).getDay()){
+					case 0 :  
+							dateCn = "日";  
+							break;  
+					case 1 :  
+							dateCn= "一";  
+							break;  
+					case 2 :  
+							dateCn= "二";  
+							break;  
+					case 3 :  
+							dateCn= "三";  
+							break;  
+					case 4 :  
+							dateCn= "四";  
+							break;  
+					case 5 :  
+							dateCn= "五";  
+							break;  
+					case 6 :  
+							dateCn= "六";  
+							break; 
+				}
+				return dateCn
+			},
 			randomColor(){
 				let randomIndex = Math.round(Math.random() * this.colorTable.length);
 				return this.colorTable[randomIndex];

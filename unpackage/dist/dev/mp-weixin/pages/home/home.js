@@ -189,6 +189,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var _cloudbase = _interopRequireDefault(__webpack_require__(/*! ../../helper/cloudbase.js */ 11));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
 //
 //
@@ -247,61 +248,47 @@ var _cloudbase = _interopRequireDefault(__webpack_require__(/*! ../../helper/clo
 //
 //
 //
-var tPublishBtn = function tPublishBtn() {__webpack_require__.e(/*! require.ensure | components/t-publish-btn */ "components/t-publish-btn").then((function () {return resolve(__webpack_require__(/*! ../../components/t-publish-btn.vue */ 104));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { // props:{},
-  components: { tPublishBtn: tPublishBtn }, onShow: function onShow() {// uni.showLoading({
+//
+var tPublishBtn = function tPublishBtn() {__webpack_require__.e(/*! require.ensure | components/t-publish-btn */ "components/t-publish-btn").then((function () {return resolve(__webpack_require__(/*! ../../components/t-publish-btn.vue */ 112));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniLoadMore = function uniLoadMore() {__webpack_require__.e(/*! require.ensure | components/uni-load-more */ "components/uni-load-more").then((function () {return resolve(__webpack_require__(/*! ../../components/uni-load-more.vue */ 119));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { // props:{},
+  components: { tPublishBtn: tPublishBtn, uniLoadMore: uniLoadMore }, onShow: function onShow() {// uni.showLoading({
     //     title: '加载中'
     // });
     // setTimeout(function () {
     //     uni.hideLoading();
     // }, 1200);
-    console.log("home show");console.log(this.page);_cloudbase.default.getCloud('/learning').then(function (res) {console.log(res);});}, // onHide:function(){
+    console.log("home show");console.log(this.page);}, onReachBottom: function onReachBottom() {this.getNextPage();}, // onHide:function(){
   // 	// this.page = null
   // 	console.log("home hide")
   // 	console.log(this.page)
   // },
-  computed: { cardsLenght: function cardsLenght() {var cardsLenght = 1;switch (this.currentTab) {case 0:cardsLenght = this.cardDate0.length;break;case 1:cardsLenght = this.cardDate1.length;break;case 2:cardsLenght = this.cardDate2.length;break;default:cardsLenght = 1;}return cardsLenght;} }, mounted: function mounted() {this.setHeight(); // cloud1.getCloud('/sport')
-    // .then((res)=>{
-    // 	console.log(res)	
-    // })
-  }, data: function data() {return { page: 0, currentTab: 0, swiperHeight: 600, // scrollHeight:600,
-      tapList: [{ text: "学习" }, { text: "运动" }, { text: "玩乐" }], cardDate0: [{ title: "南图自习局互相监督Hello来来来", text: "胡言乱语胡言乱语" }, { title: "来个人救救孩子的高数111111111111", text: "胡言乱语L2-L1" }, { title: "高数期中考突击局", text: "胡言乱语" }, { title: "标题4", text: "胡言乱语" }, { title: "标题5", text: "胡言乱语" }, { title: "标题6", text: "胡言乱语" },
-      { title: "标题7", text: "胡言乱语" },
-      { title: "标题8", text: "胡言乱语" },
-      { title: "标题9", text: "胡言乱语" },
-      { title: "标题10", text: "胡言乱语" },
-      { title: "标题11", text: "胡言乱语" },
-      { title: "标题12", text: "胡言乱语" }],
+  computed: { cardsShow: function cardsShow() {var cardsShow = {};switch (this.currentTab) {case 0:cardsShow = this.cardData0;break;case 1:cardsShow = this.cardData1;break;case 2:cardsShow = this.cardData2;break;}return cardsShow;} }, mounted: function mounted() {var _this = this;_cloudbase.default.getCloud('/learning').then(function (res) {console.log(res);_this.cardData0.length = 0;_this.cardData0 = res.data;_this.setHeight();});_cloudbase.default.getCloud('/sport').then(function (res) {console.log(res);_this.cardData1 = res.data;_this.setHeight();});_cloudbase.default.getCloud('/amuse').then(function (res) {console.log(res);_this.cardData2 = res.data;_this.setHeight();});}, data: function data() {
+    return {
+      page: 0,
+      currentTab: 0,
+      swiperHeight: 600,
+      loadstatus: "loading",
+      tapList: [
+      { text: "学习" },
+      { text: "运动" },
+      { text: "玩乐" }],
 
-      cardDate1: [
-      { title: "南图自习局互相监督Hello来来来", text: "胡言乱语胡言乱语" },
-      { title: "来个人救救孩子的高数", text: "胡言乱语L2-L1" },
-      { title: "高数期中考突击局", text: "胡言乱语" },
-      { title: "标题4", text: "胡言乱语" },
-      { title: "标题5", text: "胡言乱语" },
-      { title: "标题6", text: "胡言乱语" },
-      { title: "标题7", text: "胡言乱语" },
-      { title: "标题8", text: "胡言乱语" },
-      { title: "标题9", text: "胡言乱语" }],
+      cardData0: [
+      {
+        created_at: "2021-05-26T15:47:23.033Z",
+        detail_id: "cbddf0af60ae6d740be1edd82846f7e4",
+        join_deadline: "2021-05-27T01:30:00.000Z",
+        joined_num: 5,
+        loca_text: "深圳大学",
+        person_num: 8,
+        res_endtime: "2021-06-03T02:30:00.000Z",
+        res_starttime: "2021-06-02T01:00:00.000Z",
+        title: "学习局2",
+        _id: "28ee4e3e60ae6d8d1ce32feb2f83f82f" }],
 
 
-      cardDate2: [
-      { title: "南图自习局互相监督Hello来来来", text: "胡言乱语胡言乱语" },
-      { title: "来个人救救孩子的高数", text: "胡言乱语L2-L1" },
-      { title: "高数期中考突击局", text: "胡言乱语" },
-      { title: "标题4", text: "胡言乱语" },
-      { title: "标题5", text: "胡言乱语" },
-      { title: "标题6", text: "胡言乱语" },
-      { title: "标题7", text: "胡言乱语" },
-      { title: "标题8", text: "胡言乱语" },
-      { title: "标题9", text: "胡言乱语" },
-      { title: "标题10", text: "胡言乱语" },
-      { title: "标题11", text: "胡言乱语" },
-      { title: "标题12", text: "胡言乱语" },
-      { title: "标题13", text: "胡言乱语" },
-      { title: "标题14", text: "胡言乱语" },
-      { title: "标题15", text: "胡言乱语" },
-      { title: "标题16", text: "胡言乱语" },
-      { title: "标题17", text: "胡言乱语" }] };
+      cardData1: [],
+
+      cardData2: [] };
 
 
   },
@@ -313,21 +300,22 @@ var tPublishBtn = function tPublishBtn() {__webpack_require__.e(/*! require.ensu
       console.log(e.target.current);
       this.currentTab = e.target.current;
       this.setHeight();
+      uni.pageScrollTo({
+        scrollTop: 0,
+        duration: 0 });
+
     },
     transition: function transition(e) {
       var dx = e.detail.dx;
       this.$refs.topTab.setDx(dx);
     },
-    onreachBottom: function onreachBottom() {
-      console.log("loading more...");
-    },
-    setHeight: function setHeight() {var _this = this;
+    setHeight: function setHeight() {var _this2 = this;
       var windowHeight = uni.getSystemInfoSync().windowHeight; //页面可见区域
       console.log("windowHeight = " + windowHeight);
       var query1 = uni.createSelectorQuery().in(this);
       query1.select('.card').boundingClientRect(function (rect) {
         if (rect) {
-          _this.swiperHeight = (rect.height + 8) * (_this.cardsLenght + 0.8);
+          _this2.swiperHeight = (rect.height + 8) * (_this2.cardsShow.length + 0.8);
           console.log("rect.height:" + rect.height);
           // console.log("swiperHeight1: "+this.swiperHeight)
         }
@@ -339,6 +327,37 @@ var tPublishBtn = function tPublishBtn() {__webpack_require__.e(/*! require.ensu
       // console.log("windowHeight = "+windowHeight)
       // let query = uni.createSelectorQuery();
 
+    },
+    getNextPage: function getNextPage() {var _this3 = this;
+      this.loadstatus = "loading";
+      var query = {
+        preCreateAt: this.cardsShow[this.cardsShow.length - 1].created_at };
+
+      console.log(query);
+      var path = '';
+      switch (this.currentTab) {
+        case 0:
+          path = '/learning/next';
+          break;
+        case 1:
+          path = '/sport/next';
+          break;
+        case 2:
+          path = '/amuse/next';
+          break;}
+
+      _cloudbase.default.getCloud(path, query).
+      then(function (res) {
+        console.log(res);
+        if (res.data.length == 0) {
+          _this3.loadstatus = "nomore";
+          return;
+        }
+        for (var i = 0; i < res.data.length; i++) {
+          _this3.cardsShow.push(res.data[i]);
+        }
+        _this3.setHeight();
+      });
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

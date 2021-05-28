@@ -7,7 +7,8 @@
     "pages/det-info/det-info",
     "pages/user-info/user-info",
     "pages/reserve_detail/reserve_detail",
-    "pages/profile/profile"
+    "pages/profile/profile",
+    "pages/release_res/release_res"
   ],
   "subPackages": [],
   "window": {

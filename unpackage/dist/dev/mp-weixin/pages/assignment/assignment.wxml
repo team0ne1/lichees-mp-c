@@ -1,1 +1,1 @@
-<view><t-topbar vue-id="3df778a0-1" tablist="{{tapList}}" currentTab="{{currentTab}}" bind:__l="__l"></t-topbar><t-tabbar vue-id="3df778a0-2" currentPage="{{page}}" bind:__l="__l"></t-tabbar></view>
+<view><text>ass</text><t-topbar vue-id="3df778a0-1" tablist="{{tapList}}" bind:__l="__l"></t-topbar><t-tabbar vue-id="3df778a0-2" currentPage="{{page}}" bind:__l="__l"></t-tabbar></view>
