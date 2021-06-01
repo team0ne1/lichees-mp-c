@@ -27,12 +27,12 @@
 			tIcon
 		},
 		mounted: function(){
-			var animation = uni.createAnimation({
-			    duration: 1000,
-			    timingFunction: 'ease-in-out',
-			})
-			this.animation = animation
-			this.animationData = animation.export()
+			// var animation = uni.createAnimation({
+			//     duration: 1000,
+			//     timingFunction: 'ease-in-out',
+			// })
+			// this.animation = animation
+			// this.animationData = animation.export()
 		},
 		
 		computed:{
@@ -46,20 +46,22 @@
 					{  
 						icon: '/static/tabbar/app.svg',  
 						iconAc: '/static/tabbar/appAc.svg',  
-						text: '局子', 
-						path:'/pages/home/home'
+						text: '主页', 
+						path:'/pages/home2/home2'
 						  
 					},  
-					{  
-						icon: '/static/tabbar/file-post.svg',  
-						iconAc: '/static/tabbar/file-postAc.svg', 
-						text: '委托',  
-						path:'/pages/assignment/assignment'
-					},
+					// {  
+					// 	icon: '/static/tabbar/file-post.svg',  
+					// 	iconAc: '/static/tabbar/file-postAc.svg', 
+					// 	text: '委托',  
+					// 	path:'/pages/assignment/assignment'
+					// },
 					  
-					{  
-						icon: '/static/tabbar/cone.svg',  
-						iconAc: '/static/tabbar/coneAc.svg', 
+					{ 
+						icon: '/static/tabbar/file-post.svg',
+						iconAc: '/static/tabbar/file-postAc.svg', 
+						// icon: '/static/tabbar/cone.svg',  
+						// iconAc: '/static/tabbar/coneAc.svg', 
 						text: '物业', 
 						path:'/pages/property/property'
 					},
@@ -103,7 +105,7 @@
 	// border-color: #007AFF;
 	// border-width: 5upx;
 	z-index: 1000;
-	background-color: rgba($color: #ffffff, $alpha: 0.5);
+	background-color: rgba($color: #ffffff, $alpha: 0.8);
 	backdrop-filter: blur(12px);
 	position:fixed;
 	right: 5%;

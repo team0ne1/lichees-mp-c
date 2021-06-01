@@ -1,15 +1,15 @@
 <template>
-	<view class="msb_dialog" v-if="dialogShow" :style="fullHeight">
-		<view class="dialog_1">
+	<view :class="{'msb_dialog':dialogShow}"  v-show="dialogShow" v-if="dialogShow" :style="fullHeight" @touchmove.stop.prevent="moveHandle">
+		<view class="dialog_1" >
 			<view class="dialog_title">
-				标题
+				{{dialogTitle}}
 			</view>
 			<view class="dialog_content">
-				内容区域
+				{{dialogContent}}
 			</view>
 			<view class="dialog_btn">
 				<button @click="btnCancel" class="btn btn1">取消</button>
-				<button @click="btnSubmit" class="btn btn2">确定</button>
+				<button @tap="getUserProfile" class="btn btn2">确定</button>
 			</view>
 		</view>
 	</view>
@@ -21,26 +21,53 @@
 		props:{
 			dialogShow:{
 				type:Boolean,
-				default:() =>{
-				}
+				default: false
 			},
 			dialogCancel:{
 				type:Boolean,
 				default:() =>{
 				}
+			},
+			dialogTitle:{
+				type:String,
+				default:"Title"
+			},
+			dialogContent:{
+				type:String,
+				default:"Content"
 			}
+			
 	   },
+
 	   data(){
 		   return{
-			   fullHeight:''
+			   fullHeight:'',
+			   msgShow:true,
+
 		   }
 	   },
 	   methods:{
 		   btnCancel(){
 			   this.$emit('changeCancel',false)
 		   },
-		   btnSubmit(){
+		   getUserProfile(e){
 			    this.$emit('changeconfirm',false)
+				this.msgShow = false
+				// wx.getUserProfile({
+				// 	// lang:'zh_CN',
+				// 	desc:'获取微信号',
+				// 	success:(res) => {
+				// 		console.log(res)
+				// 		this.userProfile = res.userInfo
+				// 	},
+				// 	fail:(err)=>{
+				// 		console.log(err)
+				// 	}
+				// })
+				
+		   },
+		   moveHandle(){
+			   return
 		   }
 	   },
 	   created() {
@@ -64,22 +91,49 @@
 		right: 0;
 		bottom: 0;
 		z-index: 9999;
-		background: rgba(0, 0, 0, 0.8);
+		background: rgba(112, 112, 112, 0.5);
+		// backdrop-filter: blur(15px);
+		@-webkit-keyframes changeblur /* Safari and Chrome */
+		{
+		  form{
+			backdrop-filter: blur(1px);
+		  }
+		  to{
+			backdrop-filter: blur(10px);
+		  }
+		}
+		animation: changeblur 400ms ease;
+		animation-fill-mode: forwards;
+
+		
 		.dialog_1{
-			margin: 30rpx;
-			border-radius: 20rpx;
-			background: #fff;
+			@-webkit-keyframes fadein /* Safari and Chrome */
+			{
+			  form{ background: rgba(255, 255, 255, 0.6)}
+			  to{ background: rgba(255, 255, 255, 1)}
+			}
+			animation: fadein 400ms;
+			animation-fill-mode: forwards;
+			margin-left: 10%;
+			margin-right: 10%;
+			border-radius:30rpx;
+			// background: #fff;
 			 position: relative;
 			 top: 50%; /*偏移*/
 			 transform: translateY(calc(-50% - 60rpx));
+			 
+			 // animation-fill-mode: forwards;
 			.dialog_title{
+				color: #004188;
 				font-size: 32rpx;
 				font-weight: 600;
-				padding-top: 20rpx;
+				padding-top: 40rpx;
 				text-align: center;
 			}
 			.dialog_content{
-				padding:30rpx;
+				padding:50rpx;
+				padding-bottom: 60upx;
+				color: #555555;
 			}
 			.dialog_btn{
 				display: flex;
@@ -102,5 +156,9 @@
 					}
 			}
 		}
+
 	}
+
+
+
 </style>

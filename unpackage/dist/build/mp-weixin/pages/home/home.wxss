@@ -1,1 +1,1 @@
-.home .content{z-index:-200}.home .cards{margin:15rpx 20rpx}swiper{width:100%;height:2000rpx}
+.home .content{z-index:-200;margin-top:150rpx}.home .cards{margin:15rpx 20rpx}.home .cards .card{margin-bottom:.5em}.home .cards .block{height:300rpx}

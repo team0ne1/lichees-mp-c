@@ -1,0 +1,115 @@
+@charset "UTF-8";
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+.mov-area-all {
+  width: 750rpx;
+  position: relative;
+  top: -66rpx;
+  box-sizing: border-box;
+}
+.mov-area-all .mov-view-list {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 750rpx;
+  height: 100%;
+  -webkit-transform: translateX(0rpx);
+          transform: translateX(0rpx);
+}
+.mov-area-all .mov-view-list .mov-area-con {
+  height: 100%;
+  position: absolute;
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+.mov-area-all .mov-view-list.one {
+  z-index: 1;
+}
+.mov-area-all .mov-view-list.one .mov-area-con {
+  width: 678rpx;
+  left: 36rpx;
+  top: 2rpx;
+}
+.mov-area-all .mov-view-list.one .mov-area-con.animate {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+.mov-area-all .mov-view-list.two {
+  z-index: 2;
+}
+.mov-area-all .mov-view-list.two .mov-area-con {
+  width: 686rpx;
+  left: 32rpx;
+  top: 10rpx;
+}
+.mov-area-all .mov-view-list.two .mov-area-con.animate {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+.mov-area-all .mov-view-list.three {
+  z-index: 3;
+}
+.mov-area-all .mov-view-list.three .mov-area-con {
+  width: 694rpx;
+  left: 28rpx;
+  top: 20rpx;
+}
+.mov-area-all .mov-view-list.three .mov-area-con.animate {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+.mov-area-all .mov-view-list.four {
+  z-index: 4;
+}
+.mov-area-all .mov-view-list.four .mov-area-con {
+  width: 702rpx;
+  left: 24rpx;
+  top: 30rpx;
+}
+.mov-area-all .mov-view-list.four .mov-area-con.animate {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+.mov-area-all .mov-view-list.left {
+  left: -750rpx;
+  z-index: 5;
+}
+.mov-area-all .mov-view-list.left .mov-area-con {
+  width: 702rpx;
+  left: 24rpx;
+  top: 30rpx;
+}
+.mov-area-all .mov-view-list.left .mov-area-con.animate {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+.mov-area-all .mov-view-list.animate {
+  z-index: 5;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+

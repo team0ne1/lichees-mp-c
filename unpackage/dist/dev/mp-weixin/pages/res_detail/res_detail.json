@@ -1,0 +1,10 @@
+{
+  "navigationStyle": "custom",
+  "navigationBarBackgroundColor": "#FFFFFF",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "t-navbar2": "/components/t-navbar2",
+    "t-dialog": "/components/t-dialog",
+    "t-action-sheet": "/components/t-action-sheet"
+  }
+}

@@ -1,5 +1,9 @@
 {
   "navigationBarTitleText": "物业",
-  "navigationBarBackgroundColor": "#FFFFFF",
-  "usingComponents": {}
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#51cbb3",
+  "usingComponents": {
+    "movable-swiper": "/components/movable-swiper/movable-swiper",
+    "t-card4": "/components/t-card4"
+  }
 }

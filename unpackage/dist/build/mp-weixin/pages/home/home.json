@@ -1,5 +1,9 @@
 {
-  "navigationBarTitleText": "Hi,HJQ",
-  "navigationBarBackgroundColor": "#FFFFFF",
-  "usingComponents": {}
+  "navigationStyle": "custom",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "uni-load-more": "/components/uni-load-more",
+    "t-publish-btn": "/components/t-publish-btn",
+    "t-navbar1": "/components/t-navbar1"
+  }
 }

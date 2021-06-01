@@ -6,26 +6,57 @@
   right: 0;
   bottom: 0;
   z-index: 9999;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(112, 112, 112, 0.5);
+  -webkit-animation: changeblur-data-v-13952f08 400ms ease;
+          animation: changeblur-data-v-13952f08 400ms ease;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+@-webkit-keyframes changeblur-data-v-13952f08 {
+  /* Safari and Chrome */
+form {
+    -webkit-backdrop-filter: blur(1px);
+            backdrop-filter: blur(1px);
+}
+to {
+    -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+}
 }
 .msb_dialog .dialog_1.data-v-13952f08 {
-  margin: 30rpx;
-  border-radius: 20rpx;
-  background: #fff;
+  -webkit-animation: fadein-data-v-13952f08 400ms;
+          animation: fadein-data-v-13952f08 400ms;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  margin-left: 10%;
+  margin-right: 10%;
+  border-radius: 30rpx;
   position: relative;
   top: 50%;
   /*偏移*/
   -webkit-transform: translateY(calc(-50% - 60rpx));
           transform: translateY(calc(-50% - 60rpx));
 }
+@-webkit-keyframes fadein-data-v-13952f08 {
+  /* Safari and Chrome */
+form {
+    background: rgba(255, 255, 255, 0.6);
+}
+to {
+    background: #ffffff;
+}
+}
 .msb_dialog .dialog_1 .dialog_title.data-v-13952f08 {
+  color: #004188;
   font-size: 32rpx;
   font-weight: 600;
-  padding-top: 20rpx;
+  padding-top: 40rpx;
   text-align: center;
 }
 .msb_dialog .dialog_1 .dialog_content.data-v-13952f08 {
-  padding: 30rpx;
+  padding: 50rpx;
+  padding-bottom: 60rpx;
+  color: #555555;
 }
 .msb_dialog .dialog_1 .dialog_btn.data-v-13952f08 {
   display: -webkit-box;

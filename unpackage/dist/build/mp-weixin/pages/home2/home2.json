@@ -1,0 +1,8 @@
+{
+  "navigationStyle": "custom",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "t-navbar3": "/components/t-navbar3",
+    "t-card-comingsoon": "/components/t-card-comingsoon"
+  }
+}

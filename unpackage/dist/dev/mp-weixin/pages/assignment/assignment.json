@@ -1,4 +1,6 @@
 {
   "navigationBarBackgroundColor": "#FFFFFF",
-  "usingComponents": {}
+  "usingComponents": {
+    "t-coming-soon": "/components/t-coming-soon"
+  }
 }

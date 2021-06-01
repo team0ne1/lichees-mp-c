@@ -128,17 +128,22 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
-//
-//
-//
-//
-//
-//
-var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var tComingSoon = function tComingSoon() {__webpack_require__.e(/*! require.ensure | components/t-coming-soon */ "components/t-coming-soon").then((function () {return resolve(__webpack_require__(/*! ../../components/t-coming-soon.vue */ 160));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
+
+
+
+
+
+
+
+
+
 {
+  components: {
+    tComingSoon: tComingSoon },
+
   onShow: function onShow() {
     // this.page = null
     // this.$nextTick(function(){
@@ -150,10 +155,11 @@ var _default =
   data: function data() {
     return {
       page: 1,
+      currentTab2: 0,
       tapList: [
-      { text: "tap1" },
-      { text: "tap2" },
-      { text: "tap3" }] };
+      { text: "咨询" },
+      { text: "带外卖" },
+      { text: "带饭" }] };
 
 
   },

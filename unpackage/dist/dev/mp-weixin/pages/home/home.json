@@ -1,8 +1,9 @@
 {
-  "navigationBarBackgroundColor": "#FFFFFF",
+  "navigationStyle": "custom",
   "enablePullDownRefresh": false,
   "usingComponents": {
+    "uni-load-more": "/components/uni-load-more",
     "t-publish-btn": "/components/t-publish-btn",
-    "uni-load-more": "/components/uni-load-more"
+    "t-navbar1": "/components/t-navbar1"
   }
 }

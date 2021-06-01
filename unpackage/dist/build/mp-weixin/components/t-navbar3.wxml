@@ -1,0 +1,1 @@
+<view class="nav-bar" style="{{('height:'+navBarHeight+'px;')}}"><view class="navTitle" style="{{('height:'+menuHeight+'px; min-height:'+menuHeight+'px; line-height:'+menuHeight+'px; left:'+menuRight+'px; bottom:'+menuBotton+'px;')}}">{{''+welcomeText+''}}</view></view>

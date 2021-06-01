@@ -1,1 +1,0 @@
-<view class="input"><view><input type="text" placeholder="City" data-event-opts="{{[['input',[['handleInput',['$event']]]]]}}" value="{{value}}" bindinput="__e"/></view><view><text>{{value}}</text></view></view>

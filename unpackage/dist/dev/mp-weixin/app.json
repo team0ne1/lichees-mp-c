@@ -1,14 +1,14 @@
 {
   "pages": [
+    "pages/home2/home2",
     "pages/home/home",
-    "pages/home/home_example",
     "pages/assignment/assignment",
     "pages/property/property",
-    "pages/det-info/det-info",
-    "pages/user-info/user-info",
-    "pages/reserve_detail/reserve_detail",
     "pages/profile/profile",
-    "pages/release_res/release_res"
+    "pages/release_res/release_res",
+    "pages/res_detail/res_detail",
+    "pages/userinformation/userinformation",
+    "pages/agreement/agreement"
   ],
   "subPackages": [],
   "window": {
@@ -22,10 +22,7 @@
     "backgroundColor": "#ffffff",
     "list": [
       {
-        "pagePath": "pages/home/home"
-      },
-      {
-        "pagePath": "pages/assignment/assignment"
+        "pagePath": "pages/home2/home2"
       },
       {
         "pagePath": "pages/property/property"
@@ -35,7 +32,21 @@
       }
     ]
   },
-  "permission": {},
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序定位"
+    }
+  },
+  "plugins": {
+    "chooseLocation": {
+      "version": "1.0.6",
+      "provider": "wx76a9a06e5b4e693e"
+    },
+    "routePlan": {
+      "version": "1.0.12",
+      "provider": "wx50b5593e81dd937a"
+    }
+  },
   "usingComponents": {
     "t-tabbar": "/components/t-tabbar",
     "t-topbar": "/components/t-topbar",

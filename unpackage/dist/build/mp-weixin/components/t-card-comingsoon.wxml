@@ -1,0 +1,1 @@
+<view data-event-opts="{{[['touchstart',[['e0',['$event']]]],['touchend',[['e1',['$event']]]]]}}" class="{{['cardView',(isPressed)?'press':'']}}" bindtouchstart="__e" bindtouchend="__e"><view class="comingSoonText">coming soon...</view></view>

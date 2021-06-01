@@ -1,0 +1,119 @@
+
+.home2{
+	background-color: #51cbb3;
+	overflow:hidden;
+}
+.home2 .home2Content{
+}
+.home2 .home2Content .home2Top{
+	min-height: 350rpx;
+	/* margin-top: 30upx; */
+	margin-bottom: 30rpx;
+}
+.home2 .home2Content .motivation {
+	margin: 20rpx;
+	padding: 33rpx;
+	background-color: #FFF;
+	border-radius: 40rpx;
+	font-size: 1.3em;
+	font-weight: 200;
+	text-align: center;
+	min-height: 230rpx;
+	max-height: 400rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	/* flex-direction: column; */
+	/* align-content:center; */
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	        align-items: center;
+	/* padding: 0 ; */
+}
+.home2 .home2Content .home2Bot{
+	margin-left: 1rpx;
+	margin-left: 1rpx;
+	
+	background-color: #fff;
+	border-radius: 50rpx 50rpx 0 0;
+	padding-top: 60rpx;
+	padding-left: 0;
+	padding-right: 0;
+	padding-bottom: 100rpx;
+}
+.home2Bot .titleL1 {
+	font-size: 1.5em;
+	font-weight: 400;
+	/* margin-top: 0.5em; */
+}
+.home2Bot .learnMore{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	margin-left: 7%;
+}
+.home2Bot .learnMore .titleL2 {
+	font-size: 1.12em;
+	font-weight: 500;
+	margin-top: 20rpx;
+	margin-bottom: 5rpx;
+	-webkit-box-flex: 1;
+	-webkit-flex-grow: 1;
+	        flex-grow: 1;
+}
+.home2Bot .searchBar{
+	height: 1.7em;
+	width: 70%;
+	background-color: #eeeeee;
+	padding: 10rpx;
+	border-radius: 20rpx;
+	-webkit-backdrop-filter: blur(15px);
+	        backdrop-filter: blur(15px);
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	        align-items: center;
+	text-align: center;
+	margin: auto;
+}
+.home2Bot .explore{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	margin-bottom: 30rpx;
+	margin-left: 7%;
+}
+.home2Bot .scroll-view-content{
+    white-space: nowrap;  /*1、scroll-view元素添加此行代码，意思是规定段落中的文本不进行换行
+ */
+	padding: 15rpx;
+	padding-top: 5rpx;
+	padding-left: 0;
+	margin-left: 0;
+	margin-bottom: 20rpx;
+}
+.home2Bot .scroll-view-content .scroll-view-item{
+	display: inline-block;  /*2、滚动区域里的每一个子元素设置为行内块元素
+ */
+	white-space: normal;
+/* 	width: 300rpx;
+	height: 80rpx; */
+	/* background-color: #ccc; */
+	width: 87%;
+	margin: 15rpx;
+	margin-right: 30rpx;
+}
+.home2Bot .scroll-view-item:first-child{
+  margin-left: 7%;
+}
+::-webkit-scrollbar {  
+    display: none;  
+    width: 0 !important;  
+    height: 0 !important;  
+    -webkit-appearance: none;  
+    background: transparent;
+}
+
+

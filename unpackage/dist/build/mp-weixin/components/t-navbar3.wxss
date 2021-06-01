@@ -1,0 +1,1 @@
+.nav-bar{z-index:1000;position:fixed;width:100%;top:0;color:#fff;background:#51cbb3}.nav-bar .navTitle{width:60%;color:#fff;font-size:1.4em;font-weight:700;position:absolute;padding-left:2px}

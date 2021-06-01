@@ -12,6 +12,7 @@
 	/* margin-bottom: 0.5em; */
 	padding:  30rpx 30rpx 15rpx 30rpx;
 	background-color: #FFFFFF;
+	box-shadow: 5rpx 5rpx 15rpx #e5e5e5;
 }
 .press{
 	background-color: #e8e8ee;

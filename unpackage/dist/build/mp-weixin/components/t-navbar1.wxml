@@ -1,0 +1,1 @@
+<view class="nav-bar" style="{{('height:'+navBarHeight+'px;')}}"><input class="search" style="{{('height:'+menuHeight+'px; min-height:'+menuHeight+'px; line-height:'+menuHeight+'px; left:'+menuRight+'px; bottom:'+menuBotton+'px;')}}" placeholder="输入关键词！"/></view>

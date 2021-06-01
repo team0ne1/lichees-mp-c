@@ -1,1 +1,1 @@
-<view><t-topbar vue-id="3df778a0-1" tablist="{{tapList}}" currentTab="{{currentTab}}" bind:__l="__l"></t-topbar><t-tabbar vue-id="3df778a0-2" currentPage="{{page}}" bind:__l="__l"></t-tabbar></view>
+<view><t-topbar vue-id="3df778a0-1" tablist="{{tapList}}" currentTab="{{currentTab2}}" bind:__l="__l"></t-topbar><t-tabbar vue-id="3df778a0-2" currentPage="{{page}}" bind:__l="__l"></t-tabbar><t-coming-soon style="margin-top:50%;" vue-id="3df778a0-3" bind:__l="__l"></t-coming-soon></view>

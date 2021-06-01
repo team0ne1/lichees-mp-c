@@ -1,5 +1,5 @@
 <template>
-	<view class="cardView" :animation="animationData" :class="{press:isPressed}"  @touchstart="touchstart" @click="navTo('/pages/reserve_detail/reserve_detail')" @touchend="touchend"  >
+	<view class="cardView" :animation="animationData" :class="{press:isPressed}"  @touchstart="touchstart" @click="cardClick" @touchend="touchend"  >
 <!-- 		<view class="cardImg">
 			
 		</view> -->
@@ -41,9 +41,8 @@
 				<view class="time" style="display: flex; width: 100%;">
 					<image src="../static/card/time.svg"     style="width: 0.8em; height: 0.8em;margin-top: 0.3em; margin-right: 0.2em;"></image>
 					<view class="timeText nowrap" style="width: 88%;">
-						{{new Date(cardData.res_starttime).toLocaleTimeString() + ' - ' 
-						+ new Date(cardData.res_endtime).toLocaleTimeString() + 
-						' (' + Math.floor((new Date(cardData.res_endtime).getTime() - new Date(cardData.res_starttime).getTime()) / (24*3600000)) + ')' }}
+						{{  ('0' + new Date(cardData.res_starttime).getHours()).slice(-2) + ':'+ ('0' + new Date(cardData.res_starttime).getMinutes()).slice(-2) +'-' +  ('0' +  new Date(cardData.res_endtime).getHours()).slice(-2) + ':' + ('0' +  new Date(cardData.res_endtime).getMinutes()).slice(-2)}} 
+						<!-- ' (' + Math.floor((new Date(cardData.res_endtime).getTime() - new Date(cardData.res_starttime).getTime()) / (24*3600000)) + ')' }} -->
 					</view>
 				</view>
 
@@ -154,6 +153,9 @@
 			this.animationData = animation.export()
 		},
 		methods:{
+			cardClick: function(){
+				this.$emit('cardClick')
+			},
 			joinIn: function(e){
 				console.log("press addIn")
 				
@@ -202,6 +204,7 @@
 	/* margin-bottom: 0.5em; */
 	padding:  30upx 30upx 15upx 30upx;
 	background-color: #FFFFFF;
+	box-shadow: 5upx 5upx 15upx #e5e5e5;
 }
 .press{
 	background-color: #e8e8ee;

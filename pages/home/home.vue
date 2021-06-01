@@ -1,18 +1,24 @@
 <template>
 	<view class="home" >
 		<!-- <text>home</text> -->
-		
+		<tNavbar1></tNavbar1>
+
 		<view>
-			<t-tabbar  :currentPage="page"></t-tabbar>
+			<t-tabbar :currentPage="page"></t-tabbar>
 		</view>
 		<view>
 			<t-publish-btn destUrl="/pages/release_res/release_res" ></t-publish-btn>
 		</view>
-		<view class="topTab">
+<!-- 		<view class="topTab">
 			<t-topbar   ref="topTab" :tablist="tapList" :currentTab="currentTab" @changeTab="changeTab" ></t-topbar>	
+		</view> -->
+		<view class="" style="height: 0.3em;">
+			1
 		</view>
-		
-		<view class="content">
+		<view class="content" :style="'margin-top:' + navBarHeight +'px;'">
+			<view style="font-size: 1.4em;font-weight: 500;margin-left: 4%;margin-top: 10upx; margin-bottom: 10upx;color: #000000;background-color: #FFF; border-radius: 20upx; display: inline-block;padding: 10upx 20upx;">
+				学习
+			</view>
 			<swiper @change="changeSwiper" @transition="transition" :current="currentTab" :style="'height: ' + swiperHeight +'px;'">
 			<!-- <swiper @change="changeSwiper" @transition="transition" :current="currentTab" style="height: 500px;"> -->
 
@@ -21,7 +27,7 @@
 					<view class="cards" >
 						<!-- <scroll-view scroll-y="true" :scroll-anchoring="true" :style="'height: ' + scrollHeight +'px;'"> -->
 							<view v-for="(item,index) in cardData0" :key="index" class="card">
-								<t-card2 :cardData="item" ></t-card2>
+								<t-card2 :cardData="item" @cardClick="cardClick(item)"></t-card2>
 							</view>
 							<!-- <view class="block"></view> -->
 						<!-- </scroll-view> -->
@@ -59,13 +65,15 @@
 
 <script>
 	import cloud1 from '../../helper/cloudbase.js'
+	import tNavbar1 from '../../components/t-navbar1.vue'
 	import tPublishBtn from '../../components/t-publish-btn.vue'
 	import uniLoadMore from"../../components/uni-load-more.vue"
 	export default {
 		// props:{},
 		components:{
 			tPublishBtn,
-			uniLoadMore
+			uniLoadMore,
+			tNavbar1
 		},
 		onShow:function(){
 			// uni.showLoading({
@@ -75,7 +83,26 @@
 			//     uni.hideLoading();
 			// }, 1200);
 			console.log("home show")
-			console.log(this.page)
+
+			cloud1.getCloud('/learning')
+			.then((res)=>{
+				console.log(res)	
+				this.cardData0.length = 0
+				this.cardData0 = res.data
+				this.setHeight();
+			})
+			cloud1.getCloud('/sport')
+			.then((res)=>{
+				console.log(res)	
+				this.cardData1 = res.data
+				this.setHeight();
+			})
+			cloud1.getCloud('/amuse')
+			.then((res)=>{
+				console.log(res)	
+				this.cardData2 = res.data
+				this.setHeight();
+			})
 
 		},
 		onReachBottom:function(){
@@ -106,31 +133,31 @@
 		},
 		mounted() {
 			
-			cloud1.getCloud('/learning')
-			.then((res)=>{
-				console.log(res)	
-				this.cardData0.length = 0
-				this.cardData0 = res.data
-				this.setHeight();
-			})
-			cloud1.getCloud('/sport')
-			.then((res)=>{
-				console.log(res)	
-				this.cardData1 = res.data
-				this.setHeight();
-			})
-			cloud1.getCloud('/amuse')
-			.then((res)=>{
-				console.log(res)	
-				this.cardData2 = res.data
-				this.setHeight();
-			})
+			// cloud1.getCloud('/learning')
+			// .then((res)=>{
+			// 	console.log(res)	
+			// 	this.cardData0.length = 0
+			// 	this.cardData0 = res.data
+			// 	this.setHeight();
+			// })
+			// cloud1.getCloud('/sport')
+			// .then((res)=>{
+			// 	console.log(res)	
+			// 	this.cardData1 = res.data
+			// 	this.setHeight();
+			// })
+			// cloud1.getCloud('/amuse')
+			// .then((res)=>{
+			// 	console.log(res)	
+			// 	this.cardData2 = res.data
+			// 	this.setHeight();
+			// })
 
-			
 
 		},
 		data() {
 			return {
+				navBarHeight: getApp().globalData.navBarHeight,
 				page:0,
 				currentTab:0,
 				swiperHeight:600,
@@ -141,18 +168,18 @@
 					{text:"玩乐"},
 				],
 				cardData0:[
-					{
-						created_at: "2021-05-26T15:47:23.033Z",
-						detail_id: "cbddf0af60ae6d740be1edd82846f7e4",
-						join_deadline: "2021-05-27T01:30:00.000Z",
-						joined_num: 5,
-						loca_text: "深圳大学",
-						person_num: 8,
-						res_endtime: "2021-06-03T02:30:00.000Z",
-						res_starttime: "2021-06-02T01:00:00.000Z",
-						title: "学习局2",
-						_id: "28ee4e3e60ae6d8d1ce32feb2f83f82f"
-					},
+					// {
+					// 	created_at: "2021-05-26T15:47:23.033Z",
+					// 	detail_id: "cbddf0af60ae6d740be1edd82846f7e4",
+					// 	join_deadline: "2021-05-27T01:30:00.000Z",
+					// 	joined_num: 5,
+					// 	loca_text: "深圳大学",
+					// 	person_num: 8,
+					// 	res_endtime: "2021-06-03T02:30:00.000Z",
+					// 	res_starttime: "2021-06-02T01:00:00.000Z",
+					// 	title: "学习局2",
+					// 	_id: "28ee4e3e60ae6d8d1ce32feb2f83f82f"
+					// },
 				],
 				cardData1:[
 				],
@@ -173,10 +200,10 @@
 				    duration: 0
 				});
 			},
-			transition:function(e){
-				let dx = e.detail.dx;
-				this.$refs.topTab.setDx(dx);
-			},
+			// transition:function(e){
+			// 	let dx = e.detail.dx;
+			// 	this.$refs.topTab.setDx(dx);
+			// },
 			setHeight: function() {
 				let windowHeight = uni.getSystemInfoSync().windowHeight;//页面可见区域
 				console.log("windowHeight = "+windowHeight)
@@ -226,6 +253,15 @@
 					}
 					this.setHeight();	
 				})
+			},
+			cardClick: function(resData){
+				uni.setStorageSync('res_data', resData);
+				console.log('/pages/res_detail/res_detail?detid='+ resData.detail_id)  
+				const detid = JSON.stringify(resData.detail_id);
+				uni.navigateTo({
+					url:'/pages/res_detail/res_detail?detid='+ detid +'&restype=' + 'learning'
+				})
+				
 			}
 
 		}

@@ -1,0 +1,140 @@
+
+.cardView{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	        flex-direction: column;
+
+	/* height: 200upx; */
+	/* margin-bottom: 0.5em; */
+	padding:  30rpx 30rpx 15rpx 30rpx;
+	background-color: #FFFFFF;
+}
+.press{
+	background-color: #e8e8ee;
+}
+.cardView .cardTop .mainInfo .cardTitle{
+	font-size: 1.15em;
+	margin-bottom: 8rpx;
+	width: 90%;
+	
+	/* height: 1.3em; */
+}
+.cardView .cardTop {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-align-self:center;
+	        align-self:center;
+}
+.cardView .cardTop  .colorBar{
+	background-color: #007AFF;
+
+	margin-top: 16rpx;
+	margin-bottom: 10rpx;
+	width: 10rpx;
+	border-radius: 6rpx;
+	margin-right: 18rpx;
+}
+.cardView .cardTop .startDate{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	        flex-direction: row;
+	/* justify-content: space-between; */
+	/* margin-top: 20upx; */
+	margin-right: 10rpx;
+	/* align-content:center; */
+	-webkit-align-self:center;
+	        align-self:center
+}
+.cardView .cardTop .startDate text{
+	font-weight: 1.5rpx;
+}
+.cardView .cardTop .mainInfo{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	        flex-direction: column;
+
+	width: 80%;
+	max-width: 80%;
+	/* height: 3em; */
+}
+/* .cardView .cardTop .mainInfo .cardText{
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	height: 1em;
+	width: 100%;
+
+} */
+.cardView .cardTop .mainInfo .location{
+	margin-bottom: 8rpx;
+}
+.cardView .cardTop .mainInfo .location .locationText,
+.timeText{
+	color: #9B9B9F; 
+	font-size: 0.9em;
+}
+.cardView .cardBottom{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	margin-bottom: 10rpx;
+	/* margin-right:8%; */
+	/* flex-direction: row-reverse; */
+	/* justify-content:flex-end; */
+}
+.cardView .cardBottom .memberNum{
+	/* background-color: #d9d9df; */
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	/* height: 50upx; */
+	/* width: 150upx; */
+}
+.cardView .cardBottom .memberNum .joinNum{
+	padding: 5rpx 10rpx;
+	color: #1b97f5;
+	border-radius: 15rpx;
+	border:1rpx solid #1b97f5;
+}
+.cardView .cardBottom .memberNum .tolNum{
+	padding: 5rpx 8rpx;
+	border-radius: 0 15rpx 15rpx 0;
+	color: white;
+	
+	/* background-color: #1b97f5; */
+	/* border:1rpx solid #1b97f5; */
+}
+.cardView .ddlTime{
+	color: #838383; 
+	font-size: 0.9em;
+	margin-right: auto; 
+	-webkit-align-self: center; 
+	        align-self: center;
+}
+.nowrap{
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+.divider{
+	width: 100%;
+	border-bottom: 1rpx solid #BFBEC3; 
+	margin-top: 20rpx; 
+	margin-bottom: 15rpx;
+}
+
+

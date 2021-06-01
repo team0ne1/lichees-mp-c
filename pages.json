@@ -1,20 +1,24 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
+			"path" : "pages/home2/home2",
+			"style" :                                                                                    
+			{
+				"navigationStyle": "custom",
+				"enablePullDownRefresh": false
+			}
+			
+		},
+		{
+			
 			"path": "pages/home/home",
 			"style": {
 				// "navigationBarTitleText": "Hi,HJQ",
-				"navigationBarBackgroundColor": "#FFFFFF",
+				"navigationStyle": "custom",
 				"enablePullDownRefresh": false
 			}
 		},
-		{
-			"path": "pages/home/home_example",
-			"style": {
-				// "navigationBarTitleText": "Hi,HJQ",
-				"navigationBarBackgroundColor": "#FFFFFF"
-			}
-		},
+		
 		{
 			"path": "pages/assignment/assignment",
 			"style": {
@@ -26,40 +30,16 @@
 			"path": "pages/property/property",
 			"style": {
 				"navigationBarTitleText": "物业",
-				"navigationBarBackgroundColor": "#FFFFFF"
+				"navigationBarTextStyle": "#FFF",
+				"navigationBarBackgroundColor": "#51cbb3"
 			}
 		},
-		{
-			"path": "pages/det-info/det-info",
-			"style": {
-				"navigationBarTitleText": "det-info",
-				"navigationBarBackgroundColor": "#FFFFFF"
-			}
-		},
-		{
-			"path": "pages/user-info/user-info",
-			"style": {
-				"navigationBarTitleText": "User info",
-				"navigationBarBackgroundColor": "#FFFFFF"
-			}
-		}
-		
-        ,{
-            "path" : "pages/reserve_detail/reserve_detail",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "",
-				"navigationBarBackgroundColor": "#FFFFFF",
-                "enablePullDownRefresh": true
-            }
-            
-        }
-        ,{
+        {
             "path" : "pages/profile/profile",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "个人",
-				"navigationBarBackgroundColor": "#FFFFFF",
+				"navigationStyle": "custom",
+                "navigationBarTextStyle": "#000000",
                 "enablePullDownRefresh": false
             }
             
@@ -74,6 +54,38 @@
             }
             
         }
+        ,{
+            "path" : "pages/res_detail/res_detail",
+            "style" :                                                                                    
+            {
+                "navigationStyle": "custom",
+				"navigationBarBackgroundColor": "#FFFFFF",
+				
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/userinformation/userinformation",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+				"navigationBarBackgroundColor": "#FFFFFF",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/agreement/agreement",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+				"navigationBarBackgroundColor": "#FFFFFF",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+
     ],
 	"globalStyle": {
 		
@@ -87,10 +99,7 @@
 		"backgroundColor": "#ffffff",
 		"list": [
 			{
-				"pagePath": "pages/home/home"	
-			},
-			{
-				"pagePath": "pages/assignment/assignment"	
+				"pagePath": "pages/home2/home2"	
 			},
 			{
 				"pagePath": "pages/property/property"	
