@@ -154,6 +154,8 @@ var _default =
     show: function show(val) {
       if (val) {
         this.showModal();
+      } else {
+        this.close();
       }
     } },
 
@@ -183,7 +185,7 @@ var _default =
       that.fadeDown(); //调用隐藏动画   
       setTimeout(function () {
         that.hideModal = false;
-        that.$emit('close', !that.show);
+        that.$emit('close', false);
       }, 500); //先执行下滑动画，再隐藏模块
 
     },

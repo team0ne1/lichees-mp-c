@@ -89,7 +89,11 @@ var render = function() {
   var g3 = ("0" + new Date(_vm.cardData.res_starttime).getMinutes()).slice(-2)
   var g4 = ("0" + new Date(_vm.cardData.res_endtime).getHours()).slice(-2)
   var g5 = ("0" + new Date(_vm.cardData.res_endtime).getMinutes()).slice(-2)
-  var g6 = new Date(_vm.cardData.join_deadline).toLocaleDateString()
+  var g6 = new Date(_vm.cardData.join_deadline).getFullYear()
+  var g7 = ("0" + (new Date(_vm.cardData.join_deadline).getMonth() + 1)).slice(
+    -2
+  )
+  var g8 = ("0" + new Date(_vm.cardData.join_deadline).getDate()).slice(-2)
   _vm.$mp.data = Object.assign(
     {},
     {
@@ -100,7 +104,9 @@ var render = function() {
         g3: g3,
         g4: g4,
         g5: g5,
-        g6: g6
+        g6: g6,
+        g7: g7,
+        g8: g8
       }
     }
   )

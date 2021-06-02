@@ -17,16 +17,16 @@
 		</view>
 		<view class="content" :style="'margin-top:' + navBarHeight +'px;'">
 			<view style="font-size: 1.4em;font-weight: 500;margin-left: 4%;margin-top: 10upx; margin-bottom: 10upx;color: #000000;background-color: #FFF; border-radius: 20upx; display: inline-block;padding: 10upx 20upx;">
-				学习
+				{{currentTabTitle[currentTab]}}
 			</view>
-			<swiper @change="changeSwiper" @transition="transition" :current="currentTab" :style="'height: ' + swiperHeight +'px;'">
+			<swiper @change="changeSwiper"  :current="currentTab" :style="'height: ' + swiperHeight +'px;'">
 			<!-- <swiper @change="changeSwiper" @transition="transition" :current="currentTab" style="height: 500px;"> -->
 
 				<swiper-item>
 					
 					<view class="cards" >
 						<!-- <scroll-view scroll-y="true" :scroll-anchoring="true" :style="'height: ' + scrollHeight +'px;'"> -->
-							<view v-for="(item,index) in cardData0" :key="index" class="card">
+							<view v-for="(item,index) in cardDatas[0]" :key="index" class="card">
 								<t-card2 :cardData="item" @cardClick="cardClick(item)"></t-card2>
 							</view>
 							<!-- <view class="block"></view> -->
@@ -36,7 +36,7 @@
 				</swiper-item>
 				<swiper-item>
 					<view class="cards">
-						<view v-for="(item,index) in cardData1" :key="index" class="card">
+						<view v-for="(item,index) in cardDatas[1]" :key="index" class="card">
 							<t-card2 :cardData="item" ></t-card2>
 						</view>
 						
@@ -46,7 +46,7 @@
 				</swiper-item>
 				<swiper-item>
 					<view class="cards">
-						<view v-for="(item,index) in cardData2" :key="index" class="card">
+						<view v-for="(item,index) in cardDatas[2]" :key="index" class="card">
 							<t-card2 :cardData="item" ></t-card2>
 						</view>
 						<!-- <view class="block"></view> -->
@@ -75,6 +75,15 @@
 			uniLoadMore,
 			tNavbar1
 		},
+		onLoad:function(query){
+			console.log(query.tabIndex)
+				
+			if(query.tabIndex !== ''){
+				this.navToTab = query.tabIndex*1				
+			}
+			console.log('navTab' + this.navToTab)
+
+		},
 		onShow:function(){
 			// uni.showLoading({
 			//     title: '加载中'
@@ -82,28 +91,72 @@
 			// setTimeout(function () {
 			//     uni.hideLoading();
 			// }, 1200);
+			let that = this
 			console.log("home show")
+			// cloud1.getCloud('/learning')
+			// .then((res)=>{
+			// 	console.log(res)	
+			// 	this.cardData0.length = 0
+			// 	this.cardData0 = res.data
+			// 	this.setHeight();
+			// 	that.changeTab(that.navToTab)
+			// })
+			// cloud1.getCloud('/sport')
+			// .then((res)=>{
+			// 	console.log(res)	
+			// 	this.cardData1 = res.data
+			// 	this.setHeight();
+			// 	that.changeTab(that.navToTab)
+			// })
+			// cloud1.getCloud('/amuse')
+			// .then((res)=>{
+			// 	console.log(res)	
+			// 	this.cardData2 = res.data
+			// 	this.setHeight();
+			// 	that.changeTab(that.navToTab)
+			// })
+			
+			const promiseCloud1 = cloud1.getCloud('/learning')
+				// cloud1.getCloud('/learning')
+			const promiseCloud2 = cloud1.getCloud('/sport')
+			const promiseCloud3 = cloud1.getCloud('/amuse')
+			// const promiseCloud2 = new Promise((resolve, reject) => {
+			// 	cloud1.getCloud('/amuse')
+			// 	.then((res)=>{
+			// 		resolve(res.date)
+			// 	})
 
-			cloud1.getCloud('/learning')
-			.then((res)=>{
-				console.log(res)	
-				this.cardData0.length = 0
-				this.cardData0 = res.data
-				this.setHeight();
-			})
-			cloud1.getCloud('/sport')
-			.then((res)=>{
-				console.log(res)	
-				this.cardData1 = res.data
-				this.setHeight();
-			})
-			cloud1.getCloud('/amuse')
-			.then((res)=>{
-				console.log(res)	
-				this.cardData2 = res.data
-				this.setHeight();
-			})
+			// });
+			// const promiseCloud3 = new Promise((resolve, reject) => {
+			// 	cloud1.getCloud('/learning')
+			// 	.then((res)=>{
+			// 		resolve(res.date)
+			// 	})
 
+			// });
+			
+			Promise.all([promiseCloud1,promiseCloud2,promiseCloud3])
+			.then((results)=>{
+				console.log(results)
+				that.cardData0 = results[0].data
+				that.cardData1 = results[1].data
+				that.cardData2 = results[2].data
+				this.cardDatas = [results[0].data,results[1].data,results[2].data]
+				that.setHeight();
+
+					setTimeout(function(){	
+						that.changeTab(that.navToTab)
+						that.cardsShow = that.cardDatas[that.navToTab]
+					},500)
+				
+				
+			})
+			
+			
+			
+
+			
+			
 		},
 		onReachBottom:function(){
 			this.getNextPage()
@@ -114,52 +167,43 @@
 		// 	console.log("home hide")
 		// 	console.log(this.page)
 		// },
-		computed:{
-			cardsShow(){
-				let cardsShow = {}
-				switch(this.currentTab){
-				  case 0:
-					cardsShow = this.cardData0
-				    break;
-				  case 1:
-					cardsShow = this.cardData1
-					break;
-				  case 2:
-				    cardsShow = this.cardData2
-				    break;
-				}
-				return cardsShow
-			}
-		},
+		// computed:{
+		// 	cardsShow(){
+		// 		// let cardsShow = {}
+		// 		switch(this.currentTab){
+		// 		  case 0:
+		// 			this.cardsShow = this.cardData0
+		// 		    break;
+		// 		  case 1:
+		// 			this.cardsShow = this.cardData1
+		// 			break;
+		// 		  case 2:
+		// 		    this.cardsShow = this.cardData2
+		// 		    break;
+		// 		}
+		// 		return this.cardsShow
+		// 	}
+		// },
+		// watch:{
+		// 	cardData0: function(val,oldval){
+		// 		this.setHeight()
+		// 	},
+		// 	cardData1: function(val,oldval){
+		// 		this.setHeight()
+		// 	},
+		// 	cardData2: function(val,oldval){
+		// 		this.setHeight()
+		// 	}
+		// },
 		mounted() {
 			
-			// cloud1.getCloud('/learning')
-			// .then((res)=>{
-			// 	console.log(res)	
-			// 	this.cardData0.length = 0
-			// 	this.cardData0 = res.data
-			// 	this.setHeight();
-			// })
-			// cloud1.getCloud('/sport')
-			// .then((res)=>{
-			// 	console.log(res)	
-			// 	this.cardData1 = res.data
-			// 	this.setHeight();
-			// })
-			// cloud1.getCloud('/amuse')
-			// .then((res)=>{
-			// 	console.log(res)	
-			// 	this.cardData2 = res.data
-			// 	this.setHeight();
-			// })
-
-
 		},
 		data() {
 			return {
 				navBarHeight: getApp().globalData.navBarHeight,
 				page:0,
 				currentTab:0,
+				navToTab:0,
 				swiperHeight:600,
 				loadstatus:"loading",
 				tapList:[
@@ -167,6 +211,8 @@
 					{text:"运动"},
 					{text:"玩乐"},
 				],
+				currentTabTitle:['学习','运动','玩乐'],
+				cardsShow:{},
 				cardData0:[
 					// {
 					// 	created_at: "2021-05-26T15:47:23.033Z",
@@ -184,16 +230,20 @@
 				cardData1:[
 				],
 				cardData2:[
-				]
+				],
+				cardDatas:[]
 			}
 		},
 		methods: {
 			changeTab:function(tabIndex){
+				// this.cardsShow = this.cardDatas[tabIndex]
 				this.currentTab = tabIndex;
+				
 			},
 			changeSwiper: function(e){
 				console.log(e.target.current)
 				this.currentTab = e.target.current
+				this.cardsShow = this.cardDatas[e.target.current]
 				this.setHeight();
 				uni.pageScrollTo({
 				    scrollTop: 0,
@@ -215,7 +265,6 @@
 						// console.log("swiperHeight1: "+this.swiperHeight)
 					}
 				}).exec();
-
 				// this.swiperHeight = windowHeight - 20
 				// this.scrollHeight = this.swiperHeight
 					// windowHeight = windowHeight - 10;//页面可见区域 - 在线购物条高度					
@@ -224,9 +273,11 @@
 							
 			},
 			getNextPage: function(){
+				console.log(this.cardsShow)
 				this.loadstatus = "loading"
 				let query = {
-					preCreateAt: this.cardsShow[this.cardsShow.length-1].created_at
+					// preCreateAt: this.cardsShow[this.cardsShow.length-1].created_at,
+					preCreateAt: this.cardDatas[this.currentTab][this.cardsShow.length-1].created_at
 				}
 				console.log(query)
 				let path = ''
@@ -249,9 +300,15 @@
 						return
 					}
 					for(let i=0;i<res.data.length;i++){
-						this.cardsShow.push(res.data[i])							
+						this.cardDatas[this.currentTab].push(res.data[i])							
 					}
 					this.setHeight();	
+					// console.log(this.cardData0)
+					// console.log(this.cardData1)
+					// console.log(this.cardData2)
+					console.log(this.cardDatas)
+					
+					
 				})
 			},
 			cardClick: function(resData){
@@ -263,7 +320,6 @@
 				})
 				
 			}
-
 		}
 	}
 </script>
@@ -284,5 +340,4 @@
 .home .cards .block{
 	height: 300upx;
 }
-
 </style>

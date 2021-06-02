@@ -285,43 +285,89 @@ var _cloudbase = _interopRequireDefault(__webpack_require__(/*! ../../helper/clo
 //
 //
 var tNavbar1 = function tNavbar1() {__webpack_require__.e(/*! require.ensure | components/t-navbar1 */ "components/t-navbar1").then((function () {return resolve(__webpack_require__(/*! ../../components/t-navbar1.vue */ 139));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var tPublishBtn = function tPublishBtn() {__webpack_require__.e(/*! require.ensure | components/t-publish-btn */ "components/t-publish-btn").then((function () {return resolve(__webpack_require__(/*! ../../components/t-publish-btn.vue */ 146));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniLoadMore = function uniLoadMore() {__webpack_require__.e(/*! require.ensure | components/uni-load-more */ "components/uni-load-more").then((function () {return resolve(__webpack_require__(/*! ../../components/uni-load-more.vue */ 153));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { // props:{},
-  components: { tPublishBtn: tPublishBtn, uniLoadMore: uniLoadMore, tNavbar1: tNavbar1 }, onShow: function onShow() {var _this = this; // uni.showLoading({
+  components: { tPublishBtn: tPublishBtn, uniLoadMore: uniLoadMore, tNavbar1: tNavbar1 }, onLoad: function onLoad(query) {console.log(query.tabIndex);if (query.tabIndex !== '') {this.navToTab = query.tabIndex * 1;}console.log('navTab' + this.navToTab);}, onShow: function onShow() {var _this = this; // uni.showLoading({
     //     title: '加载中'
     // });
     // setTimeout(function () {
     //     uni.hideLoading();
     // }, 1200);
-    console.log("home show");_cloudbase.default.getCloud('/learning').then(function (res) {console.log(res);_this.cardData0.length = 0;_this.cardData0 = res.data;_this.setHeight();});_cloudbase.default.getCloud('/sport').then(function (res) {console.log(res);_this.cardData1 = res.data;_this.setHeight();});_cloudbase.default.getCloud('/amuse').then(function (res) {console.log(res);_this.cardData2 = res.data;_this.setHeight();});}, onReachBottom: function onReachBottom() {this.getNextPage();}, // onHide:function(){
-  // 	// this.page = null
-  // 	console.log("home hide")
-  // 	console.log(this.page)
-  // },
-  computed: { cardsShow: function cardsShow() {var cardsShow = {};switch (this.currentTab) {case 0:cardsShow = this.cardData0;break;case 1:cardsShow = this.cardData1;break;case 2:cardsShow = this.cardData2;break;}return cardsShow;} }, mounted: function mounted() {// cloud1.getCloud('/learning')
+    var that = this;console.log("home show"); // cloud1.getCloud('/learning')
     // .then((res)=>{
     // 	console.log(res)	
     // 	this.cardData0.length = 0
     // 	this.cardData0 = res.data
     // 	this.setHeight();
+    // 	that.changeTab(that.navToTab)
     // })
     // cloud1.getCloud('/sport')
     // .then((res)=>{
     // 	console.log(res)	
     // 	this.cardData1 = res.data
     // 	this.setHeight();
+    // 	that.changeTab(that.navToTab)
     // })
     // cloud1.getCloud('/amuse')
     // .then((res)=>{
     // 	console.log(res)	
     // 	this.cardData2 = res.data
     // 	this.setHeight();
+    // 	that.changeTab(that.navToTab)
     // })
-  }, data: function data() {return { navBarHeight: getApp().globalData.navBarHeight, page: 0, currentTab: 0, swiperHeight: 600,
+    var promiseCloud1 = _cloudbase.default.getCloud('/learning'); // cloud1.getCloud('/learning')
+    var promiseCloud2 = _cloudbase.default.getCloud('/sport');var promiseCloud3 = _cloudbase.default.getCloud('/amuse'); // const promiseCloud2 = new Promise((resolve, reject) => {
+    // 	cloud1.getCloud('/amuse')
+    // 	.then((res)=>{
+    // 		resolve(res.date)
+    // 	})
+    // });
+    // const promiseCloud3 = new Promise((resolve, reject) => {
+    // 	cloud1.getCloud('/learning')
+    // 	.then((res)=>{
+    // 		resolve(res.date)
+    // 	})
+    // });
+    Promise.all([promiseCloud1, promiseCloud2, promiseCloud3]).then(function (results) {console.log(results);that.cardData0 = results[0].data;that.cardData1 = results[1].data;that.cardData2 = results[2].data;_this.cardDatas = [results[0].data, results[1].data, results[2].data];that.setHeight();setTimeout(function () {that.changeTab(that.navToTab);that.cardsShow = that.cardDatas[that.navToTab];}, 500);});}, onReachBottom: function onReachBottom() {this.getNextPage();}, // onHide:function(){
+  // 	// this.page = null
+  // 	console.log("home hide")
+  // 	console.log(this.page)
+  // },
+  // computed:{
+  // 	cardsShow(){
+  // 		// let cardsShow = {}
+  // 		switch(this.currentTab){
+  // 		  case 0:
+  // 			this.cardsShow = this.cardData0
+  // 		    break;
+  // 		  case 1:
+  // 			this.cardsShow = this.cardData1
+  // 			break;
+  // 		  case 2:
+  // 		    this.cardsShow = this.cardData2
+  // 		    break;
+  // 		}
+  // 		return this.cardsShow
+  // 	}
+  // },
+  // watch:{
+  // 	cardData0: function(val,oldval){
+  // 		this.setHeight()
+  // 	},
+  // 	cardData1: function(val,oldval){
+  // 		this.setHeight()
+  // 	},
+  // 	cardData2: function(val,oldval){
+  // 		this.setHeight()
+  // 	}
+  // },
+  mounted: function mounted() {}, data: function data() {return { navBarHeight: getApp().globalData.navBarHeight, page: 0, currentTab: 0, navToTab: 0, swiperHeight: 600,
       loadstatus: "loading",
       tapList: [
       { text: "学习" },
       { text: "运动" },
       { text: "玩乐" }],
 
+      currentTabTitle: ['学习', '运动', '玩乐'],
+      cardsShow: {},
       cardData0: [
         // {
         // 	created_at: "2021-05-26T15:47:23.033Z",
@@ -338,17 +384,21 @@ var tNavbar1 = function tNavbar1() {__webpack_require__.e(/*! require.ensure | c
       ],
       cardData1: [],
 
-      cardData2: [] };
+      cardData2: [],
 
+      cardDatas: [] };
 
   },
   methods: {
     changeTab: function changeTab(tabIndex) {
+      // this.cardsShow = this.cardDatas[tabIndex]
       this.currentTab = tabIndex;
+
     },
     changeSwiper: function changeSwiper(e) {
       console.log(e.target.current);
       this.currentTab = e.target.current;
+      this.cardsShow = this.cardDatas[e.target.current];
       this.setHeight();
       uni.pageScrollTo({
         scrollTop: 0,
@@ -370,7 +420,6 @@ var tNavbar1 = function tNavbar1() {__webpack_require__.e(/*! require.ensure | c
           // console.log("swiperHeight1: "+this.swiperHeight)
         }
       }).exec();
-
       // this.swiperHeight = windowHeight - 20
       // this.scrollHeight = this.swiperHeight
       // windowHeight = windowHeight - 10;//页面可见区域 - 在线购物条高度					
@@ -379,9 +428,11 @@ var tNavbar1 = function tNavbar1() {__webpack_require__.e(/*! require.ensure | c
 
     },
     getNextPage: function getNextPage() {var _this3 = this;
+      console.log(this.cardsShow);
       this.loadstatus = "loading";
       var query = {
-        preCreateAt: this.cardsShow[this.cardsShow.length - 1].created_at };
+        // preCreateAt: this.cardsShow[this.cardsShow.length-1].created_at,
+        preCreateAt: this.cardDatas[this.currentTab][this.cardsShow.length - 1].created_at };
 
       console.log(query);
       var path = '';
@@ -404,9 +455,15 @@ var tNavbar1 = function tNavbar1() {__webpack_require__.e(/*! require.ensure | c
           return;
         }
         for (var i = 0; i < res.data.length; i++) {
-          _this3.cardsShow.push(res.data[i]);
+          _this3.cardDatas[_this3.currentTab].push(res.data[i]);
         }
         _this3.setHeight();
+        // console.log(this.cardData0)
+        // console.log(this.cardData1)
+        // console.log(this.cardData2)
+        console.log(_this3.cardDatas);
+
+
       });
     },
     cardClick: function cardClick(resData) {

@@ -3,7 +3,7 @@
 		
 		<t-tabbar  :currentPage="page"></t-tabbar>
 		
-		<t-navbar3 :welcomeText="welcomeText"></t-navbar3>
+		<t-navbar3 :welcomeText="welcomeText + userNickName"></t-navbar3>
 		<text style="color:#FFFFFF;">别再拉啦</text>
 		<view class="home2Content" :style="'margin-top:' + navBarHeight +'px;'">
 			<view class="home2Top">
@@ -41,7 +41,7 @@
 				<scroll-view class="scroll-view-content" scroll-x="true">
 
 				    <view v-for="(item,index) in cardData0" :key="index" class="scroll-view-item">
-						<t-card2 :cardData="item" @cardClick="cardClick(item)"></t-card2>					
+						<t-card2 :cardData="item" @cardClick="cardClick(item, 'learning')"></t-card2>					
 				    </view>
 				</scroll-view>
 				<view class="learnMore" @click="learnMore1">
@@ -56,7 +56,7 @@
 				<scroll-view class="scroll-view-content" scroll-x="true">
 
 				    <view v-for="(item,index) in cardData1" :key="index" class="scroll-view-item">
-						<t-card2 :cardData="item" @cardClick="cardClick(item)"></t-card2>					
+						<t-card2 :cardData="item" @cardClick="cardClick(item,'sport')"></t-card2>					
 				    </view>
 				</scroll-view>
 				<view class="learnMore" @click="learnMore2">
@@ -71,7 +71,7 @@
 				<scroll-view class="scroll-view-content" scroll-x="true">
 				
 				    <view v-for="(item,index) in cardData2" :key="index" class="scroll-view-item">
-						<t-card2 :cardData="item" @cardClick="cardClick(item)"></t-card2>					
+						<t-card2 :cardData="item" @cardClick="cardClick(item, 'amuse' )"></t-card2>					
 				    </view>
 				</scroll-view>
 				<view class="learnMore" @click="learnMore2">
@@ -104,15 +104,7 @@
 			tNavbar3,
 			tCardComingsoon
 		},
-		onShow:function(){
-			// uni.showLoading({
-			//     title: '加载中'
-			// });
-			// setTimeout(function () {
-			//     uni.hideLoading();
-			// }, 1200);
-			console.log("home2 show")
-		
+		mounted:function(){
 			cloud1.getCloud('/learning')
 			.then((res)=>{
 				console.log(res)	
@@ -124,21 +116,55 @@
 			.then((res)=>{
 				console.log(res)	
 				this.cardData1 = res.data
+				this.loading = false
 
 			})
 			cloud1.getCloud('/amuse')
 			.then((res)=>{
 				console.log(res)	
 				this.cardData2 = res.data
-	
+				this.loading = false
 			})
+			
+			let that = this
+			setTimeout(function(){
+				try{
+					let userInfo = uni.getStorageSync('userInfo')
+					console.log('userInfo')
+					console.log(userInfo)
+					if(userInfo){
+						that.userInfo = userInfo
+						that.userNickName = userInfo.nickName
+					}
+				}catch(e){
+					//TODO handle the exception
+					console.log(e)
+				}
+			},3000)
+
+			
+		},
+		onShow:function(){
+			// uni.showLoading({
+			//     title: '加载中'
+			// });
+			// setTimeout(function () {
+			//     uni.hideLoading();
+			// }, 1200);
+			console.log("home2 show")
+			this.welcomeText = this.greeting()
+
 		
 		},
 		data() {
 			return {
 				navBarHeight: getApp().globalData.navBarHeight,
+				userInfo:'',
+				userNickName:'',
+				loading:true,
 				page:0,
-				welcomeText:'早上好'+ ' ' +'HJQ',
+				welcomeText:'Hello',
+				
 				likeStatu:false,
 				cardData0:[
 					{
@@ -206,30 +232,45 @@
 		methods: {
 			learnMore0: function(){
 				uni.navigateTo({
-					url:'/pages/home/home?res_type=learning'
+					url:'/pages/home/home?tabIndex=0'
 				})
 			},
 			learnMore1: function(){
 				uni.navigateTo({
-					url:'/pages/home/home?res_type=sport'
+					url:'/pages/home/home?tabIndex=1'
 				})
 			},
 			learnMore2: function(){
 				uni.navigateTo({
-					url:'/pages/home/home?res_type=amuse'
+					url:'/pages/home/home?tabIndex=2'
 				})
 			},
-			cardClick: function(resData){
+			cardClick: function(resData,restype){
 				uni.setStorageSync('res_data', resData);
 				console.log('/pages/res_detail/res_detail?detid='+ resData.detail_id)  
 				const detid = JSON.stringify(resData.detail_id);
+				
 				uni.navigateTo({
-					url:'/pages/res_detail/res_detail?detid='+ detid +'&restype=' + 'learning'
+					url:'/pages/res_detail/res_detail?detid='+ detid +'&restype=' + restype
 				})
 				
 			},
 			likeChange: function(){
 				this.likeStatu =!this.likeStatu
+			},
+			greeting: function(){
+				let hourNow = new Date().getHours()
+				console.log(hourNow)
+				if(hourNow < 6){return "早呀！"}
+				else if (hourNow < 9){return "早上好";}
+				else if (hourNow < 12){return "上午好！";}
+				else if (hourNow < 14){return "中午好";}
+				else if (hourNow < 15){return "下午好";}
+				else if (hourNow < 16){return "饮茶先啦";}
+				else if (hourNow < 17){return "下午好";}
+				else if (hourNow < 19){return "傍晚好";}
+				else if (hourNow < 22){return "晚上好！";}
+				else {return "晚安。";}
 			}
 		}
 	}

@@ -27,19 +27,13 @@
       "list": []
     },
     "miniprogram": {
-      "current": 1,
+      "current": 0,
       "list": [
         {
           "name": "发布页",
           "query": "",
           "id": 0,
           "pathName": "/pages/release_res/release_res"
-        },
-        {
-          "id": 1,
-          "name": "pages/res_detail/res_detail",
-          "pathName": "pages/res_detail/res_detail",
-          "query": ""
         }
       ]
     }

@@ -518,7 +518,8 @@ var chooseLocation = requirePlugin('chooseLocation');var _default = { name: 'rel
     if (location) {page.$vm.chooseLocation(location);}}, computed: {}, methods: { resTitleInput: function resTitleInput(e) {this.resTitle = e.detail.value;}, changeResType: function changeResType(e) {console.log(e.detail.value);}, resPersonNumInput: function resPersonNumInput(e) {this.resPersonNumArrIndex = e.target.value;this.resPersonNum = this.resPersonNumArr[this.resPersonNumArrIndex]; // console.log(this.resPersonNum)
     }, resLocaDetInput: function resLocaDetInput(e) {this.resLocaDet = e.detail.value;}, resRemarkInput: function resRemarkInput(e) {this.resRemark = e.detail.value;}, realNameInput: function realNameInput(e) {this.userProfile.realName = e.detail.value;}, phoneNumInput: function phoneNumInput(e) {this.userProfile.phoneNum = e.detail.value;}, wxidInput: function wxidInput(e) {this.userProfile.wxid = e.detail.value;}, getResDate: function getResDate(e) {console.log(e.target.value);this.resDateText = e.target.value;}, getresSTime: function getresSTime(e) {this.resSTimeText = e.target.value;console.log(e.target.value);}, getresETime: function getresETime(e) {this.resETimeText = e.target.value;console.log(e.target.value);}, getJoinDeadLine: function getJoinDeadLine(e) {this.joinDeadLineText = e.target.value;console.log(e.target.value);}, chooseLoca: function chooseLoca() {var key = 'L6WBZ-SLZRO-RPOWQ-S4VCD-XB2MJ-4CB2O'; //使用在腾讯位置服务申请的key
       var referer = 'lichees-mp'; //调用插件的app的名称
-      var location = JSON.stringify({ latitude: 22.532742, longitude: 113.936699 });var category = '生活服务,娱乐休闲';wx.navigateTo({ url: "plugin://chooseLocation/index?key=".concat(key, "&referer=").concat(referer, "&location=").concat(location, "&category=").concat(category) });}, saveRes: function saveRes() {console.log(this.resLocaName);}, sendPost: function sendPost() {var postData = { "openid": this.ownerOpenid, detail: { "loca_geo": this.resLoca, "loca_text": this.resLocaName + this.resLocaDet, "owner": { "openid": this.ownerOpenid, "name": this.userProfile.realName, "nickName": this.userProfile.realName, "phone_number": this.userProfile.phoneNum, "wxid": this.userProfile.wxid, "avatar": 'cloud://cloud1-0gcmjje1d9bf828c.636c-cloud1-0gcmjje1d9bf828c-1305469619/avatar/avatar.jpg' }, "members": [], "person_num": this.resPersonNum, "remarks": this.resRemark }, brief: { "title": this.resTitle, "loca_text": this.resLocaName + ' ' + this.resLocaDet, "res_starttime": this.resSTime.toISOString(), "res_endtime": this.resETime.toISOString(), "person_num": this.resPersonNum, "joined_num": 1, "join_deadline": this.joinDeadLine.toISOString() } };try {var userInfo = uni.getStorageSync('userInfo');if (userInfo) {postData.detail.owner.avatar = userInfo.avatarUrl;postData.detail.owner.nickName = userInfo.nickName;}console.log(postData);this.postNewData(this.resTypeRange[this.resTypeValue].apiPath, postData).then(function (res) {console.log(res);if (res.data.code === '501') {uni.showToast({ title: '发布成功', duration: 2000, position: 'bottom', icon: 'none' });setTimeout(function () {uni.navigateTo({ url: '/pages/home/home' });}, 2000);} else {uni.showToast({ title: '发布失败', duration: 2000, position: 'bottom',
+      var location = JSON.stringify({ latitude: 22.532742, longitude: 113.936699 });var category = '生活服务,娱乐休闲';wx.navigateTo({ url: "plugin://chooseLocation/index?key=".concat(key, "&referer=").concat(referer, "&location=").concat(location, "&category=").concat(category) });}, saveRes: function saveRes() {console.log(this.resLocaName);}, sendPost: function sendPost() {var postData = { "openid": this.ownerOpenid, detail: { "loca_geo": this.resLoca, "loca_text": this.resLocaName + this.resLocaDet, "owner": { "openid": this.ownerOpenid, "name": this.userProfile.realName, "nickName": this.userProfile.realName, "phone_number": this.userProfile.phoneNum, "wxid": this.userProfile.wxid, "avatar": 'cloud://cloud1-0gcmjje1d9bf828c.636c-cloud1-0gcmjje1d9bf828c-1305469619/avatar/avatar.jpg' }, "members": [], "person_num": this.resPersonNum, "remarks": this.resRemark }, brief: { "title": this.resTitle, "loca_text": this.resLocaName + ' ' + this.resLocaDet, "res_starttime": this.resSTime.toISOString(), "res_endtime": this.resETime.toISOString(), "person_num": this.resPersonNum, "joined_num": 1, "join_deadline": this.joinDeadLine.toISOString() } };try {var userInfo = uni.getStorageSync('userInfo');if (userInfo) {postData.detail.owner.avatar = userInfo.avatarUrl;postData.detail.owner.nickName = userInfo.nickName;}console.log(postData);this.postNewData(this.resTypeRange[this.resTypeValue].apiPath, postData).then(function (res) {console.log(res);if (res.data.code === '501') {uni.showToast({ title: '发布成功', duration: 2000, position: 'bottom', icon: 'none' });setTimeout(function () {uni.uni.redirectTo({ url: '/pages/home/home?tabIndex=' + this.resTypeValue, success: function success(res) {}, fail: function fail() {}, complete: function complete() {} });}, 2000);} else {uni.showToast({ title: '发布失败', duration: 2000,
+              position: 'bottom',
               icon: 'none' });
 
           }
@@ -526,35 +527,13 @@ var chooseLocation = requirePlugin('chooseLocation');var _default = { name: 'rel
       } catch (e) {
         console.log(e);
         console.log(postData);
-        this.postNewData(this.resTypeRange[this.resTypeValue].apiPath, postData).
-        then(function (res) {
-          console.log(res);
-          if (res.data.code === '501') {
-            uni.showToast({
-              title: '发布成功',
-              duration: 2000,
-              position: 'bottom',
-              icon: 'none' });
-
-            setTimeout(function () {
-
-              uni.navigateTo({
-                url: '/pages/home/home' });
-
-            }, 2000);
+        uni.showToast({
+          title: '发布失败',
+          duration: 2000,
+          position: 'bottom',
+          icon: 'none' });
 
 
-
-          } else
-          {
-            uni.showToast({
-              title: '发布失败',
-              duration: 2000,
-              position: 'bottom',
-              icon: 'none' });
-
-          }
-        });
       }
 
 
@@ -743,7 +722,7 @@ var chooseLocation = requirePlugin('chooseLocation');var _default = { name: 'rel
           _this.ownerUserInfo = res.rawData;
           uni.setStorage({
             key: 'userInfo',
-            data: res.rawData,
+            data: res.userInfo,
             success: function success() {
               console.log('success saved userinfo');
               var openid = uni.getStorageSync('openid');

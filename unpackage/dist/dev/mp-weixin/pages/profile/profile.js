@@ -270,6 +270,7 @@ var _cloudbase = _interopRequireDefault(__webpack_require__(/*! ../../helper/clo
 
   onShow: function onShow() {
     var userInfo = uni.getStorageSync('userInfo');
+    console.log(userInfo);
     if (userInfo) {
       this.hadLogin = true;
       console.log('userInfo existed');
@@ -352,7 +353,9 @@ var _cloudbase = _interopRequireDefault(__webpack_require__(/*! ../../helper/clo
       try {
 
         var userInfo = uni.getStorageSync('userInfo');
+        console.log('userInfo' + typeof userInfo + ' ' + userInfo);
         if (userInfo) {
+
           uni.hideLoading();
           that.hadLogin = true;
           console.log('userInfo existed');
@@ -425,7 +428,7 @@ var _cloudbase = _interopRequireDefault(__webpack_require__(/*! ../../helper/clo
 
           uni.setStorage({
             key: 'userInfo',
-            data: res.rawData,
+            data: res.userInfo,
             success: function success() {
               console.log('success saved userinfo');
               var openid = uni.getStorageSync('openid');

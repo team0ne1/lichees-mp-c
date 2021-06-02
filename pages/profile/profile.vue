@@ -115,6 +115,7 @@
 		},
 		onShow: function() {
 			const userInfo = uni.getStorageSync('userInfo');
+			console.log(userInfo)
 			if(userInfo){
 				this.hadLogin = true
 				console.log('userInfo existed')
@@ -196,8 +197,10 @@
 				})
 				try {
 
-					const userInfo = uni.getStorageSync('userInfo');
+					const userInfo = uni.getStorageSync('userInfo') ;
+					console.log('userInfo'+typeof(userInfo)+' '+ userInfo)
 					if(userInfo){
+						
 						uni.hideLoading()
 						that.hadLogin = true
 						console.log('userInfo existed')
@@ -270,7 +273,7 @@
 						
 						uni.setStorage({
 						    key: 'userInfo',
-						    data: res.rawData,
+						    data: res.userInfo,
 						    success: function () {
 						        console.log('success saved userinfo');
 								const openid = uni.getStorageSync('openid');

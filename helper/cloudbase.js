@@ -10,7 +10,7 @@ const initCloud = async () => {
 	await cloud1.init()	
 }
 
-const baseURL = '/container-mp-server-v6/api'
+const baseURL = '/container-mp-server-v7/api'
 
 const getCloud =  (path,query) => {
 	let queryStr = '?'

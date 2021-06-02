@@ -323,6 +323,47 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 var _cloudbase = _interopRequireDefault(__webpack_require__(/*! ../../helper/cloudbase.js */ 11));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _createForOfIteratorHelper(o, allowArrayLike) {var it;if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) {if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") {if (it) o = it;var i = 0;var F = function F() {};return { s: F, n: function n() {if (i >= o.length) return { done: true };return { done: false, value: o[i++] };}, e: function e(_e) {throw _e;}, f: F };}throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}var normalCompletion = true,didErr = false,err;return { s: function s() {it = o[Symbol.iterator]();}, n: function n() {var step = it.next();normalCompletion = step.done;return step;}, e: function e(_e2) {didErr = true;err = _e2;}, f: function f() {try {if (!normalCompletion && it.return != null) it.return();} finally {if (didErr) throw err;}} };}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(o);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}var tNavbar2 = function tNavbar2() {__webpack_require__.e(/*! require.ensure | components/t-navbar2 */ "components/t-navbar2").then((function () {return resolve(__webpack_require__(/*! ../../components/t-navbar2.vue */ 215));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var tDialog = function tDialog() {__webpack_require__.e(/*! require.ensure | components/t-dialog */ "components/t-dialog").then((function () {return resolve(__webpack_require__(/*! ../../components/t-dialog.vue */ 195));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var tActionSheet = function tActionSheet() {__webpack_require__.e(/*! require.ensure | components/t-action-sheet */ "components/t-action-sheet").then((function () {return resolve(__webpack_require__(/*! ../../components/t-action-sheet.vue */ 222));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
 
 
@@ -345,6 +386,18 @@ var plugin = requirePlugin('routePlan');var _default =
 
     this.reqPath = '/' + options.restype + '/detail/' + options.detid.replace(/\"/g, "");
     this.putMemberPath = '/' + options.restype + '/detail/' + options.detid.replace(/\"/g, "") + '/members';
+    switch (options.restype) {
+      case 'learning':
+        this.navTitle = '学习局';
+        break;
+      case 'sport':
+        this.navTitle = '运动局';
+        break;
+      case 'amuse':
+        this.navTitle = '娱乐局';
+        break;
+      default:
+        this.navTitle = '局子';}
 
 
   },
@@ -362,10 +415,10 @@ var plugin = requirePlugin('routePlan');var _default =
     this.res_starttime = resBriefData.res_starttime;
     this.res_endtime = resBriefData.res_endtime;
 
-
+    this.loading = false;
     var userOpenid = uni.getStorageSync('openid');
     if (userOpenid) {
-      console.log('openid' + userOpenid);
+      console.log('openid ' + userOpenid);
       this.userOpenid = userOpenid;
       //check if in the group
 
@@ -387,28 +440,27 @@ var plugin = requirePlugin('routePlan');var _default =
 
       if (_this.userOpenid == resDetailData.owner.openid) {
         _this.hadNotJoinIn = false;
-      }var _iterator = _createForOfIteratorHelper(
+      }
 
 
-      resDetailData.members),_step;try {for (_iterator.s(); !(_step = _iterator.n()).done;) {var item = _step.value;
-          console.log(item);
-          if (item.openid == _this.userOpenid) {
-            console.log('had join in');
-            _this.hadNotJoinIn = false;
-          }
-        }} catch (err) {_iterator.e(err);} finally {_iterator.f();}
+      // for (const item of resDetailData.members) {
+      // 	console.log(item)
+      // 	if(item.openid == this.userOpenid){
+      // 		console.log('had join in')
+      // 		this.hadNotJoinIn = false
+      // 	}
+      // }
 
     }).
     catch(function (err) {
       console.log(err);
     });
 
-
-
     var userInfo = uni.getStorageSync('userInfo');
+    console.log('userInfo' + typeof userInfo + userInfo);
+    console.log(userInfo);
     if (userInfo) {
       this.hadLogin = true;
-
       this.userAvatar = userInfo.avatarUrl;
       this.userNickName = userInfo.nickName;
     }
@@ -431,21 +483,24 @@ var plugin = requirePlugin('routePlan');var _default =
 
 
   watch: {
-    resMembers: function resMembers(val, oldVal) {var _iterator2 = _createForOfIteratorHelper(
+    resMembers: function resMembers(val, oldVal) {var _iterator = _createForOfIteratorHelper(
 
-      val),_step2;try {for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {var item = _step2.value;
+      val),_step;try {for (_iterator.s(); !(_step = _iterator.n()).done;) {var item = _step.value;
           console.log(item);
           if (item.openid == this.userOpenid) {
-            console.log('had join in');
+            console.log('had join in members');
             this.hadNotJoinIn = false;
           }
-        }} catch (err) {_iterator2.e(err);} finally {_iterator2.f();}
+        }} catch (err) {_iterator.e(err);} finally {_iterator.f();}
     } },
 
   data: function data() {
     return {
       navBarHeight: getApp().globalData.navBarHeight,
+      loading: true,
+      navTitle: '学习局',
       press: false,
+      dialogShow: false,
       reqPath: '',
       putMemberPath: '',
       // resDetailData:{},
@@ -475,20 +530,22 @@ var plugin = requirePlugin('routePlan');var _default =
       userPhoneNum: '',
       userName: '',
       setASheetBottom: 0,
-      setASheetPadBot: 0,
-      FtimeStamp: 0,
-      BtimeStamp: 0,
-      FBtimeStamp: 0 };
-
-
+      setASheetPadBot: 0
+      // FtimeStamp:0,
+      // BtimeStamp:0,
+      // FBtimeStamp:0
+    };
 
   },
   methods: {
+    removeMe: function removeMe() {
+
+    },
     phoneNumInput: function phoneNumInput(e) {
       this.userPhoneNum = e.detail.value;
     },
     confirmJoin: function confirmJoin() {
-
+      var that = this;
       console.log(this.userPhoneNum);
       var errMsgCheck = this.checkPhoneNum(this.userPhoneNum);
       if (errMsgCheck == '') {
@@ -506,11 +563,21 @@ var plugin = requirePlugin('routePlan');var _default =
         // uni.hideLoading();
         return;
       }
+      console.log(this.userAvatar);
+      if (this.userAvatar == undefined || this.userNickName == undefined) {
+        this.dialogShow = true;
+        return;
+      }
+
+      that.actionSheetShow = false;
+      uni.showLoading({
+        title: '正在入局' });
+
       var putData = {
         push: [
         {
           avatar: this.userAvatar,
-          name: this.userName,
+          // name:this.userName,
           nickName: this.userNickName,
           openid: this.userOpenid,
           phone_number: this.userPhoneNum }] };
@@ -522,9 +589,23 @@ var plugin = requirePlugin('routePlan');var _default =
       _cloudbase.default.putCloud(this.putMemberPath, putData).
       then(function (res) {
         console.log(res.data);
+        if (res.data.updated == 1) {
+          uni.hideLoading();
+          uni.showToast({
+            title: '加入成功',
+            duration: 1300,
+            position: 'bottom',
+            icon: 'none' });
+
+
+        }
+      }).
+      catch(function (err) {
+        console.log(err);
+
       });
 
-      var that = this;
+
       setTimeout(function () {
         _cloudbase.default.getCloud(that.reqPath).
         then(function (res) {
@@ -578,7 +659,11 @@ var plugin = requirePlugin('routePlan');var _default =
 
     // 	this.FBtimeStamp = e.timeStamp
     // },
-    confirmLogin: function confirmLogin() {
+    cancelLogin: function cancelLogin() {
+      this.dialogShow = false;
+    },
+    confirmLogin: function confirmLogin() {var _this2 = this;
+      var that = this;
       this.dialogShow = false;
       wx.getUserProfile({
         // lang:'zh_CN',
@@ -587,11 +672,16 @@ var plugin = requirePlugin('routePlan');var _default =
           console.log(res);
           // console.log(res.userInfo.avatarUrl)
           // this.ownerUserInfo = res.rawData
+          uni.showLoading({
+            title: '登陆中' });
+
           uni.setStorage({
             key: 'userInfo',
-            data: res.rawData,
+            data: res.userInfo,
             success: function success() {
-              this.hadLogin = true;
+              that.hadLogin = true;
+              that.userAvatar = res.userInfo.avatarUrl;
+              that.userNickName = res.userInfo.nickName;
               console.log('success saved userinfo');
               var openid = uni.getStorageSync('openid');
               if (openid) {
@@ -601,6 +691,7 @@ var plugin = requirePlugin('routePlan');var _default =
                 then(function (res) {
                   console.log(res.data);
                   console.log('登陆成功，请再次点击加入');
+                  uni.hideLoading();
                   uni.showToast({
                     title: '登陆成功，请再次点击加入',
                     duration: 2000,
@@ -611,11 +702,13 @@ var plugin = requirePlugin('routePlan');var _default =
 
               }
 
+
             } });
 
         },
         fail: function fail(err) {
           console.log(err);
+          _this2.hadLogin = false;
 
         } });
 
@@ -627,9 +720,14 @@ var plugin = requirePlugin('routePlan');var _default =
       console.log('joinin');
       // cloud1.put()
       if (!this.hadLogin) {
-        this.dialogShow = true;
+        console.log('had not login');
+        return this.dialogShow = true;
+
+      } else
+      {
+        this.actionSheetShow = true;
       }
-      this.actionSheetShow = true;
+
       // let putData = {
       // 	push:[
       // 			{

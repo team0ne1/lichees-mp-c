@@ -56,7 +56,7 @@
 		<view class="cardBottom ">
 
 			<view class="ddlTime">
-				{{new Date(cardData.join_deadline).toLocaleDateString()}}截止
+				{{new Date(cardData.join_deadline).getFullYear()  + '.' +   ('0' +(new Date(cardData.join_deadline).getMonth() + 1)).slice(-2)   + '.' + ('0' + new Date(cardData.join_deadline).getDate()).slice(-2)+' '}}截止
 			</view>
 			<view  style="width: 10%;align-self:center;margin-right: 5upx;">
 				<progress :percent="(cardData.joined_num/cardData.person_num)*100" active activeColor="#1B97F5" border-radius="2"  stroke-width="4"/>
@@ -310,6 +310,10 @@
 	font-size: 0.9em;
 	margin-right: auto; 
 	align-self: center;
+}
+
+.cardView .startDateMon, .startDateDay, .startDateWeek{
+	color: #303030;
 }
 
 .nowrap{

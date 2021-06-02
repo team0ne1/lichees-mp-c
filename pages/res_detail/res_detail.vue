@@ -1,6 +1,6 @@
 <template>
 	<view class="resDet">
-		<t-navbar2 :navTitle="'学习局'"></t-navbar2>
+		<t-navbar2 :navTitle="navTitle"></t-navbar2>
 		<text style="color:#FFFFFF;">别再拉啦</text>
 		<view class="resDetContent" :style="'margin-top:' + navBarHeight +'px;'">
 			<view class="resDetTop">
@@ -13,43 +13,98 @@
 					</view>					
 				<!-- </view> -->
 				<view class="resDetInfo">
-					<scroll-view 
+<!-- 					<scroll-view 
 						 class="scroll-view_H" 
 						 scroll-x="true" 
-						 :scroll-with-animation="true" 
-						  scroll-left="0">
+						  >
 							<view  class="scroll-view-item" >
-							   <view class="scrollCard card1" @click="useMap">
-									<view class="">
-										{{loca_text}}
+								
+									<view class="scrollCard card1" @click="useMap">
+										<view class="">
+											{{loca_text}}
+										</view>
+										
 									</view>
-									
-							   </view>
-							   <!-- <view class="title_level1">地点{{resBriefData.loca_text}}</view> -->
-							   <view class="title_level2">集合地点</view>
+
+									<view class="title_level2">集合地点</view>									
+
+
 							</view>
 							<view  class="scroll-view-item" >
-							   <view class="scrollCard card2" style="">
-								   {{resStartTime.getFullYear() + '/' +  ('0' +(resStartTime.getMonth() + 1)).slice(-2) + '/' + ('0' + resStartTime.getDate()).slice(-2) + ' ' + ('0' + resStartTime.getHours()).slice(-2) + ':' + ('0' + resStartTime.getMinutes()).slice(-2)}}
-							   </view>
-							   <!-- <view class="title_level1">开始时间{{resBriefData.res_starttime}}</view> -->
-							   <view class="title_level2">开始时间</view>
+							
+									<view class="scrollCard card2" style="">
+																	   {{resStartTime.getFullYear() + '/' +  ('0' +(resStartTime.getMonth() + 1)).slice(-2) + '/' + ('0' + resStartTime.getDate()).slice(-2) + ' ' + ('0' + resStartTime.getHours()).slice(-2) + ':' + ('0' + resStartTime.getMinutes()).slice(-2)}}
+									</view>
+			
+									<view class="title_level2">开始时间</view>
+							
+
 							</view>
 							<view  class="scroll-view-item" >
-							   <view class="scrollCard card3" >
-								   {{resEndTime.getFullYear()  + '/' +   ('0' +(resEndTime.getMonth() + 1)).slice(-2)   + '/' + ('0' + resEndTime.getDate()).slice(-2) + ' ' + ('0' + resEndTime.getHours()).slice(-2) + ':' + ('0' + resEndTime.getMinutes()).slice(-2)}}
-							   </view>
-							   <!-- <view class="title_level1">结束时间{{resBriefData.res_endtime}}</view> -->
-							   <view class="title_level2">结束时间 </view>
+							
+									<view class="scrollCard card3" >
+									{{resEndTime.getFullYear()  + '/' +   ('0' +(resEndTime.getMonth() + 1)).slice(-2)   + '/' + ('0' + resEndTime.getDate()).slice(-2) + ' ' + ('0' + resEndTime.getHours()).slice(-2) + ':' + ('0' + resEndTime.getMinutes()).slice(-2)}}
+									</view>
+		
+									<view class="title_level2">结束时间 </view>									
+							
+
 							</view>
-							<view  class="scroll-view-item" >
-							   <view class="scrollCard card4" >
-								   {{person_num}}
-							   </view>
-							   <!-- <view class="title_level1">人数上限{{resBriefData.person_num}}</view> -->
-							   <view class="title_level2">人数上限</view>
+							<view  class="scroll-view-item"  style="margin-right: 25upx;">
+
+									<view class="scrollCard card4" >
+									   {{person_num}}
+									</view>
+		
+									<view class="title_level2">人数上限</view>									
+				
 							</view>
-					</scroll-view>					
+					</scroll-view> -->
+					<scroll-view class="scroll-view-content" scroll-x="true">
+					
+							<view  class="scroll-view-item2" >
+								
+									<view class="scrollCard card1" @click="useMap">
+										<view class="">
+											{{loca_text}}
+										</view>
+										
+									</view>
+									<!-- <view class="title_level1">地点{{resBriefData.loca_text}}</view> -->
+									<view class="title_level2">集合地点</view>									
+								
+
+							</view>
+							<view  class="scroll-view-item2" >
+							
+									<view class="scrollCard card2" style="">
+																	   {{resStartTime.getFullYear() + '/' +  ('0' +(resStartTime.getMonth() + 1)).slice(-2) + '/' + ('0' + resStartTime.getDate()).slice(-2) + ' ' + ('0' + resStartTime.getHours()).slice(-2) + ':' + ('0' + resStartTime.getMinutes()).slice(-2)}}
+									</view>
+									<!-- <view class="title_level1">开始时间{{resBriefData.res_starttime}}</view> -->
+									<view class="title_level2">开始时间</view>
+							
+
+							</view>
+							<view  class="scroll-view-item2" >
+							
+									<view class="scrollCard card3" >
+									{{resEndTime.getFullYear()  + '/' +   ('0' +(resEndTime.getMonth() + 1)).slice(-2)   + '/' + ('0' + resEndTime.getDate()).slice(-2) + ' ' + ('0' + resEndTime.getHours()).slice(-2) + ':' + ('0' + resEndTime.getMinutes()).slice(-2)}}
+									</view>
+									<!-- <view class="title_level1">结束时间{{resBriefData.res_endtime}}</view> -->
+									<view class="title_level2">结束时间 </view>									
+							
+
+							</view>
+							<view  class="scroll-view-item2"  style="margin-right: 25upx;">
+
+									<view class="scrollCard card4" >
+									   {{person_num}}
+									</view>
+									<!-- <view class="title_level1">人数上限{{resBriefData.person_num}}</view> -->
+									<view class="title_level2">人数上限</view>									
+				
+							</view>
+					</scroll-view>
 				</view>
 
 
@@ -69,14 +124,14 @@
 						
 						<view class="resOwnerName">					
 							<view class="" style="margin-left: 10upx;font-size: 1.03em;margin-bottom: 5upx;">
-								{{ownerName}}
+								{{ownerOpenid == userOpenid? '我' :ownerName}}
 							</view>
 						</view>
 						<view class="resOwnerPhone" @click="makePhoneCall">
 							<view class="resOwnerNameHelper">
 								手机号
 							</view>
-							<view class="resOwnerNameText" :class="{'resOwnerNameTextPress':press }" @touchstart="press = true" @touchend="press = false">
+							<view class="resOwnerPhoneText" :class="{'resOwnerNameTextPress':press }" @touchstart="press = true" @touchend="press = false">
 								{{ownerPhoneNumber}}
 							</view>
 							
@@ -93,29 +148,15 @@
 					</view>
 				</view>
 				<text class="resMembersTitle">成员</text>
-				<view class="resMembers grid-container">
+				<view class="resMembers grid-container" >
 					<view class="grid-item" v-for="(item, index) in resMembers" :key="index" >
-						<image :src="item.avatar" :class="{'userMark': item.openid == userOpenid}" style="width: 60px; height: 60px;border-radius: 20px; margin: auto;"></image>
-						<text class="resMemberHelper">{{item.nickName}}</text>
+						<image :src="item.avatar" class="member" :class="[item.openid == userOpenid?'userMark':'userUnMark']" style=""></image>
+						<text class="resMemberHelper">{{item.openid == userOpenid? '我':item.nickName}}</text>
 					</view>
-<!-- 					<view class="grid-item">
-						<image src="../../static/avatar.jpg"  style="width: 60px; height: 60px;border-radius: 20px; margin: auto;"></image>
-						<text class="resMemberHelper">张子扬。张子扬张子扬</text>
-					</view>
-					<view class="grid-item">
-						<image src="../../static/avatar.jpg"  style="width: 60px; height: 60px;border-radius: 20px; margin: auto;"></image>
-						<text class="resMemberHelper">方靖宇</text>
-					</view>
-					<view class="grid-item">
-						<image src="../../static/avatar.jpg"  style="width: 60px; height: 60px;border-radius: 20px; margin: auto;"></image>
-						<text class="resMemberHelper">hjq</text>
-					</view>
-					<view class="grid-item">
-						<image src="../../static/avatar.jpg"  style="width: 60px; height: 60px;border-radius: 20px; margin: auto;"></image>
-						<text class="resMemberHelper">hjq</text>
-					</view> -->
+
 					<view class=" grid-item" v-if="hadNotJoinIn" >
-						<image @click="joinRes"  src="../../static/publish-btn/plusBlue.svg" class="joinBtn" mode="center" style="width: 60px; height: 60px;border-radius: 20px; margin: auto;"></image>
+						<!-- @click="joinRes" removeMe -->
+						<image  @tap="joinRes"  src="../../static/publish-btn/plusBlue.svg" class="joinBtn" mode="center" style=""></image>
 						<text class="resMemberHelper" style="background-color: unset;"></text>
 					</view>
 				</view>
@@ -126,10 +167,10 @@
 					<text>{{remarks}}</text>
 					
 				</view>
-				
+				<view style="height: 1px;"/>
 			</view>		
 		</view>
-		<t-dialog dialogTitle="请求授权" dialogContent="您尚未登陆, 授权登陆以加入局子" :dialog-show="dialogShow" @changeCancel="dialogCancel" @changeconfirm="confirmLogin"></t-dialog>
+		<t-dialog dialogTitle="请求授权" dialogContent="您尚未登陆, 授权登陆以加入局子" :dialog-show="dialogShow" @changeCancel="cancelLogin" @changeconfirm="confirmLogin"></t-dialog>
 		<t-action-sheet :show="actionSheetShow"  @close="closeActionSheet" :setASheetBottom="setASheetBottom" :setASheetPadBot="setASheetPadBot" >
 			<view class="" style="color: #FFFFFF;  display: flex; flex-direction: column; "  >
 				<view class="" style="margin: auto; margin-bottom: 20upx;font-size: 1.2em;">
@@ -175,7 +216,19 @@
 			
 			this.reqPath = '/'+ options.restype + '/detail/' + options.detid.replace(/\"/g,"")
 			this.putMemberPath = '/'+ options.restype + '/detail/' + options.detid.replace(/\"/g,"") + '/members' 
-
+			switch(options.restype){
+				case 'learning':
+					this.navTitle = '学习局'
+					break;
+				case 'sport': 
+					this.navTitle = '运动局'
+					break;
+				case 'amuse':
+					this.navTitle = '娱乐局'
+					break;
+				default:
+					this.navTitle = '局子'	
+			}
 			
 		},
 		onShow: function() {
@@ -191,11 +244,11 @@
 			this.person_num = resBriefData.person_num
 			this.res_starttime = resBriefData.res_starttime
 			this.res_endtime = resBriefData.res_endtime
-				
-				
+			
+			this.loading = false	
 			const userOpenid = uni.getStorageSync('openid')
 			if(userOpenid) {
-				console.log('openid' + userOpenid)
+				console.log('openid ' + userOpenid)
 				this.userOpenid = userOpenid;
 				//check if in the group
 				
@@ -220,25 +273,24 @@
 				}
 				
 
-				for (const item of resDetailData.members) {
-					console.log(item)
-					if(item.openid == this.userOpenid){
-						console.log('had join in')
-						this.hadNotJoinIn = false
-					}
-				}
+				// for (const item of resDetailData.members) {
+				// 	console.log(item)
+				// 	if(item.openid == this.userOpenid){
+				// 		console.log('had join in')
+				// 		this.hadNotJoinIn = false
+				// 	}
+				// }
 				
 			})
 			.catch((err) =>{
 				console.log(err)
 			})
 
-
-			
 			const userInfo = uni.getStorageSync('userInfo')
+			console.log( 'userInfo' + typeof(userInfo) + userInfo)
+			console.log(userInfo)
 			if(userInfo){
 				this.hadLogin = true
-				
 				this.userAvatar = userInfo.avatarUrl
 				this.userNickName = userInfo.nickName				
 			}
@@ -266,7 +318,7 @@
 				for (const item of val) {
 					console.log(item)
 					if(item.openid == this.userOpenid){
-						console.log('had join in')
+						console.log('had join in members')
 						this.hadNotJoinIn = false
 					}
 				}
@@ -275,7 +327,10 @@
 		data() {
 			return {
 				navBarHeight: getApp().globalData.navBarHeight,
+				loading:true,
+				navTitle:'学习局',
 				press:false,
+				dialogShow: false,
 				reqPath:'',
 				putMemberPath:'',
 				// resDetailData:{},
@@ -306,19 +361,21 @@
 				userName:'',
 				setASheetBottom:0,
 				setASheetPadBot:0,
-				FtimeStamp:0,
-				BtimeStamp:0,
-				FBtimeStamp:0
-				
-				
+				// FtimeStamp:0,
+				// BtimeStamp:0,
+				// FBtimeStamp:0
+					
 			}
 		},
 		methods: {
+			removeMe: function(){
+				
+			},
 			phoneNumInput: function(e){
 				this.userPhoneNum = e.detail.value
 			},	
-			confirmJoin: function(){
-				
+			confirmJoin: function() {
+				let that = this
 				console.log(this.userPhoneNum)
 				let errMsgCheck = this.checkPhoneNum(this.userPhoneNum)
 				if(errMsgCheck==''){
@@ -336,11 +393,21 @@
 					// uni.hideLoading();
 					return
 				}
+				console.log(this.userAvatar)
+				if(this.userAvatar == undefined || this.userNickName == undefined){
+					this.dialogShow = true
+					return
+				}
+				
+				that.actionSheetShow = false
+				uni.showLoading({
+					title:'正在入局'
+				})
 				let putData = {
 					push:[
 							{
 							  avatar: this.userAvatar,
-							  name:this.userName,
+							  // name:this.userName,
 							  nickName:this.userNickName,
 							  openid:this.userOpenid,
 							  phone_number:this.userPhoneNum,
@@ -352,9 +419,23 @@
 				cloud1.putCloud(this.putMemberPath,putData)
 				.then((res) => {
 					console.log(res.data)
+					if(res.data.updated == 1) {
+						uni.hideLoading()
+						uni.showToast({
+							title: '加入成功',
+							duration: 1300,
+							position:'bottom',
+							icon:'none'
+						});
+						
+					}
+				})
+				.catch((err) => {
+					console.log(err)
+					
 				})
 				
-				let that = this
+				
 				setTimeout(function(){
 					cloud1.getCloud(that.reqPath)
 					.then((res) => {
@@ -408,7 +489,11 @@
 
 			// 	this.FBtimeStamp = e.timeStamp
 			// },
+			cancelLogin: function(){
+				this.dialogShow = false
+			},
 			confirmLogin: function(){
+				let that = this
 				this.dialogShow = false
 				wx.getUserProfile({
 					// lang:'zh_CN',
@@ -417,11 +502,16 @@
 						console.log(res)
 						// console.log(res.userInfo.avatarUrl)
 						// this.ownerUserInfo = res.rawData
+						uni.showLoading({
+							title:'登陆中'
+						})
 						uni.setStorage({
 						    key: 'userInfo',
-						    data: res.rawData,
+						    data: res.userInfo,
 						    success: function () {
-								this.hadLogin = true
+								that.hadLogin = true
+								that.userAvatar = res.userInfo.avatarUrl
+								that.userNickName = res.userInfo.nickName
 						        console.log('success saved userinfo');
 								const openid = uni.getStorageSync('openid');
 								if(openid){
@@ -431,6 +521,7 @@
 									.then((res) => {
 										console.log(res.data)
 										console.log('登陆成功，请再次点击加入')
+										uni.hideLoading()
 										uni.showToast({
 										    title: '登陆成功，请再次点击加入',
 										    duration: 2000,
@@ -441,11 +532,13 @@
 									
 								}
 								
+								
 						    }
 						});
 					},
 					fail:(err)=>{
 						console.log(err)
+						this.hadLogin = false
 						
 					}
 				})
@@ -457,9 +550,14 @@
 				console.log('joinin')
 				// cloud1.put()
 				if(!this.hadLogin){
-					this.dialogShow = true
+					console.log('had not login')
+					return this.dialogShow = true
+					
 				}
-				this.actionSheetShow = true
+				else{
+					this.actionSheetShow = true
+				}
+				
 				// let putData = {
 				// 	push:[
 				// 			{
@@ -503,9 +601,11 @@
 <style>
 page{
 	background-color: #FFFFFF;
+	
 }
 .resDet{
 	background-color: #5dce9b;
+	overflow: hidden;
 }
 .resDet .resDetContent{
 	
@@ -578,21 +678,35 @@ page{
 	align-self:center;
 }
 
+.resDet .resOwnerInfo {
+	min-width: 60%;
+}
+
 .resDet  .resOwnerPhone, .resOwnerWxid {
 
 	display: flex;
 	flex-direction: row;
-	justify-content:space-between;
+	justify-content: start;
 }
-.resDet  .resOwnerPhone .resOwnerNameTextPress{
-	background-color: #dcdcdc;
+
+.resDet .resOwnerPhoneText {
+	font-weight: 400;
+	margin: 10upx 5upx;
+	padding: 7upx;
+	background-color: #efefef;
 	border-radius: 15upx;
+}
+
+.resDet  .resOwnerPhone .resOwnerNameTextPress{
+	background-color: #c8c8c8;
+	border-radius: 15upx;
+	
 }
 
 .resDet .resOwnerNameHelper,.resOwnerWxidHelper{
 	margin: 10upx 5upx;
 	padding: 7upx;
-	
+	margin-right: 20rpx;
 	color: #0575ff;
 	font-size: 0.9em;
 	background-color: rgba(181, 229, 255, 0.5);
@@ -615,6 +729,14 @@ page{
 	padding-top: 15upx;
 	padding-bottom: 10upx;
 	margin-bottom: 40upx;
+	min-height: 200upx;
+}
+
+.resDet .resMembers .member{
+	width: 60px; 
+	height: 60px;
+	border-radius: 20px; 
+	margin: auto;
 }
 
 .grid-container{
@@ -662,6 +784,9 @@ page{
 	height: 60px;
 	border-radius: 20px; */
 	background-color: rgba(181, 229, 255, 0.5);
+	width: 60px;
+	height: 60px;
+	border-radius: 20px; margin: auto;
 }
 
 .resDet  .resDetInfo{
@@ -669,11 +794,17 @@ page{
 	z-index: 2;
 	margin-top: 35upx;
 	margin-bottom: 35upx;
+	/* overflow: hidden; */
 }
 
 .resDet .userMark{
-	border: 5px solid #51cbb3;
+	border: 5px solid rgba(81,203,179,0.8);
+	backdrop-filter: blur(10px);
 	/* margin: 10upx; */
+}
+
+.resDet .userUnMark{
+	border: 5px solid rgba(81,203,179,0);
 }
 
 scroll-view ::-webkit-scrollbar {
@@ -683,49 +814,55 @@ scroll-view ::-webkit-scrollbar {
 }
 .scroll-view_H{
 	
-  white-space: nowrap;
-  overflow: hidden;
+ 
+  /* overflow: hidden; */
+  /* height: 190rpx; */
+/*  display: flex;
+  flex-wrap: nowrap; */
+	/* width: 100%; */
+	/* width: 1100upx; */
+   white-space: nowrap;
+   display:-webkit-box;
+   -webkit-box-orient:horizontal;
 }
-.scroll-view-item{
-  width: 240rpx;
-  height: 160rpx;
-  display: inline-block;
-  white-space: normal;
-  /* display: flex; */
-  /* display: inline; */
-  margin-left: 20upx;
-  
-  background-color: #FFF;
-  border-radius: 20upx;
-}
+/* .scroll-view-content{
+	white-space: nowrap;  //1、scroll-view元素添加此行代码，意思是规定段落中的文本不进行换行
+	padding: 15upx;
+	padding-top: 5upx;
+	padding-left: 0;
+	margin-left: 0;
+	margin-bottom: 20upx;
+	
+} */
 
-.scroll-view-item .card1{
+
+.scroll-view-content .scroll-view-item2 .card1{
 	color: #FFFFFF;
 	background-repeat:no-repeat;
 	/* background-size: cover; */
-	background-image:linear-gradient(to bottom right, rgba(113, 164, 214, 0.9), rgba(5, 130, 232, 0.9)), 
+	background-image:linear-gradient(to bottom right, rgba(113, 164, 214, 0.9), rgba(3, 106, 185, 0.9)), 
 					url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJDYXBhXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgNTExLjk5OSA1MTEuOTk5IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MTEuOTk5IDUxMS45OTk7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxnPg0KCTxnPg0KCQk8cGF0aCBkPSJNNDA5LjEyNCw2My40MjZDMzY4LjIyNCwyMi41MjUsMzEzLjg0MywwLDI1Ni4wMDEsMFMxNDMuNzc3LDIyLjUyNSwxMDIuODc3LDYzLjQyNg0KCQkJYy00MC45MDEsNDAuOTAyLTYzLjQyNiw5NS4yODItNjMuNDI2LDE1My4xMjNjMCwxMTcuMDEyLDExMC42MzgsMjE0LjMzNywxNzAuMDc3LDI2Ni42MjNjOC4yNiw3LjI2NiwxNS4zOTMsMTMuNTQxLDIxLjA3NiwxOC44NDkNCgkJCWM3LjEyLDYuNjUxLDE2LjI1OSw5Ljk3NywyNS4zOTYsOS45NzdjOS4xMzksMCwxOC4yNzYtMy4zMjYsMjUuMzk3LTkuOTc3YzUuNjgzLTUuMzA5LDEyLjgxNi0xMS41ODMsMjEuMDc2LTE4Ljg0OQ0KCQkJYzU5LjQzOS01Mi4yODcsMTcwLjA3Ny0xNDkuNjExLDE3MC4wNzctMjY2LjYyM0M0NzIuNTQ5LDE1OC43MDgsNDUwLjAyNSwxMDQuMzI4LDQwOS4xMjQsNjMuNDI2eiBNMjgyLjY2Myw0NjAuNjU0DQoJCQljLTguNDQxLDcuNDI1LTE1LjczLDEzLjgzOC0yMS43NCwxOS40NTFjLTIuNzYxLDIuNTc3LTcuMDg1LDIuNTc4LTkuODQ3LDBjLTYuMDA5LTUuNjE1LTEzLjI5OS0xMi4wMjctMjEuNzQtMTkuNDUyDQoJCQljLTU1Ljg4LTQ5LjE1NS0xNTkuODk1LTE0MC42NTQtMTU5Ljg5NS0yNDQuMTAzYzAtMTAyLjg2OCw4My42ODktMTg2LjU1NywxODYuNTU4LTE4Ni41NTcNCgkJCWMxMDIuODY4LDAsMTg2LjU1Nyw4My42ODksMTg2LjU1NywxODYuNTU3QzQ0Mi41NTcsMzE5Ljk5OSwzMzguNTQzLDQxMS40OTgsMjgyLjY2Myw0NjAuNjU0eiIvPg0KCTwvZz4NCjwvZz4NCjxnPg0KCTxnPg0KCQk8cGF0aCBkPSJNMjU2LjAwMSwxMTIuOTM4Yy01Mi42MjEsMC05NS40MzEsNDIuODA5LTk1LjQzMSw5NS40M3M0Mi44MSw5NS40Myw5NS40MzEsOTUuNDNzOTUuNDMtNDIuODA5LDk1LjQzLTk1LjQzDQoJCQlTMzA4LjYyMiwxMTIuOTM4LDI1Ni4wMDEsMTEyLjkzOHogTTI1Ni4wMDEsMjczLjgwNWMtMzYuMDgzLDAtNjUuNDM5LTI5LjM1Ni02NS40MzktNjUuNDM4czI5LjM1Ni02NS40MzgsNjUuNDM5LTY1LjQzOA0KCQkJczY1LjQzOCwyOS4zNTYsNjUuNDM4LDY1LjQzOFMyOTIuMDg0LDI3My44MDUsMjU2LjAwMSwyNzMuODA1eiIvPg0KCTwvZz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjwvc3ZnPg0K");
 	
 }
-.scroll-view-item .card2{
+.scroll-view-content .scroll-view-item2 .card2{
 	color: #FFFFFF;
-	font-size: 1.5em;
+	font-size: 1.4em;
 	background-repeat:no-repeat;
 	background-size: cover;
 	background-image:linear-gradient(to bottom right, rgba(201, 104, 227, 0.9), rgba(133, 11, 174, 0.9)), 
 					url("data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjM4NHB0IiB2aWV3Qm94PSIwIDAgMzg0IDM4NCIgd2lkdGg9IjM4NHB0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Im0zNDMuNTkzNzUgMTAxLjAzOTA2MmMtNy45NTMxMjUgMy44NDc2NTctMTEuMjgxMjUgMTMuNDE3OTY5LTcuNDMzNTk0IDIxLjM2NzE4OCAxMC41MTE3MTkgMjEuNzE0ODQ0IDE1LjgzOTg0NCA0NS4xMjEwOTQgMTUuODM5ODQ0IDY5LjU5Mzc1IDAgODguMjIyNjU2LTcxLjc3NzM0NCAxNjAtMTYwIDE2MHMtMTYwLTcxLjc3NzM0NC0xNjAtMTYwIDcxLjc3NzM0NC0xNjAgMTYwLTE2MGMzNi41NTg1OTQgMCA3MC45MDIzNDQgMTEuOTM3NSA5OS4zMjgxMjUgMzQuNTE5NTMxIDYuODk0NTMxIDUuNTAzOTA3IDE2Ljk3NjU2MyA0LjM1MTU2MyAyMi40ODA0NjktMi41NjY0MDYgNS41MDM5MDYtNi45MTQwNjMgNC4zNTE1NjItMTYuOTg0Mzc1LTIuNTcwMzEzLTIyLjQ4MDQ2OS0zMy42NTIzNDMtMjYuNzQ2MDk0LTc2LTQxLjQ3MjY1Ni0xMTkuMjM4MjgxLTQxLjQ3MjY1Ni0xMDUuODYzMjgxIDAtMTkyIDg2LjEzNjcxOS0xOTIgMTkyczg2LjEzNjcxOSAxOTIgMTkyIDE5MiAxOTItODYuMTM2NzE5IDE5Mi0xOTJjMC0yOS4zMzU5MzgtNi40MDYyNS01Ny40NDkyMTktMTkuMDM5MDYyLTgzLjUyNzM0NC0zLjgzOTg0NC03Ljk2ODc1LTEzLjQ0MTQwNy0xMS4yODkwNjItMjEuMzY3MTg4LTcuNDMzNTk0em0wIDAiLz48cGF0aCBkPSJtMTkyIDY0Yy04LjgzMjAzMSAwLTE2IDcuMTY3OTY5LTE2IDE2djExMmMwIDguODMyMDMxIDcuMTY3OTY5IDE2IDE2IDE2aDgwYzguODMyMDMxIDAgMTYtNy4xNjc5NjkgMTYtMTZzLTcuMTY3OTY5LTE2LTE2LTE2aC02NHYtOTZjMC04LjgzMjAzMS03LjE2Nzk2OS0xNi0xNi0xNnptMCAwIi8+PC9zdmc+"); 
 	
 }
-.scroll-view-item .card3{
+.scroll-view-content .scroll-view-item2 .card3{
 	color: #FFFFFF;
-	font-size: 1.5em;
+	font-size: 1.4em;
 	background-repeat:no-repeat;
 	background-size: cover;
 	background-image:linear-gradient(to bottom right, rgba(231, 118, 71, 0.9), rgba(214, 41, 12, 0.9)), 
 					url("data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjM4NHB0IiB2aWV3Qm94PSIwIDAgMzg0IDM4NCIgd2lkdGg9IjM4NHB0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Im0zNDMuNTkzNzUgMTAxLjAzOTA2MmMtNy45NTMxMjUgMy44NDc2NTctMTEuMjgxMjUgMTMuNDE3OTY5LTcuNDMzNTk0IDIxLjM2NzE4OCAxMC41MTE3MTkgMjEuNzE0ODQ0IDE1LjgzOTg0NCA0NS4xMjEwOTQgMTUuODM5ODQ0IDY5LjU5Mzc1IDAgODguMjIyNjU2LTcxLjc3NzM0NCAxNjAtMTYwIDE2MHMtMTYwLTcxLjc3NzM0NC0xNjAtMTYwIDcxLjc3NzM0NC0xNjAgMTYwLTE2MGMzNi41NTg1OTQgMCA3MC45MDIzNDQgMTEuOTM3NSA5OS4zMjgxMjUgMzQuNTE5NTMxIDYuODk0NTMxIDUuNTAzOTA3IDE2Ljk3NjU2MyA0LjM1MTU2MyAyMi40ODA0NjktMi41NjY0MDYgNS41MDM5MDYtNi45MTQwNjMgNC4zNTE1NjItMTYuOTg0Mzc1LTIuNTcwMzEzLTIyLjQ4MDQ2OS0zMy42NTIzNDMtMjYuNzQ2MDk0LTc2LTQxLjQ3MjY1Ni0xMTkuMjM4MjgxLTQxLjQ3MjY1Ni0xMDUuODYzMjgxIDAtMTkyIDg2LjEzNjcxOS0xOTIgMTkyczg2LjEzNjcxOSAxOTIgMTkyIDE5MiAxOTItODYuMTM2NzE5IDE5Mi0xOTJjMC0yOS4zMzU5MzgtNi40MDYyNS01Ny40NDkyMTktMTkuMDM5MDYyLTgzLjUyNzM0NC0zLjgzOTg0NC03Ljk2ODc1LTEzLjQ0MTQwNy0xMS4yODkwNjItMjEuMzY3MTg4LTcuNDMzNTk0em0wIDAiLz48cGF0aCBkPSJtMTkyIDY0Yy04LjgzMjAzMSAwLTE2IDcuMTY3OTY5LTE2IDE2djExMmMwIDguODMyMDMxIDcuMTY3OTY5IDE2IDE2IDE2aDgwYzguODMyMDMxIDAgMTYtNy4xNjc5NjkgMTYtMTZzLTcuMTY3OTY5LTE2LTE2LTE2aC02NHYtOTZjMC04LjgzMjAzMS03LjE2Nzk2OS0xNi0xNi0xNnptMCAwIi8+PC9zdmc+");
 	
 }
-.scroll-view-item .card4{
+.scroll-view-content .scroll-view-item2 .card4{
 	color: #FFFFFF;
 	font-size: 3em;
 	background-repeat:no-repeat;
@@ -738,7 +875,7 @@ scroll-view ::-webkit-scrollbar {
 .scroll-view-item:last-child{
   margin-right: 0;
 }
-.scroll-view-item .scrollCard{
+.scroll-view-content .scroll-view-item2 .scrollCard{
 	/* padding: 10upx; */
   width: 100%;
   height: 100%;
@@ -766,9 +903,47 @@ scroll-view ::-webkit-scrollbar {
 	padding-right: 10%;
 	padding-top: 15upx;
 	padding-bottom: 10upx;
-	margin-bottom: 40upx;
+	margin-bottom: 100upx;
 	/* height: 90upx; */
 	min-height: 200upx;
 }
+/* this */
 
+
+.scroll-view-content{
+	white-space: nowrap;  //1、scroll-view元素添加此行代码，意思是规定段落中的文本不进行换行
+	padding: 15upx;
+	padding-top: 5upx;
+	padding-left: 0;
+	margin-left: 0;
+	margin-bottom: 20upx;
+}
+.scroll-view-item2{
+	display: inline-block;  //2、滚动区域里的每一个子元素设置为行内块元素
+		white-space: normal;
+		width: 35%;
+		height: 160rpx;
+		margin: 15upx;
+		margin-right: 30rpx;
+}
+
+/* .scroll-view-content .scroll-view-item2{
+  width: 240rpx;
+  height: 160rpx;
+  display: inline-block;
+  white-space: normal;
+
+  margin-left: 20rpx;
+  
+  background-color: #FFF;
+  border-radius: 20upx;
+} */
+
+::-webkit-scrollbar {  
+    display: none;  
+    width: 0 !important;  
+    height: 0 !important;  
+    -webkit-appearance: none;  
+    background: transparent;  
+}
 </style>

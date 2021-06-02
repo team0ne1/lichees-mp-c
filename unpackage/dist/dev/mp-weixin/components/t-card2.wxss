@@ -126,6 +126,9 @@
 	-webkit-align-self: center; 
 	        align-self: center;
 }
+.cardView .startDateMon, .startDateDay, .startDateWeek{
+	color: #303030;
+}
 .nowrap{
 	white-space: nowrap;
 	text-overflow: ellipsis;

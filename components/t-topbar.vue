@@ -4,9 +4,9 @@
 			<text >Hi, {{username}}</text>
 		</view> -->
 		
-		<view class="saying">
+<!-- 		<view class="saying">
 			<text >Say Something</text>
-		</view>
+		</view> -->
 		
 		<view class="topTaplist">
 			<view :class="{active:index===currentTab}" class="item" v-for="(item,index) in tablist" :key="index">

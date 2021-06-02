@@ -1,6 +1,6 @@
 <template>
 	<view class="container" v-show="hideModal">
-		<view  :class="{'unmask': !show, 'mask':show}" @touchmove.stop.prevent @click="close()" ></view>
+		<view  :class="{'mask':show}" @touchmove.stop.prevent @click="close()" ></view>
 		<view class="content bottom-pos"  :style="'bottom:' + setASheetBottom + 'rpx;padding-bottom:'+setASheetBottom + 'rpx;'"  :animation="animationData" @touchmove.stop.prevent>
 			<slot></slot>
 		</view>
@@ -38,6 +38,8 @@
 			show(val) {
 				if(val){
 					this.showModal()
+				}else{
+					this.close()
 				}
 			}
 		},
@@ -67,7 +69,7 @@
 				that.fadeDown(); //调用隐藏动画   
 				setTimeout(function() {
 					that.hideModal = false
-					that.$emit('close',!that.show)
+					that.$emit('close',false)
 				}, 500) //先执行下滑动画，再隐藏模块
 			
 			},

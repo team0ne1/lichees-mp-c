@@ -6,7 +6,7 @@
 
 <script>
 	export default {
-		name:"weather_card",
+		name:"t-weather-card",
 		data() {
 			return {
 				

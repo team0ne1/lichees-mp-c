@@ -350,14 +350,15 @@ export default {
 							icon:'none'
 						});
 						setTimeout(function(){
-							
-							uni.navigateTo({
-								url: '/pages/home/home'
-							})						
+							uni.uni.redirectTo({
+								url: '/pages/home/home?tabIndex=' + this.resTypeValue,
+								success: res => {},
+								fail: () => {},
+								complete: () => {}
+							});	
+												
 						},2000)
-							
-				
-				
+											
 					}
 					else{
 						uni.showToast({
@@ -371,35 +372,13 @@ export default {
 			}catch(e){
 				console.log(e)
 				console.log(postData)
-				this.postNewData(this.resTypeRange[this.resTypeValue].apiPath, postData)
-				.then((res) => {
-					console.log(res)
-					if(res.data.code === '501'){
-						uni.showToast({
-						    title: '发布成功',
-						    duration: 2000,
-							position:'bottom',
-							icon:'none'
-						});
-						setTimeout(function(){
-							
-							uni.navigateTo({
-								url: '/pages/home/home'
-							})						
-						},2000)
-							
-				
-				
-					}
-					else{
-						uni.showToast({
-							title: '发布失败',
-							duration: 2000,
-							position:'bottom',
-							icon:'none'
-						});	
-					}
-				})
+					uni.showToast({
+						title: '发布失败',
+						duration: 2000,
+						position:'bottom',
+						icon:'none',
+					})
+
 			}
 
 
@@ -588,7 +567,7 @@ export default {
 					this.ownerUserInfo = res.rawData
 					uni.setStorage({
 					    key: 'userInfo',
-					    data: res.rawData,
+					    data: res.userInfo,
 					    success: function () {
 					        console.log('success saved userinfo');
 							const openid = uni.getStorageSync('openid');
