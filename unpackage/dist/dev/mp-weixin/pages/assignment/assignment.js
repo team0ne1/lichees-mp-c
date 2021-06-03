@@ -128,7 +128,10 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var tComingSoon = function tComingSoon() {__webpack_require__.e(/*! require.ensure | components/t-coming-soon */ "components/t-coming-soon").then((function () {return resolve(__webpack_require__(/*! ../../components/t-coming-soon.vue */ 160));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var tComingSoon = function tComingSoon() {__webpack_require__.e(/*! require.ensure | components/t-coming-soon */ "components/t-coming-soon").then((function () {return resolve(__webpack_require__(/*! ../../components/t-coming-soon.vue */ 167));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
+
 
 
 

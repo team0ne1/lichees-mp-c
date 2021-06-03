@@ -3,6 +3,7 @@
   "enablePullDownRefresh": false,
   "usingComponents": {
     "t-navbar3": "/components/t-navbar3",
-    "t-card-comingsoon": "/components/t-card-comingsoon"
+    "t-card-comingsoon": "/components/t-card-comingsoon",
+    "t-weather-card": "/components/t-weather-card"
   }
 }

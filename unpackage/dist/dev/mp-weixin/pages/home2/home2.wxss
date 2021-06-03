@@ -23,11 +23,14 @@
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: flex;
-	/* flex-direction: column; */
-	/* align-content:center; */
-	-webkit-box-align: center;
-	-webkit-align-items: center;
-	        align-items: center;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	        flex-direction: column;
+	-webkit-align-content:center;
+	        align-content:center;
+	/* flex-wrap:wrap; */
+	/* align-items: center; */
 	/* padding: 0 ; */
 }
 .home2 .home2Content .home2Bot{

@@ -96,7 +96,7 @@ var components
 try {
   components = {
     uniDataCheckbox: function() {
-      return Promise.all(/*! import() | components/uni-data-checkbox/uni-data-checkbox */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/uni-data-checkbox/uni-data-checkbox")]).then(__webpack_require__.bind(null, /*! @/components/uni-data-checkbox/uni-data-checkbox.vue */ 202))
+      return Promise.all(/*! import() | components/uni-data-checkbox/uni-data-checkbox */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/uni-data-checkbox/uni-data-checkbox")]).then(__webpack_require__.bind(null, /*! @/components/uni-data-checkbox/uni-data-checkbox.vue */ 209))
     }
   }
 } catch (e) {
@@ -506,7 +506,7 @@ var _cloudbase = _interopRequireDefault(__webpack_require__(/*! ../../helper/clo
 //
 //
 //
-var tDialog = function tDialog() {__webpack_require__.e(/*! require.ensure | components/t-dialog */ "components/t-dialog").then((function () {return resolve(__webpack_require__(/*! ../../components/t-dialog.vue */ 195));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);}; // import uniDataCheckbox from '../../components/uni-data-checkbox/uni-data-checkbox.vue'
+var tDialog = function tDialog() {__webpack_require__.e(/*! require.ensure | components/t-dialog */ "components/t-dialog").then((function () {return resolve(__webpack_require__(/*! ../../components/t-dialog.vue */ 202));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);}; // import uniDataCheckbox from '../../components/uni-data-checkbox/uni-data-checkbox.vue'
 var chooseLocation = requirePlugin('chooseLocation');var _default = { name: 'releaseRes', components: { tDialog: tDialog // uniDataCheckbox
   }, data: function data() {return { resTitle: '', resTypeValue: 0, resTypeRange: [{ "value": 0, "text": "学习", "apiPath": "/learning" }, { "value": 1, "text": "运动", "apiPath": "/sport" }, { "value": 2, "text": "玩乐", "apiPath": "/amuse" }], resPersonNum: 2, resPersonNumArrIndex: 0, resPersonNumArr: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], // resDate:'',
       resDateText: '2021-06-01', // resTime:'',

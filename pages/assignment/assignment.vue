@@ -4,6 +4,9 @@
 		<t-topbar :tablist="tapList" :currentTab="currentTab2"></t-topbar>
 		<t-tabbar :currentPage="page" ></t-tabbar>
 		<t-coming-soon style="margin-top: 50%;"></t-coming-soon>
+		<view class="" style="text-align: center;">
+			Version dev1.4.1 
+		</view>
 	</view>
 </template>
 

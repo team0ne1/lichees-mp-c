@@ -130,7 +130,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var movableSwiper = function movableSwiper() {__webpack_require__.e(/*! require.ensure | components/movable-swiper/movable-swiper */ "components/movable-swiper/movable-swiper").then((function () {return resolve(__webpack_require__(/*! @/components/movable-swiper/movable-swiper.vue */ 167));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var tCard4 = function tCard4() {__webpack_require__.e(/*! require.ensure | components/t-card4 */ "components/t-card4").then((function () {return resolve(__webpack_require__(/*! ../../components/t-card4.vue */ 174));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var movableSwiper = function movableSwiper() {__webpack_require__.e(/*! require.ensure | components/movable-swiper/movable-swiper */ "components/movable-swiper/movable-swiper").then((function () {return resolve(__webpack_require__(/*! @/components/movable-swiper/movable-swiper.vue */ 174));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var tCard4 = function tCard4() {__webpack_require__.e(/*! require.ensure | components/t-card4 */ "components/t-card4").then((function () {return resolve(__webpack_require__(/*! ../../components/t-card4.vue */ 181));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 

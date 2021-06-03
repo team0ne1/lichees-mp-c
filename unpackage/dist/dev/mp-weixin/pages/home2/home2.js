@@ -227,6 +227,18 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 var _cloudbase = _interopRequireDefault(__webpack_require__(/*! ../../helper/cloudbase.js */ 11));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
 //
 //
@@ -323,19 +335,26 @@ var _cloudbase = _interopRequireDefault(__webpack_require__(/*! ../../helper/clo
 //
 //
 //
-var tNavbar3 = function tNavbar3() {__webpack_require__.e(/*! require.ensure | components/t-navbar3 */ "components/t-navbar3").then((function () {return resolve(__webpack_require__(/*! ../../components/t-navbar3.vue */ 118));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var tCardComingsoon = function tCardComingsoon() {__webpack_require__.e(/*! require.ensure | components/t-card-comingsoon */ "components/t-card-comingsoon").then((function () {return resolve(__webpack_require__(/*! ../../components/t-card-comingsoon.vue */ 125));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { name: 'home2', components: { tNavbar3: tNavbar3, tCardComingsoon: tCardComingsoon }, mounted: function mounted() {var _this = this;_cloudbase.default.getCloud('/learning').then(function (res) {console.log(res);_this.cardData0.length = 0;_this.cardData0 = res.data;});_cloudbase.default.getCloud('/sport').then(function (res) {console.log(res);_this.cardData1 = res.data;_this.loading = false;});_cloudbase.default.getCloud('/amuse').then(function (res) {console.log(res);_this.cardData2 = res.data;_this.loading = false;});var that = this;setTimeout(function () {try {var userInfo = uni.getStorageSync('userInfo');console.log('userInfo');console.log(userInfo);if (userInfo) {that.userInfo = userInfo;that.userNickName = userInfo.nickName;}} catch (e) {//TODO handle the exception
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var tNavbar3 = function tNavbar3() {__webpack_require__.e(/*! require.ensure | components/t-navbar3 */ "components/t-navbar3").then((function () {return resolve(__webpack_require__(/*! ../../components/t-navbar3.vue */ 118));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var tCardComingsoon = function tCardComingsoon() {__webpack_require__.e(/*! require.ensure | components/t-card-comingsoon */ "components/t-card-comingsoon").then((function () {return resolve(__webpack_require__(/*! ../../components/t-card-comingsoon.vue */ 125));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var tWeatherCard = function tWeatherCard() {__webpack_require__.e(/*! require.ensure | components/t-weather-card */ "components/t-weather-card").then((function () {return resolve(__webpack_require__(/*! ../../components/t-weather-card.vue */ 132));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { name: 'home2', components: { tNavbar3: tNavbar3, tCardComingsoon: tCardComingsoon, tWeatherCard: tWeatherCard }, mounted: function mounted() {var _this = this;_cloudbase.default.getCloud('/learning').then(function (res) {console.log(res);_this.cardData0.length = 0;_this.cardData0 = res.data;});_cloudbase.default.getCloud('/sport').then(function (res) {console.log(res);_this.cardData1 = res.data;_this.loading = false;});_cloudbase.default.getCloud('/amuse').then(function (res) {console.log(res);_this.cardData2 = res.data;_this.loading = false;});var that = this;setTimeout(function () {try {var userInfo = uni.getStorageSync('userInfo');console.log('userInfo');console.log(userInfo);if (userInfo) {that.userInfo = userInfo;that.userNickName = userInfo.nickName;}} catch (e) {//TODO handle the exception
         console.log(e);}}, 3000);}, onShow: function onShow() {// uni.showLoading({
     //     title: '加载中'
     // });
     // setTimeout(function () {
     //     uni.hideLoading();
     // }, 1200);
-    console.log("home2 show");this.welcomeText = this.greeting();}, data: function data() {return { navBarHeight: getApp().globalData.navBarHeight, userInfo: '', userNickName: '', loading: true, page: 0, welcomeText: 'Hello', likeStatu: false, cardData0: [{ created_at: "2021-05-26T15:47:23.033Z", detail_id: "cbddf0af60ae6d740be1edd82846f7e4", join_deadline: "2021-05-27T01:30:00.000Z", joined_num: 5, loca_text: "深圳大学", person_num: 8, res_endtime: "2021-06-03T02:30:00.000Z", res_starttime: "2021-06-02T01:00:00.000Z", title: "学习局2", _id: "28ee4e3e60ae6d8d1ce32feb2f83f82f" }], cardData1: [{ created_at: "2021-05-26T15:47:23.033Z", detail_id: "cbddf0af60ae6d740be1edd82846f7e4", join_deadline: "2021-05-27T01:30:00.000Z", joined_num: 5, loca_text: "深圳大学", person_num: 8, res_endtime: "2021-06-03T02:30:00.000Z", res_starttime: "2021-06-02T01:00:00.000Z", title: "学习局2", _id: "28ee4e3e60ae6d8d1ce32feb2f83f82f" }], cardData2: [{ created_at: "2021-05-26T15:47:23.033Z", detail_id: "cbddf0af60ae6d740be1edd82846f7e4", join_deadline: "2021-05-27T01:30:00.000Z",
-        joined_num: 5,
-        loca_text: "深圳大学",
-        person_num: 8,
-        res_endtime: "2021-06-03T02:30:00.000Z",
-        res_starttime: "2021-06-02T01:00:00.000Z",
+    console.log("home2 show");this.welcomeText = this.greeting();}, data: function data() {return { navBarHeight: getApp().globalData.navBarHeight, userInfo: '', weatherInfo: '', userNickName: '', loading: true, page: 0, welcomeText: 'Hello', likeStatu: false, cardData0: [{ created_at: "2021-05-26T15:47:23.033Z", detail_id: "cbddf0af60ae6d740be1edd82846f7e4", join_deadline: "2021-05-27T01:30:00.000Z", joined_num: 5, loca_text: "深圳大学", person_num: 8, res_endtime: "2021-06-03T02:30:00.000Z", res_starttime: "2021-06-02T01:00:00.000Z", title: "学习局2", _id: "28ee4e3e60ae6d8d1ce32feb2f83f82f" }], cardData1: [{ created_at: "2021-05-26T15:47:23.033Z", detail_id: "cbddf0af60ae6d740be1edd82846f7e4", join_deadline: "2021-05-27T01:30:00.000Z", joined_num: 5, loca_text: "深圳大学", person_num: 8, res_endtime: "2021-06-03T02:30:00.000Z", res_starttime: "2021-06-02T01:00:00.000Z", title: "学习局2", _id: "28ee4e3e60ae6d8d1ce32feb2f83f82f" }], cardData2: [{ created_at: "2021-05-26T15:47:23.033Z", detail_id: "cbddf0af60ae6d740be1edd82846f7e4", join_deadline: "2021-05-27T01:30:00.000Z", joined_num: 5, loca_text: "深圳大学", person_num: 8, res_endtime: "2021-06-03T02:30:00.000Z", res_starttime: "2021-06-02T01:00:00.000Z",
         title: "学习局2",
         _id: "28ee4e3e60ae6d8d1ce32feb2f83f82f" }],
 
@@ -394,11 +413,11 @@ var tNavbar3 = function tNavbar3() {__webpack_require__.e(/*! require.ensure | c
       var hourNow = new Date().getHours();
       console.log(hourNow);
       if (hourNow < 6) {return "早呀！";} else
-      if (hourNow < 9) {return "早上好";} else
+      if (hourNow < 9) {return "早上好 ";} else
       if (hourNow < 12) {return "上午好！";} else
       if (hourNow < 14) {return "中午好";} else
       if (hourNow < 15) {return "下午好";} else
-      if (hourNow < 16) {return "饮茶先啦";} else
+      if (hourNow < 16) {return "饮茶先啦 ";} else
       if (hourNow < 17) {return "下午好";} else
       if (hourNow < 19) {return "傍晚好";} else
       if (hourNow < 22) {return "晚上好！";} else

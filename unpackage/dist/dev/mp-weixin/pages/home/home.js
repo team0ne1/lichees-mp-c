@@ -96,7 +96,7 @@ var components
 try {
   components = {
     uniLoadMore: function() {
-      return __webpack_require__.e(/*! import() | components/uni-load-more/uni-load-more */ "components/uni-load-more/uni-load-more").then(__webpack_require__.bind(null, /*! @/components/uni-load-more/uni-load-more.vue */ 132))
+      return __webpack_require__.e(/*! import() | components/uni-load-more/uni-load-more */ "components/uni-load-more/uni-load-more").then(__webpack_require__.bind(null, /*! @/components/uni-load-more/uni-load-more.vue */ 139))
     }
   }
 } catch (e) {
@@ -284,7 +284,7 @@ var _cloudbase = _interopRequireDefault(__webpack_require__(/*! ../../helper/clo
 //
 //
 //
-var tNavbar1 = function tNavbar1() {__webpack_require__.e(/*! require.ensure | components/t-navbar1 */ "components/t-navbar1").then((function () {return resolve(__webpack_require__(/*! ../../components/t-navbar1.vue */ 139));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var tPublishBtn = function tPublishBtn() {__webpack_require__.e(/*! require.ensure | components/t-publish-btn */ "components/t-publish-btn").then((function () {return resolve(__webpack_require__(/*! ../../components/t-publish-btn.vue */ 146));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniLoadMore = function uniLoadMore() {__webpack_require__.e(/*! require.ensure | components/uni-load-more */ "components/uni-load-more").then((function () {return resolve(__webpack_require__(/*! ../../components/uni-load-more.vue */ 153));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { // props:{},
+var tNavbar1 = function tNavbar1() {__webpack_require__.e(/*! require.ensure | components/t-navbar1 */ "components/t-navbar1").then((function () {return resolve(__webpack_require__(/*! ../../components/t-navbar1.vue */ 146));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var tPublishBtn = function tPublishBtn() {__webpack_require__.e(/*! require.ensure | components/t-publish-btn */ "components/t-publish-btn").then((function () {return resolve(__webpack_require__(/*! ../../components/t-publish-btn.vue */ 153));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniLoadMore = function uniLoadMore() {__webpack_require__.e(/*! require.ensure | components/uni-load-more */ "components/uni-load-more").then((function () {return resolve(__webpack_require__(/*! ../../components/uni-load-more.vue */ 160));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { // props:{},
   components: { tPublishBtn: tPublishBtn, uniLoadMore: uniLoadMore, tNavbar1: tNavbar1 }, onLoad: function onLoad(query) {console.log(query.tabIndex);if (query.tabIndex !== '') {this.navToTab = query.tabIndex * 1;}console.log('navTab' + this.navToTab);}, onShow: function onShow() {var _this = this; // uni.showLoading({
     //     title: '加载中'
     // });

@@ -1,0 +1,1 @@
+.weatherCard{background-color:hsla(0,0%,59.6%,.8);border-radius:20rpx;min-width:2.5em;-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);color:#fff}.weatherCard .condition, .currentTemp{font-size:25rpx}.weatherCard .currentTemp{padding-top:8rpx;padding-bottom:8rpx;padding-left:15rpx;padding-right:15rpx}

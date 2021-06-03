@@ -9,11 +9,23 @@
 			<view class="home2Top">
 				
 				<view class="motivation">
-					<view class="movText" style="align-self:center">
+					<view class="" style="display: flex; flex-direction: row-reverse;">
+						<image @click="likeChange" :src="likeIconSrc"  style="width: 1em; height: 1em;margin-right: 20upx;  "></image>
+					</view>
+					<view class="movText" style="align-self:center;margin-top: 10upx;margin-bottom: 10upx;">
 						Things will get better,
 						and you need to trust it.						
 					</view>
-					<image @click="likeChange" :src="likeIconSrc"  style="width: 1.5em; height: 1.5em;margin-right: 20upx;"></image>
+					
+
+
+				</view>
+				<view class="" style="display: flex;flex-direction: row;justify-content:space-between; ">
+					<view class="weather" style="margin: auto;">
+						<t-weather-card></t-weather-card>
+					</view>
+					
+				
 				</view>
 			</view>
 			<view class="home2Bot">
@@ -98,11 +110,13 @@
 	import cloud1 from '../../helper/cloudbase.js'
 	import tNavbar3 from '../../components/t-navbar3.vue'
 	import tCardComingsoon from '../../components/t-card-comingsoon.vue'
+	import tWeatherCard from '../../components/t-weather-card.vue'
 	export default {
 		name:'home2',
 		components:{
 			tNavbar3,
-			tCardComingsoon
+			tCardComingsoon,
+			tWeatherCard
 		},
 		mounted:function(){
 			cloud1.getCloud('/learning')
@@ -125,6 +139,10 @@
 				this.cardData2 = res.data
 				this.loading = false
 			})
+			
+
+			
+			
 			
 			let that = this
 			setTimeout(function(){
@@ -160,6 +178,7 @@
 			return {
 				navBarHeight: getApp().globalData.navBarHeight,
 				userInfo:'',
+				weatherInfo:'',
 				userNickName:'',
 				loading:true,
 				page:0,
@@ -262,11 +281,11 @@
 				let hourNow = new Date().getHours()
 				console.log(hourNow)
 				if(hourNow < 6){return "早呀！"}
-				else if (hourNow < 9){return "早上好";}
+				else if (hourNow < 9){return "早上好 ";}
 				else if (hourNow < 12){return "上午好！";}
 				else if (hourNow < 14){return "中午好";}
 				else if (hourNow < 15){return "下午好";}
-				else if (hourNow < 16){return "饮茶先啦";}
+				else if (hourNow < 16){return "饮茶先啦 ";}
 				else if (hourNow < 17){return "下午好";}
 				else if (hourNow < 19){return "傍晚好";}
 				else if (hourNow < 22){return "晚上好！";}
@@ -304,9 +323,10 @@
 	min-height: 230upx;
 	max-height: 400upx;
 	display: flex;
-	/* flex-direction: column; */
-	/* align-content:center; */
-	align-items: center;
+	flex-direction: column;
+	align-content:center;
+	/* flex-wrap:wrap; */
+	/* align-items: center; */
 	/* padding: 0 ; */
 	
 }

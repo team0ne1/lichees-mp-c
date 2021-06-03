@@ -1,0 +1,1 @@
+<view class="weatherCard"><block wx:if="{{weatherShow}}"><view class="currentTemp">{{''+(condition+' ')+currentTemp+'℃'}}</view></block></view>
